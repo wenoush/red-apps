@@ -100,6 +100,16 @@ ul.funkce li::before{content:"";position:absolute;left:3px;top:11px;width:7px;
   padding:18px 22px;max-width:720px}
 .chysta b{font-family:'Archivo Black',sans-serif}
 
+.galerie{display:flex;gap:22px;overflow-x:auto;padding-bottom:10px;
+  scroll-snap-type:x proximity}
+.snimek{flex:0 0 auto;scroll-snap-align:start;max-width:78vw}
+.snimek img{display:block;max-height:520px;width:auto;border-radius:14px;
+  box-shadow:0 14px 34px rgba(0,0,0,.16)}
+.snimek figcaption{margin-top:10px;text-align:center;font-weight:700;
+  font-size:14px;color:var(--mut)}
+@media (prefers-color-scheme:dark){
+  .snimek img{box-shadow:0 14px 34px rgba(0,0,0,.5)}}
+
 .pozadavky{margin-top:44px;padding-top:18px;border-top:1px solid var(--line);
   font-size:14.5px;color:var(--mut)}
 
