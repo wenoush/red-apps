@@ -1,0 +1,1652 @@
+{
+  "verze": 1,
+  "datum": "2026-09-09",
+  "popis": "Doplnění cvičení hlavně pro starší žáky a dorost. Součástí je 7 brankářských cvičení.",
+  "prvky": [
+    {
+      "id": "sz-hra-15",
+      "nazev": "Bagová hra s brankáři a přepnutím do zakončení",
+      "skupina": "herni_forma",
+      "vekova_kategorie": [
+        "starsi_zaci",
+        "dorost"
+      ],
+      "vek_min": 13,
+      "vek_max": 18,
+      "delka_min": 12,
+      "delka_max": 18,
+      "hraci_min": 10,
+      "hraci_max": 16,
+      "pomucky": [
+        "dvě velké branky",
+        "rozlišovací dresy",
+        "více míčů u trenérů"
+      ],
+      "obtiznost": 3,
+      "cile": [
+        "výběr místa a nabídka pod tlakem",
+        "spolupráce s brankářem při držení míče",
+        "okamžité přepnutí po ztrátě míče",
+        "spolupráce v presinku"
+      ],
+      "herni_prvek": true,
+      "herni_kategorie": [
+        "prihravka",
+        "komunikace",
+        "reakce_po_ztrate",
+        "pohyb_bez_mice",
+        "strelba"
+      ],
+      "vyzadovane_vybaveni": [
+        "velke_branky",
+        "rozlisovaci_dresy",
+        "kuzely_mety"
+      ],
+      "pro_brankare": false,
+      "poznamka_pro_brankare": "Oba brankáři jsou plnohodnotnou součástí kombinujícího týmu — zapojují se do bagování, nabízejí se a jejich přihrávky se počítají. Sledujte u nich kontrolu prostoru ještě před příjmem míče.",
+      "popis": [
+        "Hřiště zhruba 32 × 40 m (dvě pokutová území), v každém týmu 6 hráčů do pole a jeden brankář.",
+        "Jeden tým i s oběma brankáři kombinuje ve vymezeném prostoru a snaží se udržet míč — za každých 6 přihrávek má bod.",
+        "Druhý tým se snaží míč odebrat a dát gól, ale jen do branky na té polovině, kde míč získal — tím vznikne směrovost útoku a udrží se principy represinku.",
+        "Počítání přihrávek se přerušuje jen při skutečném zisku soupeře, ne při odkopnutí nebo tečování. Míč v autu rozehrává trenér týmu, který ho měl mít."
+      ],
+      "varianta_lehci": "Rozdělte hráče rovnoměrně a střídejte bagující tým s presujícím po stejných časových úsecích.",
+      "varianta_tezsi": "Rozdělte hráče podle pozic a role jim nechte — obránci a střední záložníci bagují, útočníci a křídla presují.",
+      "poznamka_pro_trenera": "Zařaďte do úvodu tréninkové jednotky. Doporučené dávkování: 6 opakování po 2 minutách s půlminutovou pauzou. O pauzách řešte s bagujícím týmem nabídku a výběr místa, s presujícím spolupráci a rychlost napadání — cílem není bezhlavě běhat, ale připravit si soupeře do pozic, kde je největší šance míč získat. Inspirace: FAČR – Adam Novotný, „Nácvik rozehrávky od brankáře na velkém hřišti“ (Fotbal a trénink 1/2026) – cvičení 1.",
+      "fyzicka_narocnost": "vysoka",
+      "priprava_min": 4,
+      "presun_min": 2
+    },
+    {
+      "id": "sz-hra-16",
+      "nazev": "Výstavba od brankáře 9v8 na polovině hřiště",
+      "skupina": "herni_forma",
+      "vekova_kategorie": [
+        "starsi_zaci",
+        "dorost"
+      ],
+      "vek_min": 13,
+      "vek_max": 18,
+      "delka_min": 15,
+      "delka_max": 25,
+      "hraci_min": 14,
+      "hraci_max": 20,
+      "pomucky": [
+        "velká branka s brankářem",
+        "malé branky na půlce hřiště",
+        "rozlišovací dresy",
+        "více míčů u trenéra"
+      ],
+      "obtiznost": 3,
+      "cile": [
+        "výstavba hry od brankáře proti presinku",
+        "nabídka do meziprostorů",
+        "vytváření přečíslení",
+        "spolupráce presujících hráčů"
+      ],
+      "herni_prvek": true,
+      "herni_kategorie": [
+        "prihravka",
+        "komunikace",
+        "pohyb_bez_mice",
+        "reakce_po_ztrate"
+      ],
+      "vyzadovane_vybaveni": [
+        "velke_branky",
+        "male_branky",
+        "rozlisovaci_dresy"
+      ],
+      "pro_brankare": false,
+      "poznamka_pro_brankare": "Brankář zahajuje každou akci a v moderním pojetí funguje jako „třetí stoper“, který vytváří přečíslení. Chtějte po něm zvednutou hlavu ještě před příjmem míče a schopnost rychle změnit variantu rozehrávky. Ideálně sem zapojte i trenéra brankářů — ne jen k činnosti brankáře, ale k vedení součinnosti celé obrany.",
+      "popis": [
+        "Průpravná hra na polovině hřiště, vycházejte z běžného rozestavení týmu (v předloze 4-3-3 na obou stranách).",
+        "Vystavujícímu týmu chybí dvě křídla, bránícímu dva krajní obránci — vznikne tak situace 9v8.",
+        "Hra začíná rozehrou od brankáře nebo zpětnou přihrávkou stopera brankáři. Cílem vystavujícího týmu je rozehrát do malých branek, vyvést míč do prostoru za nimi, nebo najít průnikovou přihrávku na nabíhajícího hráče.",
+        "Jakmile akce skončí, trenér ve hřišti okamžitě dává brankáři druhý míč — druhá akce už je rozehrávka přímo ze hry."
+      ],
+      "varianta_lehci": "Bránící tým napadá až od určené čáry a nechává vystavujícímu týmu víc času na první přihrávku.",
+      "varianta_tezsi": "Dejte presujícímu týmu rozestavení a úkoly podle nejbližšího soupeře — cvičení pak slouží jako přímá příprava na zápas.",
+      "poznamka_pro_trenera": "Hrát klidně 20 minut i víc, prohazovat hráče mezi týmy a měnit rozestavení. Rozdělte si role v realizačním týmu — jeden trenér vede vystavující tým, druhý napadající. Cílem je pochopení, ne naučené šablony: hráči musí umět reagovat na proměnlivý průběh, ne odehrát nacvičený vzorec. Inspirace: FAČR – Adam Novotný, „Nácvik rozehrávky od brankáře na velkém hřišti“ (Fotbal a trénink 1/2026) – cvičení 2.",
+      "fyzicka_narocnost": "vysoka",
+      "priprava_min": 5,
+      "presun_min": 2
+    },
+    {
+      "id": "sz-hra-17",
+      "nazev": "Malá hra 4+1 v 4 s rozehrávajícím brankářem",
+      "skupina": "herni_forma",
+      "vekova_kategorie": [
+        "starsi_zaci",
+        "dorost"
+      ],
+      "vek_min": 13,
+      "vek_max": 18,
+      "delka_min": 10,
+      "delka_max": 16,
+      "hraci_min": 9,
+      "hraci_max": 12,
+      "pomucky": [
+        "velká branka s brankářem",
+        "malé branky",
+        "rozlišovací dresy",
+        "více míčů u trenéra"
+      ],
+      "obtiznost": 2,
+      "cile": [
+        "nabídka a spolupráce hráčů bez míče",
+        "rozehrávka pod aktivním napadáním",
+        "intenzivní presink",
+        "krytí míče v souboji"
+      ],
+      "herni_prvek": true,
+      "herni_kategorie": [
+        "prihravka",
+        "pohyb_bez_mice",
+        "reakce_po_ztrate",
+        "souboje_1v1"
+      ],
+      "vyzadovane_vybaveni": [
+        "velke_branky",
+        "male_branky",
+        "rozlisovaci_dresy"
+      ],
+      "pro_brankare": false,
+      "poznamka_pro_brankare": "Brankář rozehrává každou akci a je pátým hráčem útočícího týmu. Bránící hráči ho mají napadat obloukem tak, aby zavřeli přihrávku na obránce — brankář se učí tenhle tlak číst a včas měnit řešení.",
+      "popis": [
+        "Hraje se 4v4 na menším hřišti, jeden tým má navíc brankáře ve velké brance.",
+        "Tým s brankářem má za úkol ve spolupráci s ním dát gól do malých branek na opačné straně.",
+        "Druhý tým aktivně napadá, snaží se míč odebrat a rovnou zakončit.",
+        "Po každém gólu i při autu přihrává trenér míč brankáři, který okamžitě navazuje do hry; pokud má být aut pro napadající tým, nahraje trenér jejich nejlépe nabíhajícímu hráči."
+      ],
+      "varianta_lehci": "Napadající tým smí presovat až po první přihrávce brankáře.",
+      "varianta_tezsi": "Zkraťte hřiště a hrajte na dva doteky pro tým s brankářem.",
+      "poznamka_pro_trenera": "Vhodné do úvodní části tréninku po rozehřátí a aktivaci. Doporučené dávkování: 8 opakování po 1,5 minutě s půlminutovou pauzou. Po zvoleném počtu opakování si týmy vymění role. Inspirace: FAČR – Adam Novotný, „Nácvik rozehrávky od brankáře na velkém hřišti“ (Fotbal a trénink 1/2026) – cvičení 4.",
+      "fyzicka_narocnost": "vysoka",
+      "priprava_min": 3,
+      "presun_min": 1
+    },
+    {
+      "id": "dor-hra-01",
+      "nazev": "Výstavba 11v10 na velkém hřišti s přechodovou fází",
+      "skupina": "herni_forma",
+      "vekova_kategorie": [
+        "dorost"
+      ],
+      "vek_min": 15,
+      "vek_max": 18,
+      "delka_min": 15,
+      "delka_max": 20,
+      "hraci_min": 18,
+      "hraci_max": 22,
+      "pomucky": [
+        "velká branka s brankářem",
+        "malé branky",
+        "rozlišovací dresy",
+        "více míčů u trenéra"
+      ],
+      "obtiznost": 3,
+      "cile": [
+        "výstavba hry v zápasových podmínkách",
+        "překonání středního pásma",
+        "spolupráce hráčů mimo těžiště hry",
+        "návrat do středního bloku po nepovedeném presinku"
+      ],
+      "herni_prvek": true,
+      "herni_kategorie": [
+        "prihravka",
+        "komunikace",
+        "pohyb_bez_mice",
+        "reakce_po_ztrate"
+      ],
+      "vyzadovane_vybaveni": [
+        "velke_branky",
+        "male_branky",
+        "rozlisovaci_dresy"
+      ],
+      "pro_brankare": false,
+      "poznamka_pro_brankare": "Na velkém hřišti je rozehrávek od brankáře méně než v předchozím cvičení, o to víc záleží na jejich kvalitě. Brankář musí číst, kdy hrát krátce a kdy volit delší míč na volného hráče v krajním prostoru.",
+      "popis": [
+        "Průpravná hra se stejným průběhem jako výstavba 9v8, ale ve větším počtu hráčů a na větším hřišti — podmínky jsou takřka shodné s utkáním.",
+        "Hra začíná rozehrou od brankáře, po skončení akce dává trenér okamžitě další míč.",
+        "Oproti hře na polovině hřiště přibývá přechodová fáze, ve které se překonává střední třetina — právě tahle návaznost v tréninku často chybí.",
+        "Ideálně zařaďte až po zvládnutí výstavby 9v8, aby se nacvičené principy prohloubily na větším prostoru."
+      ],
+      "varianta_lehci": "Hrajte nejdřív variantu 9v8 na polovině hřiště a teprve pak přejděte sem.",
+      "varianta_tezsi": "Napadající tým presuje důsledně 1v1 po celém hřišti.",
+      "poznamka_pro_trenera": "Nové detaily oproti hře na polovině: po nepovedeném presinku tlak na co nejrychlejší návrat pod míč do aktivního středního bloku; obranná řada musí nabírat náběhy za obranu a při zpětných přihrávkách soupeře vytlačit blok minimálně na polovinu. V útoku spolupráce útočníků v nabídce — jeden nabíhá po ofsajdové lajně, druhý seskakuje mezi řady. Inspirace: FAČR – Adam Novotný, „Nácvik rozehrávky od brankáře na velkém hřišti“ (Fotbal a trénink 1/2026) – cvičení 3.",
+      "fyzicka_narocnost": "vysoka",
+      "priprava_min": 5,
+      "presun_min": 3
+    },
+    {
+      "id": "dor-hra-02",
+      "nazev": "Španělská taktická hra 6v6 + 2 žolíci s vertikalizací",
+      "skupina": "herni_forma",
+      "vekova_kategorie": [
+        "dorost"
+      ],
+      "vek_min": 15,
+      "vek_max": 18,
+      "delka_min": 15,
+      "delka_max": 20,
+      "hraci_min": 14,
+      "hraci_max": 16,
+      "pomucky": [
+        "2 velké branky",
+        "kužely na rozdělení zón",
+        "rozlišovací dresy ve třech barvách",
+        "míče"
+      ],
+      "obtiznost": 3,
+      "cile": [
+        "trpělivost při zakládání útoku",
+        "rozpoznání momentu pro finální kolmici",
+        "rychlost v předfinální fázi"
+      ],
+      "herni_prvek": true,
+      "herni_kategorie": [
+        "prihravka",
+        "pohyb_bez_mice",
+        "strelba"
+      ],
+      "vyzadovane_vybaveni": [
+        "velke_branky",
+        "kuzely_mety",
+        "rozlisovaci_dresy"
+      ],
+      "pro_brankare": false,
+      "poznamka_pro_brankare": "Plné zápasové zatížení na brance, po zákroku okamžitá rozehrávka nohou.",
+      "popis": [
+        "Hřiště 35 × 25 m rozdělené na tři zóny. Hrají dva týmy 6v6 plus 2 žolíci na křídlech.",
+        "V obranné a střední zóně probíhá držení míče v přečíslení 8v6.",
+        "Jakmile tým odehraje 4 přihrávky, musí následovat kolmá přihrávka (vertikalizace) do útočné zóny na nabíhajícího hráče.",
+        "V útočné zóně se zakončuje bleskově — do 5 sekund na velkou branku s brankářem."
+      ],
+      "varianta_lehci": null,
+      "varianta_tezsi": "V obranné zóně mají hráči povolené jen dva doteky s míčem.",
+      "poznamka_pro_trenera": "Sledujte časování náběhu do útočné zóny — hráč nesmí vyrazit dřív, než má přihrávající připravený míč. Inspirace: RFEF Positional Play & Verticalization.",
+      "fyzicka_narocnost": "vysoka",
+      "priprava_min": 5,
+      "presun_min": 2
+    },
+    {
+      "id": "dor-hra-03",
+      "nazev": "Německá přechodová aréna 4v4 s gegenpressingem",
+      "skupina": "herni_forma",
+      "vekova_kategorie": [
+        "dorost"
+      ],
+      "vek_min": 15,
+      "vek_max": 18,
+      "delka_min": 12,
+      "delka_max": 16,
+      "hraci_min": 8,
+      "hraci_max": 12,
+      "pomucky": [
+        "2 velké branky",
+        "kužely",
+        "rozlišovací dresy",
+        "stopky",
+        "míče"
+      ],
+      "obtiznost": 3,
+      "cile": [
+        "automatizace okamžitého gegenpressingu",
+        "komunikace v obraně",
+        "fyzická výbušnost po ztrátě míče"
+      ],
+      "herni_prvek": true,
+      "herni_kategorie": [
+        "reakce_po_ztrate",
+        "souboje_1v1",
+        "komunikace"
+      ],
+      "vyzadovane_vybaveni": [
+        "velke_branky",
+        "kuzely_mety",
+        "rozlisovaci_dresy"
+      ],
+      "pro_brankare": false,
+      "poznamka_pro_brankare": "Brankář týmu, který získal míč, nabízí variantu pro zpětnou přihrávku zpod tlaku — učí se řešit rozehrávku v okamžiku, kdy na spoluhráče letí presink.",
+      "popis": [
+        "Hrací plocha 30 × 20 m se dvěma velkými brankami a brankáři.",
+        "Uvnitř hrají 4 útočníci proti 4 obráncům.",
+        "Jakmile obránci získají míč, útočníci musí do 3 sekund předvést agresivní tlak a míč získat zpět.",
+        "Pokud obránci tlak ustojí a vyvezou míč přes středovou čáru, získávají bod a okamžitě zakládají rychlý protiútok."
+      ],
+      "varianta_lehci": "Časový limit na re-pressing se prodlouží na 5 sekund.",
+      "varianta_tezsi": null,
+      "poznamka_pro_trenera": "Vyžadujte po útočnících okamžitý sprint k míči bez vteřinové prodlevy — právě ta první vteřina rozhoduje, jestli gegenpressing vyjde. Inspirace: RB Leipzig Gegenpressing Matrix.",
+      "fyzicka_narocnost": "vysoka",
+      "priprava_min": 4,
+      "presun_min": 2
+    },
+    {
+      "id": "dor-strel-01",
+      "nazev": "Anglická křídelní rotace s dohráním ve vápně 3v2",
+      "skupina": "trenink_strelby",
+      "vekova_kategorie": [
+        "dorost"
+      ],
+      "vek_min": 15,
+      "vek_max": 18,
+      "delka_min": 12,
+      "delka_max": 15,
+      "hraci_min": 10,
+      "hraci_max": 15,
+      "pomucky": [
+        "velká branka",
+        "kužely",
+        "rozlišovací dresy",
+        "dostatek míčů"
+      ],
+      "obtiznost": 3,
+      "cile": [
+        "časování křídelního překryvu",
+        "výběr prostoru ve vápně pod tlakem obránců",
+        "zakončení z prvního doteku"
+      ],
+      "herni_prvek": false,
+      "herni_kategorie": [
+        "doplnovani_do_vapna",
+        "strelba",
+        "prihravka"
+      ],
+      "vyzadovane_vybaveni": [
+        "velke_branky",
+        "kuzely_mety",
+        "rozlisovaci_dresy"
+      ],
+      "pro_brankare": false,
+      "poznamka_pro_brankare": "Aktivně čte dráhu centru a organizuje obrannou dvojici ve vápně.",
+      "popis": [
+        "Akce začíná přihrávkou ze středu na křídlo (hráč A na hráče B).",
+        "Krajní obránce C provádí rychlý překryv (overlapping) kolem hráče B a dostává míč do běhu k brankové čáře.",
+        "Hráč C dává ostrý přízemní centr na přední tyč, zadní tyč, nebo zpětnou přihrávku na hranici vápna (cut-back).",
+        "Do vápna sprintují 3 útočníci proti 2 obráncům a zakončují z prvního doteku."
+      ],
+      "varianta_lehci": null,
+      "varianta_tezsi": "Centr směřuje vzduchem na hlavičkový souboj.",
+      "poznamka_pro_trenera": "Hlídejte, aby všichni tři útočníci neběželi do jednoho prostoru, ale obsadili tři různé zóny — přední tyč, zadní tyč a penaltový puntík. Inspirace: Premier League U19 Crossing & Finishing Patterns.",
+      "fyzicka_narocnost": "vysoka",
+      "priprava_min": 4,
+      "presun_min": 2
+    },
+    {
+      "id": "dor-hra-04",
+      "nazev": "Holandský silový přechod 2v1 do 3v2 ve vysokém tempu",
+      "skupina": "herni_forma",
+      "vekova_kategorie": [
+        "dorost"
+      ],
+      "vek_min": 15,
+      "vek_max": 18,
+      "delka_min": 12,
+      "delka_max": 18,
+      "hraci_min": 8,
+      "hraci_max": 12,
+      "pomucky": [
+        "velká branka",
+        "kužely",
+        "rozlišovací dresy",
+        "více míčů u trenéra"
+      ],
+      "obtiznost": 3,
+      "cile": [
+        "taktické řešení přečíslení pod únavou",
+        "rychlé rozhodování",
+        "kondiční zátěž v herních podmínkách"
+      ],
+      "herni_prvek": true,
+      "herni_kategorie": [
+        "doplnovani_do_vapna",
+        "strelba",
+        "souboje_1v1"
+      ],
+      "vyzadovane_vybaveni": [
+        "velke_branky",
+        "kuzely_mety",
+        "rozlisovaci_dresy"
+      ],
+      "pro_brankare": false,
+      "poznamka_pro_brankare": "Chytá pod opakovanými střelami v krátkých intervalech za sebou — náročné na koncentraci.",
+      "popis": [
+        "Hraje se na polovině hrací plochy s velkou brankou.",
+        "Dva útočníci vyrazí v přečíslení 2v1 proti jednomu obránci a musí zakončit do 8 sekund.",
+        "Jakmile akce skončí, trenér nahazuje nový míč a do hřiště okamžitě vbíhá jeden nový útočník a jeden nový obránce — vzniká situace 3v2.",
+        "Druhá akce má na zakončení limit 10 sekund."
+      ],
+      "varianta_lehci": "Časové limity na zakončení se zruší.",
+      "varianta_tezsi": null,
+      "poznamka_pro_trenera": "Fyzicky náročné — hrajte v sériích po 4 minutách s dostatečnou pauzou, jinak kvalita rozhodování spadne a cvičení ztratí smysl. Inspirace: KNVB Elite Youth Transition Model.",
+      "fyzicka_narocnost": "vysoka",
+      "priprava_min": 4,
+      "presun_min": 2
+    },
+    {
+      "id": "dor-tech-03",
+      "nazev": "Italský taktický labyrint 4v4 + 3 na organizaci obranného bloku",
+      "skupina": "technika_dovednosti",
+      "vekova_kategorie": [
+        "dorost"
+      ],
+      "vek_min": 15,
+      "vek_max": 18,
+      "delka_min": 12,
+      "delka_max": 15,
+      "hraci_min": 11,
+      "hraci_max": 11,
+      "pomucky": [
+        "kužely",
+        "rozlišovací dresy ve třech barvách",
+        "míče"
+      ],
+      "obtiznost": 3,
+      "cile": [
+        "taktické posouvání obranného bloku",
+        "krytí stínem (cover shadow)",
+        "komunikace stoperské dvojice"
+      ],
+      "herni_prvek": true,
+      "herni_kategorie": [
+        "komunikace",
+        "pohyb_bez_mice",
+        "prihravka"
+      ],
+      "vyzadovane_vybaveni": [
+        "kuzely_mety",
+        "rozlisovaci_dresy"
+      ],
+      "pro_brankare": false,
+      "poznamka_pro_brankare": null,
+      "popis": [
+        "Čtverec 25 × 25 m. Čtyři bránící hráči tvoří kompaktní obrannou linii.",
+        "Čtyři útočníci po obvodu plus 3 neutrální hráči si přihrávají na jeden až dva doteky.",
+        "Cílem útočícího týmu je prostrčit kolmou přihrávku skrz obrannou linii na středového žolíka.",
+        "Obranná linie se posouvá jako jeden muž podle pohybu míče a zavírá přihrávkové koridory."
+      ],
+      "varianta_lehci": null,
+      "varianta_tezsi": "Útočníci můžou po kolmé přihrávce okamžitě vyrazit na branku v situaci 1v1.",
+      "poznamka_pro_trenera": "Neustále korigujte vzdálenosti mezi bránícími hráči — maximálně 5 až 7 metrů od sebe, jinak blok přestane fungovat jako celek. Inspirace: Coverciano Defensive Block Organization.",
+      "fyzicka_narocnost": "stredni",
+      "priprava_min": 3,
+      "presun_min": 1
+    },
+    {
+      "id": "dor-brk-01",
+      "nazev": "Brankářský speciál: Střela ze střední vzdálenosti přes clonu s dorážkou",
+      "skupina": "technika_dovednosti",
+      "vekova_kategorie": [
+        "dorost"
+      ],
+      "vek_min": 15,
+      "vek_max": 18,
+      "delka_min": 8,
+      "delka_max": 12,
+      "hraci_min": 3,
+      "hraci_max": 5,
+      "pomucky": [
+        "velká branka",
+        "kužely",
+        "dostatek míčů"
+      ],
+      "obtiznost": 3,
+      "cile": [
+        "práce s výhledem při clonění",
+        "reakční rychlost",
+        "kontrola odraženého míče a dohrání dorážky"
+      ],
+      "herni_prvek": false,
+      "herni_kategorie": [
+        "komunikace"
+      ],
+      "vyzadovane_vybaveni": [
+        "velke_branky",
+        "kuzely_mety"
+      ],
+      "pro_brankare": true,
+      "poznamka_pro_brankare": "Cvičení určené výhradně pro brankáře — vyžadujte aktivní práci nohou a vyhlížení míče ze stran ještě předtím, než dojde ke střele. Při větším počtu brankářů je střídejte po sériích.",
+      "popis": [
+        "Před vápnem stojí dva hráči, kteří brankáři pasivně cloní ve výhledu.",
+        "Trenér střílí z 20 metrů prudkou střelu ze střední vzdálenosti.",
+        "Brankář musí sledovat míč přes těla hráčů a zareagovat na poslední chvíli.",
+        "Okamžitě po vyražení střílí druhý trenér z úhlu na dohrání akce (dorážka)."
+      ],
+      "varianta_lehci": null,
+      "varianta_tezsi": "Střelu jeden z clonících hráčů lehce teční a odkloní.",
+      "poznamka_pro_trenera": "Zařazujte až u brankářů, kteří zvládají základní reflexní zákroky. Inspirace: UEFA Goalkeeping Advanced Match Scenarios.",
+      "fyzicka_narocnost": "vysoka",
+      "priprava_min": 3,
+      "presun_min": 1
+    },
+    {
+      "id": "min-brk-01",
+      "nazev": "Kočičí reflexy a chytání myšek",
+      "skupina": "technika_dovednosti",
+      "vekova_kategorie": [
+        "minipripravka",
+        "mladsi_pripravka",
+        "starsi_pripravka"
+      ],
+      "vek_min": 4,
+      "vek_max": 10,
+      "delka_min": 6,
+      "delka_max": 8,
+      "hraci_min": 1,
+      "hraci_max": 4,
+      "pomucky": [
+        "branka",
+        "míče velikosti 3"
+      ],
+      "obtiznost": 1,
+      "cile": [
+        "odbourání strachu z pádu na bok",
+        "úchop míče oběma rukama do „košíku“",
+        "rychlý návrat do střehu"
+      ],
+      "herni_prvek": false,
+      "herni_kategorie": [],
+      "vyzadovane_vybaveni": [
+        "male_branky"
+      ],
+      "pro_brankare": true,
+      "poznamka_pro_brankare": "Cvičení jen pro brankáře. Sledujte, aby děti padaly přes bok a stehno, ne přes lokty nebo kolena — tady se zakládá, jestli se dítě pádu bude bát.",
+      "popis": [
+        "Malý brankář klečí nebo sedí na zemi na brankové čáře.",
+        "Trenér stojí 3 metry před ním a posílá po zemi lehké přihrávky — „myšky“ — střídavě na levou a pravou stranu.",
+        "Brankář se vrhá na bok, sleduje míč očima a kryje ho oběma rukama do „košíku“.",
+        "Okamžitě vstává a chystá se na další míč."
+      ],
+      "varianta_lehci": "Míče se neposílají do stran, ale přímo na tělo.",
+      "varianta_tezsi": null,
+      "poznamka_pro_trenera": "V téhle kategorii jde hlavně o to, aby dítě bavilo být v bráně. Chvalte každý pokus, i nepovedený. Inspirace: FA Foundation Goalkeeping Stage.",
+      "fyzicka_narocnost": "nizka",
+      "priprava_min": 1,
+      "presun_min": 1
+    },
+    {
+      "id": "min-brk-02",
+      "nazev": "Barevná střelnice na reaktivní odraz",
+      "skupina": "technika_dovednosti",
+      "vekova_kategorie": [
+        "minipripravka",
+        "mladsi_pripravka",
+        "starsi_pripravka"
+      ],
+      "vek_min": 4,
+      "vek_max": 10,
+      "delka_min": 6,
+      "delka_max": 10,
+      "hraci_min": 1,
+      "hraci_max": 3,
+      "pomucky": [
+        "branka",
+        "barevné kužely",
+        "míče"
+      ],
+      "obtiznost": 2,
+      "cile": [
+        "orientace v prostoru branky",
+        "rychlost reakce na povel",
+        "návrat do brankářského střehu"
+      ],
+      "herni_prvek": true,
+      "herni_kategorie": [],
+      "vyzadovane_vybaveni": [
+        "male_branky",
+        "kuzely_mety"
+      ],
+      "pro_brankare": true,
+      "poznamka_pro_brankare": "Cvičení jen pro brankáře. Chvalte každý úspěšný zákrok i správný brankářský střeh — v tomhle věku je zpětná vazba důležitější než přesnost.",
+      "popis": [
+        "Před brankářem leží ve vzdálenosti 4 metrů tři barevné kužely — červený, žlutý a modrý.",
+        "Trenér zakřičí barvu, například „Červená!“.",
+        "Brankář vyrazí zvolený kužel tečovat rukou a ihned se vrací do základního postavení na čáře.",
+        "Trenér okamžitě pomalu střílí na branku na opačnou stranu."
+      ],
+      "varianta_lehci": null,
+      "varianta_tezsi": "Trenér volá dvě barvy za sebou ještě před samotnou střelou.",
+      "poznamka_pro_trenera": "Inspirace: DFB Bambini Torwart-Fun.",
+      "fyzicka_narocnost": "stredni",
+      "priprava_min": 2,
+      "presun_min": 1
+    },
+    {
+      "id": "mz-brk-02",
+      "nazev": "Vstávání z plochy a okamžitá rozehrávka na terč",
+      "skupina": "technika_dovednosti",
+      "vekova_kategorie": [
+        "mladsi_zaci"
+      ],
+      "vek_min": 11,
+      "vek_max": 13,
+      "delka_min": 8,
+      "delka_max": 12,
+      "hraci_min": 1,
+      "hraci_max": 3,
+      "pomucky": [
+        "velká nebo střední branka",
+        "2 malé branky jako terče",
+        "míče"
+      ],
+      "obtiznost": 2,
+      "cile": [
+        "rychlost vstávání z plochy",
+        "okamžitý přechod do založení útoku",
+        "přesnost rozehrávky rukou i nohou"
+      ],
+      "herni_prvek": false,
+      "herni_kategorie": [
+        "prihravka"
+      ],
+      "vyzadovane_vybaveni": [
+        "velke_branky",
+        "male_branky"
+      ],
+      "pro_brankare": true,
+      "poznamka_pro_brankare": "Cvičení jen pro brankáře. Dbejte na přesnost a razanci rozehrávky, ne jen na chycení střely — druhá půlka cvičení je ta důležitější.",
+      "popis": [
+        "Brankář začíná lehem na břiše na značce pokutového kopu.",
+        "Na tlesknutí vstává, otáčí se k brankové čáře a chytá střelu ze střední vzdálenosti.",
+        "Po chycení se ihned otáčí a cíleným hodem vrchním obloukem nebo přihrávkou po zemi trefuje jeden ze dvou terčů na křídlech.",
+        "Střídejte, kterou rozehrávku má použít — ruku, nebo nohu."
+      ],
+      "varianta_lehci": null,
+      "varianta_tezsi": "Druhá fáze probíhá pod lehkým tlakem nabíhajícího hráče.",
+      "poznamka_pro_trenera": "Inspirace: KNVB Goalkeeping Basics.",
+      "fyzicka_narocnost": "vysoka",
+      "priprava_min": 3,
+      "presun_min": 1
+    },
+    {
+      "id": "mz-brk-03",
+      "nazev": "Vyboxování a krytí vysokých centrů",
+      "skupina": "technika_dovednosti",
+      "vekova_kategorie": [
+        "mladsi_zaci",
+        "starsi_zaci"
+      ],
+      "vek_min": 11,
+      "vek_max": 14,
+      "delka_min": 10,
+      "delka_max": 12,
+      "hraci_min": 1,
+      "hraci_max": 4,
+      "pomucky": [
+        "velká branka",
+        "dostatek míčů"
+      ],
+      "obtiznost": 3,
+      "cile": [
+        "odhad dráhy letu míče",
+        "časování odrazu z jedné nohy",
+        "hlasitá komunikace při výběhu"
+      ],
+      "herni_prvek": false,
+      "herni_kategorie": [
+        "komunikace"
+      ],
+      "vyzadovane_vybaveni": [
+        "velke_branky"
+      ],
+      "pro_brankare": true,
+      "poznamka_pro_brankare": "Cvičení jen pro brankáře. Kontrolujte koleno švihové nohy — při výskoku musí krýt tělo brankáře. A vyžadujte hlasitý povel, ticho se v zápase nevyplácí.",
+      "popis": [
+        "Trenér nebo spoluhráč kope z rohu vápna vysoké centry na hranici malého vápna.",
+        "Brankář vyráží z brankové čáry se zvukovým signálem — „MÁM!“ nebo „MOJE!“.",
+        "Míč buď chytá v nejvyšším bodě skoku, nebo ho oběma pěstmi vyboxuje ven za hranici šestnáctky.",
+        "Střídejte strany, odkud centr přichází."
+      ],
+      "varianta_lehci": "Míče se do vápna házejí rukou s vyšší, čitelnější trajektorií.",
+      "varianta_tezsi": null,
+      "poznamka_pro_trenera": "Inspirace: UEFA B Goalkeeping Curriculum.",
+      "fyzicka_narocnost": "vysoka",
+      "priprava_min": 2,
+      "presun_min": 1
+    },
+    {
+      "id": "sz-hra-18",
+      "nazev": "Úhel vykrývání a dominance brankáře v 1v1",
+      "skupina": "herni_forma",
+      "vekova_kategorie": [
+        "starsi_zaci"
+      ],
+      "vek_min": 13,
+      "vek_max": 14,
+      "delka_min": 10,
+      "delka_max": 14,
+      "hraci_min": 4,
+      "hraci_max": 6,
+      "pomucky": [
+        "velká branka",
+        "kužely",
+        "míče"
+      ],
+      "obtiznost": 3,
+      "cile": [
+        "časování výběhu brankáře",
+        "zmenšení střeleckého úhlu",
+        "držení těžiště bez předčasného pádu"
+      ],
+      "herni_prvek": true,
+      "herni_kategorie": [
+        "souboje_1v1",
+        "strelba"
+      ],
+      "vyzadovane_vybaveni": [
+        "velke_branky",
+        "kuzely_mety"
+      ],
+      "pro_brankare": false,
+      "poznamka_pro_brankare": "Tohle je cvičení postavené kolem brankáře. Nesmí padat na zem příliš brzy — do poslední chvíle zůstává na nohách. Při dlouhém doteku útočníka jde agresivně pod nohy, při střele se roztahuje do blokovacího postavení.",
+      "popis": [
+        "Útočník vede míč z 18 metrů do vápna po mírné úhlopříčce.",
+        "Brankář vybíhá z branky, zmenšuje střelecký úhel a drží stabilní snížený postoj.",
+        "Reaguje na pohyb útočníka: při dlouhém doteku míče jde agresivně pod nohy, při střele se roztahuje do blokovacího postavení.",
+        "Střídejte strany i vzdálenost, ze které útočník vyráží."
+      ],
+      "varianta_lehci": null,
+      "varianta_tezsi": "Útočník má volbu mezi kličkou do strany a rychlou střelou — brankář dopředu neví, co přijde.",
+      "poznamka_pro_trenera": "Inspirace: RFEF Goalkeeping 1v1 Principles.",
+      "fyzicka_narocnost": "vysoka",
+      "priprava_min": 3,
+      "presun_min": 1
+    },
+    {
+      "id": "sz-tech-14",
+      "nazev": "Dvojitá reakce po odražené střele z vápna",
+      "skupina": "technika_dovednosti",
+      "vekova_kategorie": [
+        "starsi_zaci",
+        "dorost"
+      ],
+      "vek_min": 13,
+      "vek_max": 18,
+      "delka_min": 8,
+      "delka_max": 12,
+      "hraci_min": 3,
+      "hraci_max": 5,
+      "pomucky": [
+        "velká branka",
+        "dostatek míčů"
+      ],
+      "obtiznost": 3,
+      "cile": [
+        "usměrnění prvního zákroku do bezpečného prostoru",
+        "rychlost druhé reakce",
+        "výbušný přesun na nohou"
+      ],
+      "herni_prvek": false,
+      "herni_kategorie": [
+        "strelba",
+        "reakce_po_ztrate"
+      ],
+      "vyzadovane_vybaveni": [
+        "velke_branky"
+      ],
+      "pro_brankare": true,
+      "poznamka_pro_brankare": "Cvičení jen pro brankáře — appka ho nedá do automaticky vygenerovaného celotýmového tréninku, trenér ho najde přes filtr „Jen pro brankáře“. Klíčový detail: brankář nesmí vyrážet první míč přímo před sebe do nebezpečné zóny, usměrňuje ho do strany mimo střed hřiště.",
+      "popis": [
+        "Trenér střílí z 16 metrů prudkou tvrdou střelu na branku.",
+        "Brankář vyráží míč do strany, mimo střed hřiště.",
+        "Z druhého boku okamžitě vybíhá dorážející hráč a střílí z druhého doteku.",
+        "Brankář musí z plochy provést výbušný přesun na nohou a zneškodnit i druhou střelu."
+      ],
+      "varianta_lehci": "Druhá střela přichází s krátkou prodlevou, aby brankář stihl vstát.",
+      "varianta_tezsi": null,
+      "poznamka_pro_trenera": "Cvičení potřebuje kromě brankáře jen dva střílející hráče — zbytek mužstva mezitím dělá něco jiného. Inspirace: Premier League Academy Goalkeeping Drills.",
+      "fyzicka_narocnost": "vysoka",
+      "priprava_min": 2,
+      "presun_min": 1
+    },
+    {
+      "id": "dor-hra-05",
+      "nazev": "Taktické zakládání útoku pod tlakem (sweeper-keeper)",
+      "skupina": "herni_forma",
+      "vekova_kategorie": [
+        "dorost"
+      ],
+      "vek_min": 15,
+      "vek_max": 18,
+      "delka_min": 12,
+      "delka_max": 15,
+      "hraci_min": 6,
+      "hraci_max": 8,
+      "pomucky": [
+        "velká branka",
+        "kužely",
+        "rozlišovací dresy",
+        "míče"
+      ],
+      "obtiznost": 3,
+      "cile": [
+        "hra nohou pod časovým a prostorovým tlakem",
+        "rozhodovací proces brankáře",
+        "klid v rozehrávce"
+      ],
+      "herni_prvek": true,
+      "herni_kategorie": [
+        "prihravka",
+        "komunikace",
+        "reakce_po_ztrate"
+      ],
+      "vyzadovane_vybaveni": [
+        "velke_branky",
+        "kuzely_mety",
+        "rozlisovaci_dresy"
+      ],
+      "pro_brankare": false,
+      "poznamka_pro_brankare": "Jádro cvičení. Sledujte, jestli brankář skenuje prostor JEŠTĚ PŘEDTÍM, než dostane zpětnou přihrávku — kdo se rozhlíží až s míčem u nohy, má o vteřinu zpoždění a tu vteřinu presink potrestá.",
+      "popis": [
+        "Brankář stojí na hranici vápna a dostává těžkou zpětnou přihrávku od stopera.",
+        "Do vápna okamžitě presují dva útočníci soupeře plným sprintem.",
+        "Brankář má dva doteky: prvním si navede míč ze směru tlaku, druhým posílá přesnou kolmici nebo diagonálu na volného krajního obránce či záložníka.",
+        "Střídejte stranu, ze které zpětná přihrávka přichází, i směr presinku."
+      ],
+      "varianta_lehci": "Presují jen jeden útočník a brankář má tři doteky.",
+      "varianta_tezsi": "Jediná povolená rozehrávka je vzduchem na středového záložníka.",
+      "poznamka_pro_trenera": "Inspirace: Manchester City Academy Build-Up Play.",
+      "fyzicka_narocnost": "stredni",
+      "priprava_min": 4,
+      "presun_min": 2
+    },
+    {
+      "id": "dor-hra-06",
+      "nazev": "Střílený centr do přehuštěného brankoviště",
+      "skupina": "herni_forma",
+      "vekova_kategorie": [
+        "dorost"
+      ],
+      "vek_min": 15,
+      "vek_max": 18,
+      "delka_min": 12,
+      "delka_max": 15,
+      "hraci_min": 8,
+      "hraci_max": 10,
+      "pomucky": [
+        "velká branka",
+        "rozlišovací dresy",
+        "dostatek míčů"
+      ],
+      "obtiznost": 3,
+      "cile": [
+        "fyzická odolnost brankáře v přehuštěném prostoru",
+        "čtení rychlých centrů",
+        "organizace obrany hlasem"
+      ],
+      "herni_prvek": true,
+      "herni_kategorie": [
+        "komunikace",
+        "doplnovani_do_vapna",
+        "souboje_1v1"
+      ],
+      "vyzadovane_vybaveni": [
+        "velke_branky",
+        "rozlisovaci_dresy"
+      ],
+      "pro_brankare": false,
+      "poznamka_pro_brankare": "Vyžadujte nekompromisní a jasné povely směrem k obráncům. Brankář se musí prosadit přes těla hráčů — buď míč chytit, nebo ho bez kompromisů vyrazit mimo pokutové území. Polovičaté řešení je tady to nejhorší.",
+      "popis": [
+        "V prostoru malého vápna se pohybují 3 obránci a 3 útočníci, kteří vytvářejí těsný zákryt a kontakt.",
+        "Z křídelního prostoru přichází ostrý střílený centr po zemi nebo ve výšce pasu.",
+        "Brankář musí situaci vyřešit přes těla hráčů — chytit, nebo vyrazit mimo vápno.",
+        "Střídejte stranu, odkud centr přichází, i jeho výšku."
+      ],
+      "varianta_lehci": "Ve vápně je jen po dvou hráčích a centr přichází pomaleji.",
+      "varianta_tezsi": null,
+      "poznamka_pro_trenera": "Inspirace: UEFA A-Licence Goalkeeping Match Scenarios.",
+      "fyzicka_narocnost": "vysoka",
+      "priprava_min": 4,
+      "presun_min": 2
+    },
+    {
+      "id": "sz-rozc-03",
+      "nazev": "Aktivace v pásmu s míčem a postupným zrychlením",
+      "skupina": "rozcvicka_rozbehani",
+      "vekova_kategorie": [
+        "starsi_zaci",
+        "dorost"
+      ],
+      "vek_min": 13,
+      "vek_max": 18,
+      "delka_min": 8,
+      "delka_max": 12,
+      "hraci_min": 6,
+      "hraci_max": 24,
+      "pomucky": [
+        "kužely na vyznačení pásma",
+        "míč do dvojice"
+      ],
+      "obtiznost": 1,
+      "cile": [
+        "postupné zvyšování tepové frekvence",
+        "zapojení míče od první minuty",
+        "příprava svalů na sprint"
+      ],
+      "herni_prvek": false,
+      "herni_kategorie": [
+        "prihravka",
+        "pohyb_bez_mice"
+      ],
+      "vyzadovane_vybaveni": [
+        "kuzely_mety"
+      ],
+      "pro_brankare": false,
+      "poznamka_pro_brankare": "Brankář se zapojuje jako hráč v poli, rozehrávku trénuje až v další části.",
+      "popis": [
+        "Vyznačte pásmo široké cca 20 m a dlouhé 30 m. Hráči pracují ve dvojicích s jedním míčem.",
+        "První průchod: klus po pásmu s přihrávkami po zemi na krátkou vzdálenost, po každé přihrávce následuje pohyb do nové pozice.",
+        "Druhý průchod: přidejte poloviční tempo a přihrávky na delší vzdálenost, mezi nimi krátký úsek stranou a vzad.",
+        "Třetí průchod: po přihrávce následuje sprint na 10–15 metrů, pak zpět klusem k partnerovi."
+      ],
+      "varianta_lehci": "Zůstaňte u dvou průchodů a sprint vynechejte.",
+      "varianta_tezsi": "Přidejte čtvrtý průchod s přihrávkou na jeden dotek a sprintem po každé z nich.",
+      "poznamka_pro_trenera": "Hlídejte, aby sprinty přišly až ve třetí fázi — dřív jsou svaly studené. Toto cvičení nepochází z konkrétní publikované metodiky — appka ho sestavila pro potřeby databáze podle běžné trenérské praxe. Klidně si ho uprav podle sebe.",
+      "fyzicka_narocnost": "stredni",
+      "priprava_min": 2,
+      "presun_min": 1
+    },
+    {
+      "id": "sz-rozc-04",
+      "nazev": "Prevence zranění: běžecký a silový blok FIFA 11+",
+      "skupina": "rozcvicka_rozbehani",
+      "vekova_kategorie": [
+        "starsi_zaci",
+        "dorost"
+      ],
+      "vek_min": 14,
+      "vek_max": 18,
+      "delka_min": 12,
+      "delka_max": 18,
+      "hraci_min": 4,
+      "hraci_max": 24,
+      "pomucky": [
+        "kužely na vyznačení drah",
+        "případně žíněnky"
+      ],
+      "obtiznost": 2,
+      "cile": [
+        "prevence zranění hamstringů a kolen",
+        "stabilita středu těla",
+        "rovnováha na jedné noze"
+      ],
+      "herni_prvek": false,
+      "herni_kategorie": [],
+      "vyzadovane_vybaveni": [
+        "kuzely_mety"
+      ],
+      "pro_brankare": false,
+      "poznamka_pro_brankare": "Brankáři absolvují blok s mužstvem, prospívá jim stejně jako hráčům v poli.",
+      "popis": [
+        "Běžecká část: klus vpřed mezi kužely, klus s otevíráním a zavíráním kyčlí, poskoky stranou, běh vzad a lehké kontakty rameny ve dvojicích.",
+        "Silová část: prkno na předloktích a jeho boční varianta, výpady vpřed, dřepy na jedné noze.",
+        "Nordický zákmit ve dvojicích — jeden drží druhému kotníky, cvičící se pomalu spouští vpřed a brzdí pohyb zadní stranou stehna. Začínejte 2–3 opakováními.",
+        "Rovnováha: stoj na jedné noze s přihrávkou od partnera, pak totéž se zavřenýma očima."
+      ],
+      "varianta_lehci": "Nordický zákmit vynechte a nahraďte ho mostem na jedné noze.",
+      "varianta_tezsi": "Přidejte výskoky a doskoky na jednu nohu s krátkou výdrží v dopadu.",
+      "poznamka_pro_trenera": "Vychází z programu FIFA 11+, který má doloženě snižovat výskyt zranění u dospívajících hráčů. Nordický zákmit zařazujte až od zhruba 14 let, postupně a pod dohledem — po prvních trénincích bývá sval den dva bolavý, to je normální. Blok má smysl jen když se dělá pravidelně, ideálně 2× týdně.",
+      "fyzicka_narocnost": "stredni",
+      "priprava_min": 2,
+      "presun_min": 1
+    },
+    {
+      "id": "sz-rozc-05",
+      "nazev": "Rozcvičkové rondo 5v2 s narůstajícím tempem",
+      "skupina": "rozcvicka_rozbehani",
+      "vekova_kategorie": [
+        "starsi_zaci",
+        "dorost"
+      ],
+      "vek_min": 13,
+      "vek_max": 18,
+      "delka_min": 8,
+      "delka_max": 12,
+      "hraci_min": 7,
+      "hraci_max": 21,
+      "pomucky": [
+        "kužely",
+        "rozlišovací dresy",
+        "míče"
+      ],
+      "obtiznost": 2,
+      "cile": [
+        "zahřátí s míčem u nohy",
+        "první doteky pod mírným tlakem",
+        "naladění pozornosti před hlavní částí"
+      ],
+      "herni_prvek": true,
+      "herni_kategorie": [
+        "prihravka",
+        "komunikace"
+      ],
+      "vyzadovane_vybaveni": [
+        "kuzely_mety",
+        "rozlisovaci_dresy"
+      ],
+      "pro_brankare": false,
+      "poznamka_pro_brankare": "Brankář hraje v kruhu jako polní hráč — hra nohama se mu vždycky hodí.",
+      "popis": [
+        "Kruh nebo čtverec o straně 8–10 m, pět hráčů po obvodu, dva uprostřed.",
+        "První dvě minuty: volný počet doteků, klidné tempo, jde jen o zahřátí.",
+        "Další dvě minuty: maximálně dva doteky, hráči uprostřed začínají napadat naplno.",
+        "Poslední dvě minuty: jeden dotek. Kdo ztratí míč, jde doprostřed."
+      ],
+      "varianta_lehci": "Zůstaňte u dvou doteků a menšího tlaku obránců.",
+      "varianta_tezsi": "Zmenšete čtverec o dva metry a přidejte pravidlo, že přihrávka nesmí jít zpět tomu, od koho míč přišel.",
+      "poznamka_pro_trenera": "Postupné zrychlování je celý smysl — začíná se pomalu a končí naostro, takže mužstvo přechází do hlavní části už rozehřáté. Toto cvičení nepochází z konkrétní publikované metodiky — appka ho sestavila pro potřeby databáze podle běžné trenérské praxe. Klidně si ho uprav podle sebe.",
+      "fyzicka_narocnost": "stredni",
+      "priprava_min": 2,
+      "presun_min": 1
+    },
+    {
+      "id": "sz-rozc-06",
+      "nazev": "Reakční starty ve dvojicích na signál",
+      "skupina": "rozcvicka_rozbehani",
+      "vekova_kategorie": [
+        "starsi_zaci",
+        "dorost"
+      ],
+      "vek_min": 13,
+      "vek_max": 18,
+      "delka_min": 6,
+      "delka_max": 10,
+      "hraci_min": 4,
+      "hraci_max": 20,
+      "pomucky": [
+        "kužely",
+        "míče"
+      ],
+      "obtiznost": 2,
+      "cile": [
+        "reakční a akcelerační rychlost",
+        "start z různých poloh",
+        "soutěživost na konci rozcvičky"
+      ],
+      "herni_prvek": true,
+      "herni_kategorie": [
+        "pohyb_bez_mice",
+        "souboje_1v1"
+      ],
+      "vyzadovane_vybaveni": [
+        "kuzely_mety"
+      ],
+      "pro_brankare": false,
+      "poznamka_pro_brankare": "Pro brankáře výborné — start z lehu odpovídá vstávání po zákroku.",
+      "popis": [
+        "Dvojice stojí vedle sebe na startovní čáře, 15 metrů před nimi leží míč.",
+        "Trenér dá signál — zapískání, tlesknutí nebo zvednutí ruky — a oba vyrážejí k míči.",
+        "Kdo je u míče první, vede ho do cílové branky; druhý se ho snaží zastavit.",
+        "Střídejte výchozí polohy: stoj, sed, leh na břiše, leh na zádech, klek."
+      ],
+      "varianta_lehci": "Bez souboje — kdo doběhne první, jen zastaví míč nohou.",
+      "varianta_tezsi": "Startuje se na optický signál bez zvuku, takže hráči musí trenéra sledovat.",
+      "poznamka_pro_trenera": "Zařaďte až úplně na konec rozcvičky, kdy jsou svaly připravené. Mezi opakováními dejte dostatečnou pauzu, jinak z toho není rychlost, ale vytrvalost. Toto cvičení nepochází z konkrétní publikované metodiky — appka ho sestavila pro potřeby databáze podle běžné trenérské praxe. Klidně si ho uprav podle sebe.",
+      "fyzicka_narocnost": "vysoka",
+      "priprava_min": 2,
+      "presun_min": 1
+    },
+    {
+      "id": "dor-rozc-01",
+      "nazev": "Předzápasová aktivace v patnácti minutách",
+      "skupina": "rozcvicka_rozbehani",
+      "vekova_kategorie": [
+        "dorost"
+      ],
+      "vek_min": 15,
+      "vek_max": 18,
+      "delka_min": 15,
+      "delka_max": 18,
+      "hraci_min": 8,
+      "hraci_max": 20,
+      "pomucky": [
+        "kužely",
+        "rozlišovací dresy",
+        "míče"
+      ],
+      "obtiznost": 2,
+      "cile": [
+        "nastartování organismu před výkonem",
+        "první doteky s míčem",
+        "naladění pozornosti mužstva"
+      ],
+      "herni_prvek": false,
+      "herni_kategorie": [
+        "prihravka",
+        "pohyb_bez_mice"
+      ],
+      "vyzadovane_vybaveni": [
+        "kuzely_mety",
+        "rozlisovaci_dresy"
+      ],
+      "pro_brankare": false,
+      "poznamka_pro_brankare": "Brankáři se od mužstva oddělují po prvních pěti minutách a přecházejí na svou přípravu — první zákroky, práci nohou a rozehrávku.",
+      "popis": [
+        "Minuty 1–5: klus s dynamickou mobilitou — otevírání kyčlí, výpady s rotací trupu, poskoky stranou a běh vzad.",
+        "Minuty 6–10: práce s míčem ve dvojicích nebo trojicích — přihrávky po zemi, převzetí do pohybu, postupně na jeden dotek.",
+        "Minuty 11–14: krátké rondo 4v2 nebo 5v2 naostro, hraje se na plné tempo.",
+        "Poslední minuta: dva až tři sprinty na 20 metrů s úplným zotavením mezi nimi."
+      ],
+      "varianta_lehci": "Rondo vynechte a nahraďte ho klidnějším přihrávkovým obrazcem.",
+      "varianta_tezsi": null,
+      "poznamka_pro_trenera": "Časy jsou orientační — přizpůsob je počasí. V zimě aktivace trvá déle a sprinty patří až úplně na konec. Rozcvička má skončit 5 až 8 minut před výkopem, ne dřív, jinak hráči vychladnou. Toto cvičení nepochází z konkrétní publikované metodiky — appka ho sestavila pro potřeby databáze podle běžné trenérské praxe. Klidně si ho uprav podle sebe.",
+      "fyzicka_narocnost": "stredni",
+      "priprava_min": 3,
+      "presun_min": 2
+    },
+    {
+      "id": "dor-rozc-02",
+      "nazev": "Mobilita kyčlí a hrudní páteře před silovým blokem",
+      "skupina": "rozcvicka_rozbehani",
+      "vekova_kategorie": [
+        "dorost"
+      ],
+      "vek_min": 15,
+      "vek_max": 18,
+      "delka_min": 8,
+      "delka_max": 12,
+      "hraci_min": 4,
+      "hraci_max": 20,
+      "pomucky": [
+        "žíněnky nebo trávník",
+        "případně švihadla na značení"
+      ],
+      "obtiznost": 1,
+      "cile": [
+        "rozsah pohybu v kyčlích",
+        "rotační pohyblivost hrudní páteře",
+        "příprava na silovou a soubojovou zátěž"
+      ],
+      "herni_prvek": false,
+      "herni_kategorie": [],
+      "vyzadovane_vybaveni": [
+        "zinenky"
+      ],
+      "pro_brankare": false,
+      "poznamka_pro_brankare": "Pro brankáře obzvlášť užitečné — rozsah v kyčlích rozhoduje o tom, jak nízko se dostane při zákroku k tyči.",
+      "popis": [
+        "Kyčle: hluboký výpad s podsazenou pánví a výdrží, z něj rotace trupu k přední noze; obě strany.",
+        "Ještěří chůze s předloktím k zemi, 8 kroků vpřed.",
+        "Hrudní páteř: klek na patách, jedna ruka za hlavou, rotace lokte vzhůru s pohledem za ním.",
+        "Zakončení: aktivní hmity nohou vpřed a stranou v postoji, každý směr 10 opakování."
+      ],
+      "varianta_lehci": "Zkraťte výdrže a snižte hloubku výpadu.",
+      "varianta_tezsi": "Přidejte výdrž 20 sekund v každé pozici a pomalejší provedení.",
+      "poznamka_pro_trenera": "Cvičí se pomalu a s kontrolou, ne na počet. V dorostu, kde přibývá silový trénink a tvrdé souboje, je omezená pohyblivost kyčlí častou příčinou potíží se zády a tříslem. Toto cvičení nepochází z konkrétní publikované metodiky — appka ho sestavila pro potřeby databáze podle běžné trenérské praxe. Klidně si ho uprav podle sebe.",
+      "fyzicka_narocnost": "nizka",
+      "priprava_min": 2,
+      "presun_min": 1
+    },
+    {
+      "id": "dor-rozc-03",
+      "nazev": "Rozběhání s postupnou akcelerací na čtyřech úsecích",
+      "skupina": "rozcvicka_rozbehani",
+      "vekova_kategorie": [
+        "dorost"
+      ],
+      "vek_min": 15,
+      "vek_max": 18,
+      "delka_min": 8,
+      "delka_max": 12,
+      "hraci_min": 4,
+      "hraci_max": 24,
+      "pomucky": [
+        "kužely na vyznačení úseků"
+      ],
+      "obtiznost": 2,
+      "cile": [
+        "postupné zvyšování běžecké intenzity",
+        "technika běhu",
+        "bezpečná příprava na maximální rychlost"
+      ],
+      "herni_prvek": false,
+      "herni_kategorie": [
+        "pohyb_bez_mice"
+      ],
+      "vyzadovane_vybaveni": [
+        "kuzely_mety"
+      ],
+      "pro_brankare": false,
+      "poznamka_pro_brankare": "Brankáři absolvují první dva úseky, pak přecházejí na vlastní přípravu.",
+      "popis": [
+        "Vyznačte čtyři úseky po 30 metrech vedle sebe, hráči jdou po skupinách.",
+        "První úsek: klus s běžeckou abecedou — skipink, zakopávání, předkopávání.",
+        "Druhý úsek: poloviční tempo s důrazem na práci paží a vzpřímený trup.",
+        "Třetí úsek: sedmdesát procent maxima. Čtvrtý úsek: naplno, s doběhem a klidným návratem zpět."
+      ],
+      "varianta_lehci": "Vynechte čtvrtý úsek naplno.",
+      "varianta_tezsi": "Přidejte pátý úsek se startem z lehu na břiše.",
+      "poznamka_pro_trenera": "Nikdy nezačínej naplno — první úsek naplno je nejčastější cesta k natažené zadní straně stehna. Mezi úseky nech hráče vrátit se klusem, to je zároveň pauza. Toto cvičení nepochází z konkrétní publikované metodiky — appka ho sestavila pro potřeby databáze podle běžné trenérské praxe. Klidně si ho uprav podle sebe.",
+      "fyzicka_narocnost": "vysoka",
+      "priprava_min": 2,
+      "presun_min": 1
+    },
+    {
+      "id": "sz-rozc-07",
+      "nazev": "Dynamický RAMP koridor",
+      "skupina": "rozcvicka_rozbehani",
+      "vekova_kategorie": [
+        "starsi_zaci",
+        "dorost"
+      ],
+      "vek_min": 13,
+      "vek_max": 18,
+      "delka_min": 6,
+      "delka_max": 8,
+      "hraci_min": 6,
+      "hraci_max": 24,
+      "pomucky": [
+        "kužely na vyznačení koridoru"
+      ],
+      "obtiznost": 2,
+      "cile": [
+        "aktivace hlubokého stabilizačního systému",
+        "mobilita kyčlí",
+        "příprava na změny směru"
+      ],
+      "herni_prvek": false,
+      "herni_kategorie": [],
+      "vyzadovane_vybaveni": [
+        "kuzely_mety"
+      ],
+      "pro_brankare": false,
+      "poznamka_pro_brankare": "Brankáři absolvují s mužstvem — mobilita kyčlí je pro ně klíčová.",
+      "popis": [
+        "Hráči vytvoří dva paralelní zástupy a postupují dráhou dlouhou 15 metrů.",
+        "Prvních 5 metrů: výpad vpřed s rotací trupu k přední noze.",
+        "Prostředních 5 metrů: zakopávání s dynamickým protažením zadní strany stehna („labuť“).",
+        "Posledních 5 metrů: výbušný boční cik-cak poskok s okamžitým zastavením těžiště."
+      ],
+      "varianta_lehci": "Snižte tempo a vynechte výbušný skok na konci.",
+      "varianta_tezsi": null,
+      "poznamka_pro_trenera": "Kontrolujte koleno stojné nohy — nesmí padat dovnitř (valgozita). Právě tenhle detail rozhoduje, jestli cvičení kolenům pomáhá, nebo škodí. Inspirace: koncept RAMP (Raise – Activate – Mobilise – Potentiate).",
+      "fyzicka_narocnost": "stredni",
+      "priprava_min": 2,
+      "presun_min": 1
+    },
+    {
+      "id": "sz-rozc-08",
+      "nazev": "Plyometrický akcelerační rošt s reakcí na signál",
+      "skupina": "rozcvicka_rozbehani",
+      "vekova_kategorie": [
+        "starsi_zaci",
+        "dorost"
+      ],
+      "vek_min": 13,
+      "vek_max": 18,
+      "delka_min": 5,
+      "delka_max": 8,
+      "hraci_min": 8,
+      "hraci_max": 16,
+      "pomucky": [
+        "nízké překážky nebo kloboučky",
+        "kužely"
+      ],
+      "obtiznost": 3,
+      "cile": [
+        "probuzení rychlých svalových vláken",
+        "reaktivní síla",
+        "akcelerace na vizuální signál"
+      ],
+      "herni_prvek": false,
+      "herni_kategorie": [
+        "pohyb_bez_mice"
+      ],
+      "vyzadovane_vybaveni": [
+        "kuzely_mety"
+      ],
+      "pro_brankare": false,
+      "poznamka_pro_brankare": "Výborné i pro brankáře — krátký kontakt se zemí je základ odrazu k tyči.",
+      "popis": [
+        "Postavte dvě řady po čtyřech nízkých překážkách nebo kuželech za sebou.",
+        "Hráč provede rychlé obounožní nebo jednonožní skoky přes překážky s důrazem na co nejkratší kontakt se zemí.",
+        "Ihned po poslední překážce následuje ostrý start na 5 metrů.",
+        "Směr startu určuje trenér vizuálním signálem — ukázáním ruky vlevo nebo vpravo."
+      ],
+      "varianta_lehci": "Obounožné skoky a start bez reakce, na povel.",
+      "varianta_tezsi": "Přidejte reakci na zapískání už během skoků.",
+      "poznamka_pro_trenera": "Klíčová je maximální výbušnost, ne objem. Mezi opakováními dejte dostatečný odpočinek — unavený hráč tady netrénuje rychlost, ale jen únavu.",
+      "fyzicka_narocnost": "vysoka",
+      "priprava_min": 3,
+      "presun_min": 1
+    },
+    {
+      "id": "sz-rozc-09",
+      "nazev": "Španělská přihrávková hvězda s výměnou míst",
+      "skupina": "rozcvicka_rozbehani",
+      "vekova_kategorie": [
+        "starsi_zaci",
+        "dorost"
+      ],
+      "vek_min": 13,
+      "vek_max": 18,
+      "delka_min": 8,
+      "delka_max": 10,
+      "hraci_min": 10,
+      "hraci_max": 15,
+      "pomucky": [
+        "mety nebo kužely",
+        "2 míče"
+      ],
+      "obtiznost": 3,
+      "cile": [
+        "otevírání těla při převzetí míče",
+        "přesnost přihrávky v pohybu",
+        "dynamický běh bez míče"
+      ],
+      "herni_prvek": false,
+      "herni_kategorie": [
+        "prihravka",
+        "pohyb_bez_mice",
+        "komunikace"
+      ],
+      "vyzadovane_vybaveni": [
+        "kuzely_mety"
+      ],
+      "pro_brankare": false,
+      "poznamka_pro_brankare": "Brankář se zapojuje jako hráč v poli — hra nohama v pohybu se mu vždy hodí.",
+      "popis": [
+        "Hráči stojí na pěti metách rozestavěných do pětiúhelníku, vzdálenost mezi metami 10 metrů.",
+        "Přihrávka jde vždy po obvodu na dva doteky — převzetí zadní nohou a přihrávka.",
+        "Po přihrávce hráč okamžitě sprintuje křížem do středu, tam provede rychlou změnu směru a zařadí se na protilehlou metu.",
+        "Hraje se se dvěma míči současně."
+      ],
+      "varianta_lehci": "Jen jeden míč a bez sprintu do středu.",
+      "varianta_tezsi": "Hra povinně na jeden dotek.",
+      "poznamka_pro_trenera": "Vyžadujte neustálou komunikaci — „SÁM!“, „MÁŠ!“. Se dvěma míči v pohybu se bez mluvení hráči srazí, což je přesně ten návyk, který chceme přenést do zápasu.",
+      "fyzicka_narocnost": "stredni",
+      "priprava_min": 3,
+      "presun_min": 1
+    },
+    {
+      "id": "sz-rozc-10",
+      "nazev": "Italský kosočtverec na rotaci a vnímání prostoru",
+      "skupina": "rozcvicka_rozbehani",
+      "vekova_kategorie": [
+        "starsi_zaci",
+        "dorost"
+      ],
+      "vek_min": 13,
+      "vek_max": 18,
+      "delka_min": 8,
+      "delka_max": 10,
+      "hraci_min": 8,
+      "hraci_max": 12,
+      "pomucky": [
+        "kužely",
+        "míče"
+      ],
+      "obtiznost": 3,
+      "cile": [
+        "automatizace narážeček",
+        "načasování odskoku od imaginárního obránce",
+        "přesnost přihrávky pod sebe a do kolmice"
+      ],
+      "herni_prvek": false,
+      "herni_kategorie": [
+        "prihravka",
+        "pohyb_bez_mice"
+      ],
+      "vyzadovane_vybaveni": [
+        "kuzely_mety"
+      ],
+      "pro_brankare": false,
+      "poznamka_pro_brankare": null,
+      "popis": [
+        "Postavte čtyři mety do tvaru kosočtverce o rozměru 12 × 12 m.",
+        "Hráč A přihrává na hráče B, ten sklepává z první zpět na A.",
+        "Hráč A dává kolmici na hráče C, ten posílá míč pod sebe na hráče D.",
+        "Každý hráč se po odehrání posouvá na pozici, kam přihrával."
+      ],
+      "varianta_lehci": "Bez narážečky — jednoduchý oběh po obvodu kosočtverce.",
+      "varianta_tezsi": "Přidejte druhý míč z opačné strany.",
+      "poznamka_pro_trenera": "Inspirace: FIGC Italian Tactical Warm-Up.",
+      "fyzicka_narocnost": "stredni",
+      "priprava_min": 2,
+      "presun_min": 1
+    },
+    {
+      "id": "sz-rozc-11",
+      "nazev": "Brazilské kličkovací duely s přepínáním",
+      "skupina": "rozcvicka_rozbehani",
+      "vekova_kategorie": [
+        "starsi_zaci",
+        "dorost"
+      ],
+      "vek_min": 13,
+      "vek_max": 18,
+      "delka_min": 6,
+      "delka_max": 8,
+      "hraci_min": 8,
+      "hraci_max": 16,
+      "pomucky": [
+        "kužely",
+        "míč pro každého"
+      ],
+      "obtiznost": 2,
+      "cile": [
+        "zvedání hlavy při vedení míče",
+        "sken prostoru",
+        "reaktivní přechod mezi držením a hledáním míče"
+      ],
+      "herni_prvek": true,
+      "herni_kategorie": [
+        "vedeni_mice",
+        "reakce_po_ztrate"
+      ],
+      "vyzadovane_vybaveni": [
+        "kuzely_mety"
+      ],
+      "pro_brankare": false,
+      "poznamka_pro_brankare": "Brankář se zapojuje jako hráč v poli.",
+      "popis": [
+        "Čtverec 15 × 15 m, všichni hráči vodí svůj míč.",
+        "Na první zapískání si musí každý hráč v rychlosti vyměnit míč s nejbližším spoluhráčem — přihrávkou a převzetím.",
+        "Na druhé zapískání hráč nechá svůj míč ležet a sprintuje sebrat míč komukoli jinému.",
+        "Signály střídejte nepravidelně, ať hráči nemůžou předvídat."
+      ],
+      "varianta_lehci": "Jen výměna míčů ve dvojicích, bez druhého signálu.",
+      "varianta_tezsi": "Zmenšete čtverec a zkraťte intervaly mezi signály.",
+      "poznamka_pro_trenera": "Hráči nesmí koukat jen na svůj míč — celé cvičení stojí na neustálém skenování prostoru. Kdo má hlavu dole, ten při signálu nestíhá.",
+      "fyzicka_narocnost": "vysoka",
+      "priprava_min": 2,
+      "presun_min": 1
+    },
+    {
+      "id": "sz-rozc-12",
+      "nazev": "Německé gegenpressing rondo 4v2 + 1",
+      "skupina": "rozcvicka_rozbehani",
+      "vekova_kategorie": [
+        "starsi_zaci",
+        "dorost"
+      ],
+      "vek_min": 13,
+      "vek_max": 18,
+      "delka_min": 8,
+      "delka_max": 10,
+      "hraci_min": 7,
+      "hraci_max": 14,
+      "pomucky": [
+        "kužely",
+        "rozlišovací dresy",
+        "míče"
+      ],
+      "obtiznost": 3,
+      "cile": [
+        "taktické přepnutí z útoku do obrany už v rozcvičce",
+        "udržení míče pod tlakem",
+        "agresivita v prvních vteřinách po ztrátě"
+      ],
+      "herni_prvek": true,
+      "herni_kategorie": [
+        "prihravka",
+        "reakce_po_ztrate",
+        "komunikace"
+      ],
+      "vyzadovane_vybaveni": [
+        "kuzely_mety",
+        "rozlisovaci_dresy"
+      ],
+      "pro_brankare": false,
+      "poznamka_pro_brankare": "Brankář může hrát roli volného hráče vně čtverce — trénuje příjem pod tlakem.",
+      "popis": [
+        "Čtverec 10 × 10 m, uvnitř čtyři útočníci drží míč proti dvěma obráncům.",
+        "Mimo čtverec čeká jeden volný hráč.",
+        "Pokud obránci získají míč, musí ho do 2 vteřin odehrát na volného hráče vně čtverce.",
+        "Původní útočníci musí v momentě ztráty okamžitě spustit agresivní tlak a přihrávce ven zabránit."
+      ],
+      "varianta_lehci": "Limit na odehrání ven se prodlouží na 4 vteřiny.",
+      "varianta_tezsi": "Útočníci mají povolené maximálně dva doteky.",
+      "poznamka_pro_trenera": "Tohle není běžné rondo — smyslem je, aby si hráči přepnutí po ztrátě zautomatizovali dřív, než vůbec začne hlavní část tréninku.",
+      "fyzicka_narocnost": "vysoka",
+      "priprava_min": 2,
+      "presun_min": 1
+    },
+    {
+      "id": "sz-rozc-13",
+      "nazev": "Lov na čtverce 3v1 s přechodem",
+      "skupina": "rozcvicka_rozbehani",
+      "vekova_kategorie": [
+        "starsi_zaci",
+        "dorost"
+      ],
+      "vek_min": 13,
+      "vek_max": 18,
+      "delka_min": 6,
+      "delka_max": 8,
+      "hraci_min": 4,
+      "hraci_max": 8,
+      "pomucky": [
+        "kužely",
+        "rozlišovací dresy",
+        "míče"
+      ],
+      "obtiznost": 2,
+      "cile": [
+        "rychlá orientace v novém prostoru",
+        "výbušný přesun pod únavou",
+        "přesnost přihrávky v malém prostoru"
+      ],
+      "herni_prvek": true,
+      "herni_kategorie": [
+        "prihravka",
+        "reakce_po_ztrate"
+      ],
+      "vyzadovane_vybaveni": [
+        "kuzely_mety",
+        "rozlisovaci_dresy"
+      ],
+      "pro_brankare": false,
+      "poznamka_pro_brankare": "Brankář se zapojuje jako hráč v kruhu.",
+      "popis": [
+        "Postavte vedle sebe dva čtverce 8 × 8 m. V jednom z nich probíhá rondo 3v1.",
+        "Jakmile obránce zachytí míč nebo ho odehraje mimo, celá čtveřice okamžitě přebíhá do vedlejšího čtverce.",
+        "Hráč, který přihrávku pokazil, se stává novým obráncem pro další kolo.",
+        "Hraje se plynule, bez pauz mezi přeběhy."
+      ],
+      "varianta_lehci": "Čtverce zvětšete na 10 × 10 m.",
+      "varianta_tezsi": "Přidejte třetí čtverec a střídejte směr přeběhu.",
+      "poznamka_pro_trenera": "Přeběh mezi čtverci je zároveň kondiční složka i moment, kdy se hráči musí znovu zorientovat — nenechte je do nového čtverce vejít pomalu.",
+      "fyzicka_narocnost": "vysoka",
+      "priprava_min": 2,
+      "presun_min": 1
+    },
+    {
+      "id": "sz-rozc-14",
+      "nazev": "Křídlová rozcvička na zakončení z první",
+      "skupina": "rozcvicka_rozbehani",
+      "vekova_kategorie": [
+        "starsi_zaci",
+        "dorost"
+      ],
+      "vek_min": 13,
+      "vek_max": 18,
+      "delka_min": 8,
+      "delka_max": 10,
+      "hraci_min": 10,
+      "hraci_max": 18,
+      "pomucky": [
+        "velká branka",
+        "kužely",
+        "dostatek míčů"
+      ],
+      "obtiznost": 2,
+      "cile": [
+        "dynamika náběhu do vápna",
+        "zakončení z prvního doteku",
+        "současné zahřátí brankářů i střelců"
+      ],
+      "herni_prvek": false,
+      "herni_kategorie": [
+        "strelba",
+        "doplnovani_do_vapna",
+        "prihravka"
+      ],
+      "vyzadovane_vybaveni": [
+        "velke_branky",
+        "kuzely_mety"
+      ],
+      "pro_brankare": false,
+      "poznamka_pro_brankare": "Ideální předzápasová rozcvička pro brankáře — dostane série střel z různých úhlů, aniž by musel cvičit zvlášť.",
+      "popis": [
+        "Dva zástupy na středu hřiště zhruba 25 metrů od branky, dva hráči na křídlech.",
+        "Středový hráč A dává míč na křídlo B a okamžitě sprintuje do vápna.",
+        "Křídelní hráč B z prvního doteku posílá ostrý přízemní centr na hranici vápna.",
+        "Hráč A bez převzetí střílí z první na branku a hned se vrací do zástupu. Střídejte strany."
+      ],
+      "varianta_lehci": "Centr přichází pomaleji a útočník smí míč nejdřív zpracovat.",
+      "varianta_tezsi": "Přidejte pasivního obránce, který útočníkovi zkracuje prostor.",
+      "poznamka_pro_trenera": "Zařaďte až po zahřátí — střelba z první do studených svalů je zbytečné riziko. Skvěle se hodí jako poslední část předzápasové přípravy.",
+      "fyzicka_narocnost": "stredni",
+      "priprava_min": 3,
+      "presun_min": 2
+    },
+    {
+      "id": "sz-brk-06",
+      "nazev": "Kompletní brankářský RAMP protokol",
+      "skupina": "technika_dovednosti",
+      "vekova_kategorie": [
+        "starsi_zaci",
+        "dorost"
+      ],
+      "vek_min": 13,
+      "vek_max": 18,
+      "delka_min": 12,
+      "delka_max": 15,
+      "hraci_min": 1,
+      "hraci_max": 3,
+      "pomucky": [
+        "velká branka",
+        "míče",
+        "frekvenční žebřík",
+        "gumičky nebo expandéry"
+      ],
+      "obtiznost": 2,
+      "cile": [
+        "kompletní fyzická i mentální příprava brankáře na zátěž",
+        "chytací návyky",
+        "práce nohou a rozehrávka"
+      ],
+      "herni_prvek": false,
+      "herni_kategorie": [],
+      "vyzadovane_vybaveni": [
+        "velke_branky",
+        "koordinacni_zebrik"
+      ],
+      "pro_brankare": true,
+      "poznamka_pro_brankare": "Cvičení jen pro brankáře — kompletní rozcvičení před tréninkem i zápasem. Drž pořadí bloků, každý připravuje ten další.",
+      "popis": [
+        "Mobilita a aktivace (3 min): dynamické otvírání kyčlí, aktivace ramenního pletence s gumičkou nebo expandérem.",
+        "Chytací návyky (3 min): klek na kolenou, trenér nahazuje míče ze 3 metrů na „košík“, chytání nad hlavou, pády do stran z nízkého postoje.",
+        "Práce nohou a odraz (3 min): rychlé kroky ve frekvenčním žebříku, poté vyběhnutí na vysoký míč a vyboxování.",
+        "Střelba a rozehrávka (4 min): střely ze střední vzdálenosti na chytání i vyrážení, po každém zákroku okamžitá rozehrávka nohou na mety."
+      ],
+      "varianta_lehci": "Zkraťte na tři bloky a vynechte frekvenční žebřík.",
+      "varianta_tezsi": "Střely ve čtvrtém bloku přidávejte v rychlejším sledu za sebou.",
+      "poznamka_pro_trenera": "Postavené podle konceptu RAMP (Raise – Activate – Mobilise – Potentiate). Pokud nemáš frekvenční žebřík, nahraď ho kužely nebo metami položenými na zem.",
+      "fyzicka_narocnost": "stredni",
+      "priprava_min": 3,
+      "presun_min": 1
+    }
+  ]
+}
