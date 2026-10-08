@@ -46,7 +46,7 @@ body {
 .scroller { padding: 46px 56px 60px; }
 .inner { max-width: 680px; }
 
-.js .book { --h: clamp(480px, calc(100dvh - 128px), 980px); height: var(--h); perspective: 2800px; isolation: isolate; }
+.js .book { --h: clamp(480px, calc(100dvh - 128px), 980px); height: var(--h); transition: height .3s ease; perspective: 2800px; isolation: isolate; }
 .js .book::before, .js .book::after { content: ""; position: absolute; inset: 0; background: #d9d9dc; border-radius: 2px; z-index: 0; }
 .js .book::before { transform: translate(3px, 3px); }
 .js .book::after { transform: translate(6px, 6px); background: #c4c4c8; }
@@ -54,11 +54,10 @@ body {
 .js .leaf.flipped { transform: rotateY(-180deg); }
 .js .face { position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden; }
 .js .face.back { display: block; transform: rotateY(180deg); background: linear-gradient(270deg, rgba(0,0,0,.10), rgba(0,0,0,0) 35%), var(--sheet); }
-.js .scroller { position: absolute; inset: 0; overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; scrollbar-color: #c4c4c8 transparent; border-radius: inherit; }
+.js .scroller { position: absolute; inset: 0; overflow: hidden; border-radius: inherit; }
 .js .face.front::before { content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; z-index: 3; opacity: 0; background: linear-gradient(90deg, rgba(0,0,0,.22), rgba(0,0,0,0) 70%); }
 .js .leaf.turning .face.front::before, .js .leaf.cast .face.front::before { animation: shade .88s ease-in-out both; }
 @keyframes shade { 0% { opacity: 0; } 45% { opacity: 1; } 100% { opacity: 0; } }
-.js .face.front::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 40px; border-radius: inherit; pointer-events: none; z-index: 2; background: linear-gradient(180deg, rgba(255,255,255,0), #fff 80%); }
 .pgno { position: absolute; left: 56px; bottom: 15px; font-size: 12px; color: var(--muted); z-index: 4; font-variant-numeric: tabular-nums; }
 .js .corner { display: block; position: absolute; right: 0; bottom: 0; width: 58px; height: 58px; z-index: 5; border: 0; padding: 0; background: none; cursor: pointer; }
 .js .corner::before { content: ""; position: absolute; right: 0; bottom: 0; width: 24px; height: 24px; background: linear-gradient(135deg, var(--sheet2) 0 46%, rgba(0,0,0,.22) 50%, #fff 52%); box-shadow: -3px -3px 8px -3px var(--shadow); transition: width .25s ease, height .25s ease; }
@@ -108,7 +107,7 @@ h1.page-title { font-size: clamp(27px, 4.2vw, 36px); line-height: 1.15; letter-s
 .toc .n { color: var(--muted); font-variant-numeric: tabular-nums; }
 
 /* ---------- ovládání ---------- */
-.controls { display: flex; align-items: center; justify-content: center; gap: 18px; margin-top: 22px; min-height: 46px; color: #e9e9ec; }
+.controls { position: sticky; bottom: 12px; z-index: 5000; width: fit-content; margin-inline: auto; padding: 6px 18px; border-radius: 40px; background: rgba(46,47,50,.92); box-shadow: 0 0 0 1px rgba(255,255,255,.08); display: flex; align-items: center; justify-content: center; gap: 18px; margin-top: 22px; min-height: 46px; color: #e9e9ec; }
 .controls button { width: 44px; height: 44px; border-radius: 50%; border: 0; background: var(--btn); color: var(--btnink); display: grid; place-items: center; cursor: pointer; }
 .controls button:hover { filter: brightness(.94); }
 .controls button:disabled { opacity: .35; cursor: default; }
@@ -1029,6 +1028,24 @@ h1.page-title { font-size: clamp(27px, 4.2vw, 36px); line-height: 1.15; letter-s
 
   function scroller(i) { return leaves[i].querySelector('.scroller'); }
 
+  function minH() { return Math.min(980, Math.max(480, window.innerHeight - 128)); }
+  function contentH(i) {
+    var s = scroller(i), cs = getComputedStyle(s), inn = s.firstElementChild;
+    return Math.ceil(inn.offsetHeight + parseFloat(cs.paddingTop) + parseFloat(cs.paddingBottom));
+  }
+  function fit(extra) {
+    var h = Math.max(minH(), contentH(cur));
+    if (extra !== undefined) h = Math.max(h, contentH(extra));
+    book.style.height = h + 'px';
+  }
+  var ro = null;
+  function watch() {
+    if (!window.ResizeObserver) return;
+    if (ro) ro.disconnect();
+    ro = new ResizeObserver(function () { fit(); });
+    ro.observe(scroller(cur).firstElementChild);
+  }
+
   function settle(i) {
     var l = leaves[i];
     l.classList.remove('turning');
@@ -1103,8 +1120,13 @@ h1.page-title { font-size: clamp(27px, 4.2vw, 36px); line-height: 1.15; letter-s
         (function (idx, d) { timers.push(setTimeout(function () { flip(idx, false); }, d)); })(m, k++ * step);
       }
     }
-    var sc = scroller(n);
-    if (sc) sc.scrollTop = 0;
+    fit(instant ? undefined : from);
+    watch();
+    if (!instant) {
+      timers.push(setTimeout(function () { fit(); }, DUR));
+      var r = book.getBoundingClientRect();
+      if (r.top < 0 || r.top > 120) { try { window.scrollTo({ top: window.pageYOffset + r.top - 12, behavior: reduce ? 'auto' : 'smooth' }); } catch (e) {} }
+    }
     updateState();
     var h = leaves[n].querySelector('.page-title');
     if (h && !instant) { try { h.focus({ preventScroll: true }); } catch (e) {} }
@@ -1146,6 +1168,8 @@ h1.page-title { font-size: clamp(27px, 4.2vw, 36px); line-height: 1.15; letter-s
   if (m) start = Math.max(0, Math.min(N - 1, parseInt(m[1], 10) - 1));
   cur = start;
   goTo(start, true);
+  window.addEventListener('resize', function () { fit(); });
+  window.addEventListener('load', function () { fit(); });
 })();
 
 </script>
