@@ -1,0 +1,1153 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+</head>
+<body>
+<title>Příručka RED FLOW</title>
+<style>
+/* Bílý list bez vazby; listy se otáčejí kolem levého okraje.
+   Vzhled textu: čistý článek jako v nápovědě výrobce: černé tučné nadpisy,
+   prostý text, modrý odkaz, velký obrázek na světle šedém podkladu, podnadpisy „Krok N:“. */
+:root {
+  --desk: #2e2f32;
+  --sheet: #ffffff;
+  --sheet2: #ececee;
+  --ink: #111113;
+  --muted: #5f6368;
+  --line: #dcdcdf;
+  --soft: #f4f4f6;
+  --link: #1a5cb0;
+  --shadow: rgba(0, 0, 0, .55);
+  --ringhi: #b9c0c6;
+  --hole: #cdd2d7;
+  --holeedge: #a9b0b7;
+  --btn: #f2f2f4;
+  --btnink: #111113;
+  color-scheme: light;
+}
+body {
+  margin: 0;
+  background: var(--desk);
+  color: var(--ink);
+  font: 17px/1.58 -apple-system, BlinkMacSystemFont, "Segoe UI", "SF Pro Text", "Helvetica Neue", Roboto, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+.stage { max-width: 930px; margin: 0 auto; padding-inline: 16px; padding-block: 16px 10px; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* ---------- list ---------- */
+.book { position: relative; margin: 0 auto; width: 100%; max-width: 860px; }
+.leaf { margin-bottom: 28px; }
+.face { background: var(--sheet); border-radius: 2px; box-shadow: 0 10px 28px -14px var(--shadow); position: relative; }
+.face.back, .corner { display: none; }
+.scroller { padding: 46px 56px 60px; }
+.inner { max-width: 680px; }
+
+.js .book { --h: clamp(480px, calc(100dvh - 128px), 980px); height: var(--h); perspective: 2800px; isolation: isolate; }
+.js .book::before, .js .book::after { content: ""; position: absolute; inset: 0; background: #d9d9dc; border-radius: 2px; z-index: 0; }
+.js .book::before { transform: translate(3px, 3px); }
+.js .book::after { transform: translate(6px, 6px); background: #c4c4c8; }
+.js .leaf { position: absolute; inset: 0; margin: 0; transform-origin: 0 50%; transform-style: preserve-3d; transition: transform .88s cubic-bezier(.45, .02, .22, 1); }
+.js .leaf.flipped { transform: rotateY(-180deg); }
+.js .face { position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+.js .face.back { display: block; transform: rotateY(180deg); background: linear-gradient(270deg, rgba(0,0,0,.10), rgba(0,0,0,0) 35%), var(--sheet); }
+.js .scroller { position: absolute; inset: 0; overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; scrollbar-color: #c4c4c8 transparent; border-radius: inherit; }
+.js .face.front::before { content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; z-index: 3; opacity: 0; background: linear-gradient(90deg, rgba(0,0,0,.22), rgba(0,0,0,0) 70%); }
+.js .leaf.turning .face.front::before, .js .leaf.cast .face.front::before { animation: shade .88s ease-in-out both; }
+@keyframes shade { 0% { opacity: 0; } 45% { opacity: 1; } 100% { opacity: 0; } }
+.js .face.front::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 40px; border-radius: inherit; pointer-events: none; z-index: 2; background: linear-gradient(180deg, rgba(255,255,255,0), #fff 80%); }
+.pgno { position: absolute; left: 56px; bottom: 15px; font-size: 12px; color: var(--muted); z-index: 4; font-variant-numeric: tabular-nums; }
+.js .corner { display: block; position: absolute; right: 0; bottom: 0; width: 58px; height: 58px; z-index: 5; border: 0; padding: 0; background: none; cursor: pointer; }
+.js .corner::before { content: ""; position: absolute; right: 0; bottom: 0; width: 24px; height: 24px; background: linear-gradient(135deg, var(--sheet2) 0 46%, rgba(0,0,0,.22) 50%, #fff 52%); box-shadow: -3px -3px 8px -3px var(--shadow); transition: width .25s ease, height .25s ease; }
+.js .corner:hover::before, .js .corner:focus-visible::before { width: 42px; height: 42px; }
+.js .corner:focus-visible { outline: 2px solid var(--link); outline-offset: -2px; }
+
+/* ---------- text ---------- */
+h1.page-title { font-size: clamp(27px, 4.2vw, 36px); line-height: 1.15; letter-spacing: -.015em; font-weight: 700; margin: 0 0 .75em; text-wrap: balance; outline: 0; }
+.inner h2 { font-size: 23px; line-height: 1.25; font-weight: 700; margin: 1.6em 0 .55em; }
+.inner p { margin: 0 0 1.05em; }
+.inner strong { font-weight: 700; }
+.inner a { color: var(--link); }
+.inner p.step { margin: 0 0 .8em; }
+.inner .steps { margin: 0 0 1.2em; }
+.inner ul { margin: 0 0 1.1em; padding-left: 1.4em; }
+.inner li { margin: .45em 0; }
+.inner em { color: var(--muted); font-style: normal; }
+.tablewrap { overflow-x: auto; margin: 1.3em 0; }
+.inner table { border-collapse: collapse; width: 100%; font-size: 15.5px; line-height: 1.5; }
+.inner th, .inner td { text-align: left; padding: 9px 12px 9px 0; vertical-align: top; border-top: 1px solid var(--line); }
+.inner thead th { border-top: 0; border-bottom: 2px solid var(--ink); font-weight: 700; color: var(--ink); }
+.inner td:first-child { font-weight: 700; width: 30%; padding-right: 14px; }
+.inner p.note { margin-top: 1.3em; }
+.fig { margin: 1.5em 0; background: var(--soft); padding: 30px 12px 14px; text-align: center; }
+.fig svg { display: block; margin: 0 auto; width: min(100%, 250px); height: auto; }
+.fig.fig-kanban svg { width: min(100%, 500px); }
+.fig figcaption { font-size: 13px; line-height: 1.45; color: var(--muted); margin-top: 16px; }
+
+/* ---------- obálka a obsah ---------- */
+.scroller.cover { display: flex; flex-direction: column; justify-content: center; }
+.cover { text-align: center; padding-block: 8px; }
+.appicon { width: 76px; height: 76px; border-radius: 17px; margin-bottom: 16px; box-shadow: 0 6px 16px -8px rgba(0,0,0,.5); }
+.cover-title { margin: 0; font-size: clamp(32px, 5.4vw, 46px); letter-spacing: -.02em; line-height: 1.05; font-weight: 700; }
+.cover-sub { margin: 10px 0 0; color: var(--muted); font-size: 19px; }
+.cover-rule { width: min(100%, 420px); border: 0; border-top: 2px solid var(--ink); margin: 20px auto 20px; }
+.cover-blocks { max-width: 420px; margin: 0 auto; text-align: left; display: grid; gap: 18px; }
+.cover-block { display: block; text-decoration: none; color: var(--ink); }
+.cover-block h2 { margin: 0 0 3px; font-size: 20px; font-weight: 700; }
+.cover-block p { margin: 0 0 3px; color: var(--muted); font-size: 15px; line-height: 1.45; }
+.cover-block span { color: var(--link); font-size: 14px; text-decoration: underline; }
+.cover-foot { margin: 24px 0 0; font-size: 13px; color: var(--muted); }
+.toc { list-style: none; padding: 0; margin: 0; }
+.toc li { margin: 0; padding: 0; }
+.toc a { display: flex; align-items: baseline; gap: 10px; padding: 11px 0; border-bottom: 1px solid var(--line); color: var(--ink) !important; text-decoration: none; font-size: 18px; }
+.toc a:hover .t { color: var(--link); text-decoration: underline; }
+.toc .d { flex: 1; border-bottom: 2px dotted var(--line); transform: translateY(-4px); }
+.toc .n { color: var(--muted); font-variant-numeric: tabular-nums; }
+
+/* ---------- ovládání ---------- */
+.controls { display: flex; align-items: center; justify-content: center; gap: 18px; margin-top: 22px; min-height: 46px; color: #e9e9ec; }
+.controls button { width: 44px; height: 44px; border-radius: 50%; border: 0; background: var(--btn); color: var(--btnink); display: grid; place-items: center; cursor: pointer; }
+.controls button:hover { filter: brightness(.94); }
+.controls button:disabled { opacity: .35; cursor: default; }
+.controls button:focus-visible, .inner a:focus-visible, .cover-block:focus-visible, .toc a:focus-visible { outline: 2px solid #8ec1ff; outline-offset: 2px; }
+.where { min-width: 190px; text-align: center; line-height: 1.25; }
+.where b { display: block; font-size: 14px; font-weight: 600; }
+.where span { font-size: 12px; color: #a9abb0; }
+
+@media (max-width: 560px) {
+  body { font-size: 16px; }
+  .stage { padding-inline: 12px; }
+  .scroller { padding: 30px 20px 52px; }
+      .pgno { left: 20px; }
+  .inner table { font-size: 14.5px; }
+  .inner td:first-child { width: auto; }
+  .controls { gap: 10px; }
+  .where { min-width: 150px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .js .leaf { transition: opacity .25s ease; }
+  .js .leaf.flipped { transform: none; opacity: 0; }
+  .js .leaf.turning .face.front::before, .js .leaf.cast .face.front::before { animation: none; }
+}
+
+</style>
+<div class="stage">
+<div class="book" id="book" aria-label="Uživatelská příručka RED FLOW">
+<section class="leaf" data-title="Obálka" role="group" aria-label="Strana 1 z 16: Obálka">
+<div class="face front"><div class="scroller cover"><div class="inner"><div class="cover">
+<img class="appicon" src="data:image/png;base64,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" alt="Ikona aplikace RED FLOW" width="76" height="76">
+<h1 class="cover-title">Uživatelská příručka</h1>
+<p class="cover-sub">RED FLOW pro iPhone, iPad a Mac</p>
+<hr class="cover-rule">
+<div class="cover-blocks">
+<a class="cover-block" href="#s4" data-go="3"><h2>Začínáme</h2><p>První projekt a první úkol za dvě minuty.</p><span>Strana 4</span></a>
+<a class="cover-block" href="#s5" data-go="4"><h2>Projekty a úkoly</h2><p>Stavy, termíny, upozornění, fáze, tabule a kalendář.</p><span>Strana 5</span></a>
+<a class="cover-block" href="#s15" data-go="14"><h2>Nastavení a pomoc</h2><p>Úrovně složitosti, zálohy, sdílení a řešení potíží.</p><span>Strana 15</span></a>
+</div>
+<p class="cover-foot">Stav k 8. říjnu 2026 · Listujte šipkami pod stránkou, tažením prstu nebo klávesami ← →</p>
+</div></div></div><button class="corner" type="button" data-step="1" aria-label="Další strana" tabindex="-1"></button></div>
+<div class="face back"></div>
+</section>
+<section class="leaf" data-title="Obsah" role="group" aria-label="Strana 2 z 16: Obsah">
+<div class="face front"><div class="scroller "><div class="inner"><h1 class="page-title">Obsah</h1><ol class="toc"><li><a href="#s3" data-go="2"><span class="t">Vítejte v aplikaci RED FLOW</span><span class="d"></span><span class="n">3</span></a></li>
+<li><a href="#s4" data-go="3"><span class="t">Začínáme</span><span class="d"></span><span class="n">4</span></a></li>
+<li><a href="#s5" data-go="4"><span class="t">Práce s projekty</span><span class="d"></span><span class="n">5</span></a></li>
+<li><a href="#s6" data-go="5"><span class="t">Úkoly a další položky</span><span class="d"></span><span class="n">6</span></a></li>
+<li><a href="#s7" data-go="6"><span class="t">Stavy, důležitost, termíny a upozornění</span><span class="d"></span><span class="n">7</span></a></li>
+<li><a href="#s8" data-go="7"><span class="t">Fáze úkolu</span><span class="d"></span><span class="n">8</span></a></li>
+<li><a href="#s9" data-go="8"><span class="t">Podúkoly, seznamy, závislosti, komentáře a přílohy</span><span class="d"></span><span class="n">9</span></a></li>
+<li><a href="#s10" data-go="9"><span class="t">Přehled, Úkoly, Tabule, Kalendář a Trendy</span><span class="d"></span><span class="n">10</span></a></li>
+<li><a href="#s11" data-go="10"><span class="t">Poznámky, zamčené poznámky, soubory a hlasové nahrávky</span><span class="d"></span><span class="n">11</span></a></li>
+<li><a href="#s12" data-go="11"><span class="t">Funkce AI</span><span class="d"></span><span class="n">12</span></a></li>
+<li><a href="#s13" data-go="12"><span class="t">Synchronizace, zálohy a obnova</span><span class="d"></span><span class="n">13</span></a></li>
+<li><a href="#s14" data-go="13"><span class="t">Sdílení projektu s dalšími lidmi</span><span class="d"></span><span class="n">14</span></a></li>
+<li><a href="#s15" data-go="14"><span class="t">Nastavení aplikace</span><span class="d"></span><span class="n">15</span></a></li>
+<li><a href="#s16" data-go="15"><span class="t">Řešení potíží</span><span class="d"></span><span class="n">16</span></a></li></ol></div></div><span class="pgno">2</span><button class="corner" type="button" data-step="1" aria-label="Další strana" tabindex="-1"></button></div>
+<div class="face back"></div>
+</section>
+<section class="leaf" data-title="Vítejte v aplikaci RED FLOW" role="group" aria-label="Strana 3 z 16: Vítejte v aplikaci RED FLOW">
+<div class="face front"><div class="scroller "><div class="inner"><h1 class="page-title" tabindex="-1">Vítejte v aplikaci RED FLOW</h1><p>RED FLOW je aplikace pro správu úkolů a projektů na iPhonu, iPadu a Macu. Vaše data se ukládají v iCloudu, takže je na všech svých zařízeních vidíte stejně.</p>
+<p>Aplikace pracuje se čtyřmi základními pojmy.</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Pojem</th>
+<th>Význam</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Projekt</td>
+<td>Větší záměr, například rekonstrukce, dovolená nebo zakázka. Má barvu, ikonu, typ, důležitost a volitelně termín.</td>
+</tr>
+<tr>
+<td>Položka</td>
+<td>Cokoli, co do projektu zapíšete: úkol, poznámka, schůzka, událost, milník, rozhodnutí, kontrolní seznam, odkaz, soubor, hlasová nahrávka nebo zamčená poznámka.</td>
+</tr>
+<tr>
+<td>Stav</td>
+<td>Určuje, jak je na tom úkol: od „K vyřízení“ po „Hotovo“. Stav mají pouze úkoly.</td>
+</tr>
+<tr>
+<td>Termín</td>
+<td>Den, případně i hodina, do kdy má být úkol hotový. Aplikace vás na něj umí upozornit.</td>
+</tr>
+</tbody>
+</table></div>
+<p>Hlavní části aplikace jsou <strong>Přehled</strong>, <strong>Projekty</strong>, <strong>Úkoly</strong>, <strong>Kalendář</strong>, <strong>Týmy</strong> a <strong>Nastavení</strong>. Na iPadu a Macu je najdete v postranním panelu, na iPhonu ve spodní liště.</p>
+<p class="note"><strong>Poznámka:</strong> Nová instalace začíná v úrovni složitosti <strong>Základní</strong>, která skrývá pokročilé funkce. Jak zobrazit víc, popisuje kapitola „Nastavení aplikace“.</p></div></div><span class="pgno">3</span><button class="corner" type="button" data-step="1" aria-label="Další strana" tabindex="-1"></button></div>
+<div class="face back"></div>
+</section>
+<section class="leaf" data-title="Začínáme" role="group" aria-label="Strana 4 z 16: Začínáme">
+<div class="face front"><div class="scroller "><div class="inner"><h1 class="page-title" tabindex="-1">Začínáme</h1><p>První projekt a první úkol založíte za pár klepnutí.</p>
+<h2>Vytvoření prvního projektu</h2>
+<div class="steps"><p class="step"><strong>Krok 1:</strong> Otevřete sekci <strong>Projekty</strong>.</p><p class="step"><strong>Krok 2:</strong> Klepněte na kulaté tlačítko plus vpravo dole.</p><p class="step"><strong>Krok 3:</strong> Vyberte <strong>Nový</strong>. Prázdný projekt je nejjednodušší volba; další možnosti jsou <strong>Ze šablony</strong> a <strong>AI z textu</strong>.</p><p class="step"><strong>Krok 4:</strong> Zadejte <strong>Název</strong>, například „Rekonstrukce koupelny“. Všechna ostatní pole jsou nepovinná.</p><p class="step"><strong>Krok 5:</strong> Klepněte na <strong>Uložit</strong>.</p></div>
+<figure class="fig fig-projects"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 520" role="img" aria-label="Seznam projektů v aplikaci RED FLOW" style="font-family:-apple-system,'SF Pro Text','Segoe UI',Roboto,Arial,sans-serif">
+<defs><clipPath id="scr-proj"><rect x="10" y="10" width="240" height="500" rx="30"/></clipPath></defs>
+<rect x="2" y="2" width="256" height="516" rx="38" fill="#0a0e13" stroke="#3a4656" stroke-width="2"/>
+<g clip-path="url(#scr-proj)"><rect x="10" y="10" width="240" height="500" fill="#141D28"/>
+<text x="24" y="70" font-size="20" fill="#EAF0F7" font-weight="700" text-anchor="start">Projekty</text>
+<circle cx="214" cy="63" r="3" fill="#8EA0B6"/>
+<circle cx="226" cy="63" r="3" fill="#8EA0B6"/>
+<circle cx="238" cy="63" r="3" fill="#8EA0B6"/>
+<rect x="22" y="88" width="106" height="110" rx="16" fill="#1F2C3D" />
+<circle cx="42" cy="110" r="11" fill="#F58C33"/>
+<g transform="translate(42 110)"><path d="M-6 0l4 4 8-9" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></g>
+<text x="34" y="144" font-size="11" fill="#EAF0F7" font-weight="700" text-anchor="start">Rekonstrukce</text>
+<text x="34" y="158" font-size="11" fill="#EAF0F7" font-weight="700" text-anchor="start">koupelny</text>
+<rect x="34" y="170" width="82" height="4" rx="2" fill="#2B3A4F" />
+<rect x="34" y="170" width="36" height="4" rx="2" fill="#F58C33" />
+<text x="34" y="188" font-size="9" fill="#8EA0B6" font-weight="400" text-anchor="start">4/9 úkolů</text>
+<rect x="136" y="88" width="106" height="110" rx="16" fill="#1F2C3D" />
+<circle cx="156" cy="110" r="11" fill="#2EADB5"/>
+<g transform="translate(156 110)"><path d="M-6 0l4 4 8-9" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></g>
+<text x="148" y="144" font-size="11" fill="#EAF0F7" font-weight="700" text-anchor="start">Dovolená</text>
+<text x="148" y="158" font-size="11" fill="#EAF0F7" font-weight="700" text-anchor="start">Chorvatsko</text>
+<rect x="148" y="170" width="82" height="4" rx="2" fill="#2B3A4F" />
+<rect x="148" y="170" width="57" height="4" rx="2" fill="#2EADB5" />
+<text x="148" y="188" font-size="9" fill="#8EA0B6" font-weight="400" text-anchor="start">7/10 úkolů</text>
+<rect x="22" y="208" width="106" height="110" rx="16" fill="#1F2C3D" />
+<circle cx="42" cy="230" r="11" fill="#3B82F6"/>
+<g transform="translate(42 230)"><path d="M-6 0l4 4 8-9" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></g>
+<text x="120" y="233" font-size="8" fill="#FF6B6B" font-weight="600" text-anchor="end">po termínu</text>
+<text x="34" y="264" font-size="11" fill="#EAF0F7" font-weight="700" text-anchor="start">Nový web</text>
+<text x="34" y="278" font-size="11" fill="#EAF0F7" font-weight="700" text-anchor="start">pro klienta</text>
+<rect x="34" y="290" width="82" height="4" rx="2" fill="#2B3A4F" />
+<rect x="34" y="290" width="14" height="4" rx="2" fill="#3B82F6" />
+<text x="34" y="308" font-size="9" fill="#8EA0B6" font-weight="400" text-anchor="start">2/12 úkolů</text>
+<rect x="136" y="208" width="106" height="110" rx="16" fill="#1F2C3D" />
+<circle cx="156" cy="230" r="11" fill="#EB4D99"/>
+<g transform="translate(156 230)"><path d="M-6 0l4 4 8-9" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></g>
+<text x="148" y="264" font-size="11" fill="#EAF0F7" font-weight="700" text-anchor="start">Narozeniny</text>
+<text x="148" y="278" font-size="11" fill="#EAF0F7" font-weight="700" text-anchor="start">Anny</text>
+<rect x="148" y="290" width="82" height="4" rx="2" fill="#2B3A4F" />
+<rect x="148" y="290" width="68" height="4" rx="2" fill="#EB4D99" />
+<text x="148" y="308" font-size="9" fill="#8EA0B6" font-weight="400" text-anchor="start">5/6 úkolů</text>
+<rect x="22" y="328" width="106" height="110" rx="16" fill="#1F2C3D" />
+<circle cx="42" cy="350" r="11" fill="#944FDE"/>
+<g transform="translate(42 350)"><path d="M-6 0l4 4 8-9" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></g>
+<text x="34" y="384" font-size="11" fill="#EAF0F7" font-weight="700" text-anchor="start">Daňové</text>
+<text x="34" y="398" font-size="11" fill="#EAF0F7" font-weight="700" text-anchor="start">přiznání</text>
+<rect x="34" y="410" width="82" height="4" rx="2" fill="#2B3A4F" />
+<rect x="34" y="410" width="16" height="4" rx="2" fill="#944FDE" />
+<text x="34" y="428" font-size="9" fill="#8EA0B6" font-weight="400" text-anchor="start">1/5 úkolů</text>
+<rect x="136" y="328" width="106" height="110" rx="16" fill="#1F2C3D" />
+<circle cx="156" cy="350" r="11" fill="#3DB86B"/>
+<g transform="translate(156 350)"><path d="M-6 0l4 4 8-9" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></g>
+<text x="148" y="384" font-size="11" fill="#EAF0F7" font-weight="700" text-anchor="start">Zahrada</text>
+<text x="148" y="398" font-size="11" fill="#EAF0F7" font-weight="700" text-anchor="start">jaro</text>
+<rect x="148" y="410" width="82" height="4" rx="2" fill="#2B3A4F" />
+<rect x="148" y="410" width="31" height="4" rx="2" fill="#3DB86B" />
+<text x="148" y="428" font-size="9" fill="#8EA0B6" font-weight="400" text-anchor="start">3/8 úkolů</text>
+<circle cx="206" cy="458" r="25" fill="#D32F2F"/>
+<path d="M206 447v22M195 458h22" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+<rect x="95" y="17" width="70" height="20" rx="10" fill="#000"/></g></svg><figcaption>Seznam projektů: každý projekt je barevná karta s ukazatelem průběhu. <em>Ilustrace.</em></figcaption></figure>
+<h2>Přidání prvního úkolu</h2>
+<div class="steps"><p class="step"><strong>Krok 1:</strong> Otevřete projekt a klepněte na <strong>Přidat první položku</strong>.</p><p class="step"><strong>Krok 2:</strong> Do pole <strong>Rychlé zadání úkolu…</strong> napište třeba „Zavolat instalatérovi zítra v 17“.</p><p class="step"><strong>Krok 3:</strong> Klepněte na šipku vpravo od pole, nebo stiskněte Enter.</p></div>
+<p>Aplikace rozpozná termín v textu, nastaví ho a z názvu ho odstraní.</p>
+<figure class="fig fig-quickadd"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 520" role="img" aria-label="Rychlé zadání úkolu s rozpoznaným termínem" style="font-family:-apple-system,'SF Pro Text','Segoe UI',Roboto,Arial,sans-serif">
+<defs><clipPath id="scr-quick"><rect x="10" y="10" width="240" height="500" rx="30"/></clipPath></defs>
+<rect x="2" y="2" width="256" height="516" rx="38" fill="#0a0e13" stroke="#3a4656" stroke-width="2"/>
+<g clip-path="url(#scr-quick)"><rect x="10" y="10" width="240" height="500" fill="#141D28"/>
+<text x="24" y="70" font-size="15" fill="#8EA0B6" font-weight="700" text-anchor="start">Rekonstrukce koupelny</text>
+<rect x="22" y="84" width="216" height="28" rx="10" fill="#18232F" />
+<rect x="22" y="120" width="216" height="28" rx="10" fill="#18232F" />
+<rect x="22" y="156" width="216" height="28" rx="10" fill="#18232F" />
+<rect x="10" y="118" width="240" height="392" rx="26" fill="#1F2C3D" />
+<rect x="110" y="126" width="40" height="4" rx="2" fill="#2B3A4F" />
+<text x="130" y="152" font-size="13" fill="#EAF0F7" font-weight="700" text-anchor="middle">Nová položka</text>
+<rect x="19" y="168" width="44" height="44" rx="13" fill="#3B82F6" />
+<g transform="translate(41 190)"><path d="M-6 0l4 4 8-9" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></g>
+<text x="41" y="226" font-size="9" fill="#8EA0B6" font-weight="500" text-anchor="middle">Úkol</text>
+<rect x="78" y="168" width="44" height="44" rx="13" fill="#F58C33" />
+<g transform="translate(100 190)"><path d="M-6 -5h12M-6 0h12M-6 5h7" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></g>
+<text x="100" y="226" font-size="9" fill="#8EA0B6" font-weight="500" text-anchor="middle">Poznámka</text>
+<rect x="137" y="168" width="44" height="44" rx="13" fill="#944FDE" />
+<g transform="translate(159 190)"><circle cx="-3" cy="-2" r="3" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="4" cy="-1" r="2.4" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M-8 7c0-4 10-4 10 0M2 5c1-3 6-3 7 0" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></g>
+<text x="159" y="226" font-size="9" fill="#8EA0B6" font-weight="500" text-anchor="middle">Schůzka</text>
+<rect x="196" y="168" width="44" height="44" rx="13" fill="#D32F2F" />
+<g transform="translate(218 190)"><rect x="-3" y="-8" width="6" height="11" rx="3" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M-7 0a7 7 0 0 0 14 0M0 7v3" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></g>
+<text x="218" y="226" font-size="9" fill="#8EA0B6" font-weight="500" text-anchor="middle">Hlas</text>
+<rect x="19" y="238" width="44" height="44" rx="13" fill="#A2845E" />
+<g transform="translate(41 260)"><rect x="-8" y="-6" width="16" height="12" rx="2" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="-3" cy="-2" r="1.5" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M-8 5l5-4 4 3 3-2 5 3" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></g>
+<text x="41" y="296" font-size="9" fill="#8EA0B6" font-weight="500" text-anchor="middle">Foto</text>
+<rect x="78" y="238" width="44" height="44" rx="13" fill="#2EADB5" />
+<g transform="translate(100 260)"><rect x="-8" y="-7" width="16" height="15" rx="2" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M-8 -2h16M-4 -9v4M4 -9v4" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></g>
+<text x="100" y="296" font-size="9" fill="#8EA0B6" font-weight="500" text-anchor="middle">Událost</text>
+<rect x="137" y="238" width="44" height="44" rx="13" fill="#EB4D99" />
+<g transform="translate(159 260)"><path d="M-5 9V-8M-5 -8h12l-3 4 3 4h-12" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></g>
+<text x="159" y="296" font-size="9" fill="#8EA0B6" font-weight="500" text-anchor="middle">Milník</text>
+<rect x="196" y="238" width="44" height="44" rx="13" fill="#5856D6" />
+<g transform="translate(218 260)"><path d="M-2 3l4-6M-5 -1a4 4 0 0 1 0-6l2-2a4 4 0 0 1 6 0M5 1a4 4 0 0 1 0 6l-2 2a4 4 0 0 1-6 0" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></g>
+<text x="218" y="296" font-size="9" fill="#8EA0B6" font-weight="500" text-anchor="middle">Odkaz</text>
+<rect x="19" y="308" width="44" height="44" rx="13" fill="#3DB86B" />
+<g transform="translate(41 330)"><circle cx="0" cy="0" r="8" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M-4 0l3 3 5-6" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></g>
+<text x="41" y="366" font-size="9" fill="#8EA0B6" font-weight="500" text-anchor="middle">Rozhodnutí</text>
+<rect x="78" y="308" width="44" height="44" rx="13" fill="#32ADE6" />
+<g transform="translate(100 330)"><path d="M-8 -5h2M-8 0h2M-8 5h2M-3 -5h10M-3 0h10M-3 5h10" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></g>
+<text x="100" y="366" font-size="9" fill="#8EA0B6" font-weight="500" text-anchor="middle">Seznam</text>
+<rect x="137" y="308" width="44" height="44" rx="13" fill="#8E8E93" />
+<g transform="translate(159 330)"><rect x="-6" y="-1" width="12" height="9" rx="2" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M-3 -1v-3a3 3 0 0 1 6 0v3" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></g>
+<text x="159" y="366" font-size="9" fill="#8EA0B6" font-weight="500" text-anchor="middle">Zámek</text>
+<rect x="20" y="338" width="220" height="40" rx="14" fill="#141D28" />
+<path d="M36 351v14M29 358h14" stroke="#D32F2F" stroke-width="2" stroke-linecap="round"/>
+<text x="52" y="363" font-size="10.5" fill="#EAF0F7" font-weight="400" text-anchor="start">Zavolat instalatérovi zítra v 17</text>
+<circle cx="220" cy="358" r="12" fill="#3B82F6"/>
+<path d="M220 364v-12M215 357l5-5 5 5" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="24" y="390" width="212" height="22" rx="8" fill="#D32F2F" fill-opacity=".14"/>
+<rect x="32" y="396" width="10" height="10" rx="2" fill="none" stroke="#D32F2F" stroke-width="1.4"/>
+<text x="48" y="405" font-size="9" fill="#FF8A8A" font-weight="600" text-anchor="start">Rozpoznaný termín: 9. 10. 2026 17:00</text>
+<text x="230" y="405" font-size="9" fill="#8EA0B6" font-weight="500" text-anchor="end">Ignorovat</text>
+<rect x="10" y="424" width="240" height="86" rx="0" fill="#0F1620" />
+<rect x="16" y="432" width="19" height="19" rx="4" fill="#2A3647" />
+<rect x="39" y="432" width="19" height="19" rx="4" fill="#2A3647" />
+<rect x="62" y="432" width="19" height="19" rx="4" fill="#2A3647" />
+<rect x="85" y="432" width="19" height="19" rx="4" fill="#2A3647" />
+<rect x="108" y="432" width="19" height="19" rx="4" fill="#2A3647" />
+<rect x="131" y="432" width="19" height="19" rx="4" fill="#2A3647" />
+<rect x="154" y="432" width="19" height="19" rx="4" fill="#2A3647" />
+<rect x="177" y="432" width="19" height="19" rx="4" fill="#2A3647" />
+<rect x="200" y="432" width="19" height="19" rx="4" fill="#2A3647" />
+<rect x="223" y="432" width="19" height="19" rx="4" fill="#2A3647" />
+<rect x="27" y="456" width="19" height="19" rx="4" fill="#2A3647" />
+<rect x="50" y="456" width="19" height="19" rx="4" fill="#2A3647" />
+<rect x="73" y="456" width="19" height="19" rx="4" fill="#2A3647" />
+<rect x="96" y="456" width="19" height="19" rx="4" fill="#2A3647" />
+<rect x="119" y="456" width="19" height="19" rx="4" fill="#2A3647" />
+<rect x="142" y="456" width="19" height="19" rx="4" fill="#2A3647" />
+<rect x="165" y="456" width="19" height="19" rx="4" fill="#2A3647" />
+<rect x="188" y="456" width="19" height="19" rx="4" fill="#2A3647" />
+<rect x="211" y="456" width="19" height="19" rx="4" fill="#2A3647" />
+<rect x="38" y="480" width="19" height="19" rx="4" fill="#2A3647" />
+<rect x="61" y="480" width="19" height="19" rx="4" fill="#2A3647" />
+<rect x="84" y="480" width="19" height="19" rx="4" fill="#2A3647" />
+<rect x="107" y="480" width="19" height="19" rx="4" fill="#2A3647" />
+<rect x="130" y="480" width="19" height="19" rx="4" fill="#2A3647" />
+<rect x="153" y="480" width="19" height="19" rx="4" fill="#2A3647" />
+<rect x="176" y="480" width="19" height="19" rx="4" fill="#2A3647" />
+<rect x="199" y="480" width="19" height="19" rx="4" fill="#2A3647" />
+<rect x="95" y="17" width="70" height="20" rx="10" fill="#000"/></g></svg><figcaption>Rychlé zadání: aplikace v textu pozná termín a nabídne ho k potvrzení. <em>Ilustrace.</em></figcaption></figure>
+<h2>Dokončení úkolu</h2>
+<p>Na řádku úkolu potáhněte prstem doprava. Úkol se označí jako <strong>Hotovo</strong>. Stav lze změnit i klepnutím na odznak stavu u úkolu, který otevře nabídku všech stavů.</p>
+<p class="note"><strong>Tip:</strong> Nic nezkazíte omylem. Smazané projekty a položky zůstávají v <strong>Koši</strong> (<strong>Nastavení</strong> &gt; <strong>Koš</strong>), odkud je lze obnovit.</p></div></div><span class="pgno">4</span><button class="corner" type="button" data-step="1" aria-label="Další strana" tabindex="-1"></button></div>
+<div class="face back"></div>
+</section>
+<section class="leaf" data-title="Práce s projekty" role="group" aria-label="Strana 5 z 16: Práce s projekty">
+<div class="face front"><div class="scroller "><div class="inner"><h1 class="page-title" tabindex="-1">Práce s projekty</h1><p>Seznam projektů je první obrazovka, kterou uvidíte. Každý projekt je karta s barvou, ikonou, názvem a ukazatelem průběhu, který ukazuje podíl hotových úkolů. Červený odznak na kartě udává počet změn od posledního otevření projektu.</p>
+<h2>Vytvoření projektu</h2>
+<div class="steps"><p class="step"><strong>Krok 1:</strong> V sekci <strong>Projekty</strong> klepněte na kulaté tlačítko plus vpravo dole.</p><p class="step"><strong>Krok 2:</strong> Vyberte, jak chcete začít: <strong>Nový</strong> (prázdný projekt), <strong>Ze šablony</strong> (předpřipravené úkoly) nebo <strong>AI z textu</strong> (z vloženého e-mailu nebo zápisu se sestaví návrh projektu).</p><p class="step"><strong>Krok 3:</strong> Vyplňte formulář podle níže uvedené tabulky.</p><p class="step"><strong>Krok 4:</strong> Klepněte na <strong>Uložit</strong>.</p></div>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Pole</th>
+<th>Popis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Název</td>
+<td>Povinný údaj.</td>
+</tr>
+<tr>
+<td>Popis</td>
+<td>Krátký popis projektu. Nepovinný údaj.</td>
+</tr>
+<tr>
+<td>Typ</td>
+<td>Skupina, například Pracovní, Soukromé nebo Děti. Typ určuje barvu karty. Vlastní typy vytvoříte volbou <strong>Spravovat typy…</strong></td>
+</tr>
+<tr>
+<td>Barva karty</td>
+<td>Vlastní barva. Nabízí se, jen když projekt nemá typ.</td>
+</tr>
+<tr>
+<td>Ikona / obrázek</td>
+<td>Symbol nebo vlastní obrázek z alba či souboru. Obrázek má přednost před ikonou a lze ho přiblížit a posunout.</td>
+</tr>
+<tr>
+<td>Termín</td>
+<td>Zapne se volbou <strong>Nastavit termín dokončení</strong>.</td>
+</tr>
+<tr>
+<td>Důležitost</td>
+<td>Nízká, Normální nebo Vysoká.</td>
+</tr>
+</tbody>
+</table></div>
+<h2>Změna vzhledu a nastavení projektu</h2>
+<p>Otevřete projekt a klepněte na ikonu <strong>Nastavení projektu</strong> (posuvníky). Tam můžete kdykoli změnit typ, vzhled, termín a důležitost projektu, přidat soubory a spravovat sdílení.</p>
+<h2>Řazení projektů</h2>
+<p>Klepněte na ikonu tří čárek v záhlaví seznamu a vyberte řazení podle nejnovějších, názvu, průběhu nebo důležitosti. Směr řazení (vzestupně, sestupně) zvolíte šipkou vedle ní.</p>
+<h2>Použití šablony</h2>
+<p>Klepněte na ikonu dvou listů v záhlaví seznamu. Vestavěné šablony jsou Natáčení / video, Nová epizoda / díl, Událost / akce, Web / aplikace, Osobní cíl a Prázdný projekt. Ze šablony vznikne projekt s předpřipravenými úkoly; u některých šablon se termíny počítají od dneška.</p>
+<p>Vlastní šablonu vytvoříte z hotového projektu: podržte kartu projektu (na Macu klepněte pravým tlačítkem) a vyberte <strong>Uložit jako šablonu</strong>.</p>
+<h2>Další akce s projektem</h2>
+<p>Podržte kartu projektu (na Macu klepněte pravým tlačítkem). Nabídka obsahuje:</p>
+<ul>
+<li><strong>Exportovat do souboru</strong> – uloží celý projekt do souboru, který můžete poslat jinému uživateli RED FLOW.</li>
+<li><strong>Uložit jako šablonu</strong> – vytvoří z projektu vlastní šablonu.</li>
+<li><strong>Duplikovat projekt</strong> – vytvoří kopii projektu.</li>
+<li><strong>Smazat projekt</strong> – přesune projekt do Koše.</li>
+</ul>
+<p>Soubor s projektem načtete ikonou šipky dolů v záhlaví seznamu (<strong>Importovat projekt</strong>).</p>
+<p class="note"><strong>Tip:</strong> Smazaný projekt můžete obnovit v <strong>Nastavení</strong> &gt; <strong>Koš</strong>.</p></div></div><span class="pgno">5</span><button class="corner" type="button" data-step="1" aria-label="Další strana" tabindex="-1"></button></div>
+<div class="face back"></div>
+</section>
+<section class="leaf" data-title="Úkoly a další položky" role="group" aria-label="Strana 6 z 16: Úkoly a další položky">
+<div class="face front"><div class="scroller "><div class="inner"><h1 class="page-title" tabindex="-1">Úkoly a další položky</h1><p>Do projektu přidáváte položky kulatým plusem vpravo dole. Otevře se výběr typu položky a pod ním pole <strong>Rychlé zadání úkolu…</strong>.</p>
+<h2>Rychlé zadání</h2>
+<p>Rychlé zadání je nejrychlejší cesta: napište název a potvrďte. Pokud text obsahuje termín, aplikace ho rozpozná a ukáže řádek „Rozpoznaný termín“. Když se spletla, klepněte na <strong>Ignorovat</strong> a úkol se uloží s původním textem. Tlačítko s jiskrou (jen když je zapnutá AI) z věty vytvoří jeden nebo více úkolů.</p>
+<p>Takto aplikace rozumí termínům (česky i anglicky):</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Napíšete</th>
+<th>Co se stane</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Zavolat Karlovi zítra v 17</td>
+<td>Termín zítra v 17:00, název „Zavolat Karlovi“</td>
+</tr>
+<tr>
+<td>Odevzdat zprávu v pátek</td>
+<td>Nejbližší pátek (po dnešku), 9:00</td>
+</tr>
+<tr>
+<td>Porada 15.10. 14:30</td>
+<td>Datum a čas podle zápisu</td>
+</tr>
+<tr>
+<td>Za 3 dny zkontrolovat objednávku</td>
+<td>O tři dny od dneška, 9:00</td>
+</tr>
+<tr>
+<td>Dnes večer proběhnout služby</td>
+<td>Dnes večer</td>
+</tr>
+</tbody>
+</table></div>
+<p>Když napíšete jen den bez hodiny, nastaví se 9:00; když jen dnes bez hodiny, nejbližší celá hodina. Rozpoznávání funguje i v plném formuláři u pole <strong>Název</strong>.</p>
+<h2>Typy položek</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Typ</th>
+<th>Pro co</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Úkol</td>
+<td>Jediný typ se stavem, podúkoly a fázemi; výchozí volba</td>
+</tr>
+<tr>
+<td>Poznámka</td>
+<td>Volný text</td>
+</tr>
+<tr>
+<td>Zápis ze schůzky (Schůzka)</td>
+<td>Účastníci, čas, zápis; volitelně i do kalendáře v telefonu</td>
+</tr>
+<tr>
+<td>Událost</td>
+<td>Datum a čas; volitelně i do kalendáře v telefonu</td>
+</tr>
+<tr>
+<td>Milník</td>
+<td>Důležitý bod projektu</td>
+</tr>
+<tr>
+<td>Rozhodnutí</td>
+<td>Co se rozhodlo a proč</td>
+</tr>
+<tr>
+<td>Kontrolní seznam (Seznam)</td>
+<td>Seznam k odfajkování</td>
+</tr>
+<tr>
+<td>Odkaz</td>
+<td>Adresa (URL), kterou otevřete klepnutím</td>
+</tr>
+<tr>
+<td>Soubor / foto (Foto)</td>
+<td>Obrázek nebo soubor; fotku lze pořídit i fotoaparátem (iPhone, iPad)</td>
+</tr>
+<tr>
+<td>Hlasová poznámka (Hlas)</td>
+<td>Nahrávka s možností přepisu</td>
+</tr>
+<tr>
+<td>Zamčená poznámka (Zámek)</td>
+<td>Šifrovaný text, otevře se Face ID, Touch ID nebo heslem zařízení</td>
+</tr>
+</tbody>
+</table></div>
+<h2>Detail úkolu</h2>
+<p>Detail úkolu otevřete klepnutím na řádek. Najdete tam karty Typ, Stav, Fáze, Důležitost, Připomínka, Datum, Kontakty, Štítky a další. Pod nimi jsou pole <strong>Průběh</strong> (jak práce postupuje) a <strong>Způsob vyřešení</strong> (jak byl úkol vyřešen), pak podúkoly, přílohy a komentáře.</p>
+<p>Pořadí položek v projektu můžete změnit ručně (tlačítko <strong>Upravit</strong> vlevo nahoře) nebo je řadit podle data vytvoření či termínu.</p></div></div><span class="pgno">6</span><button class="corner" type="button" data-step="1" aria-label="Další strana" tabindex="-1"></button></div>
+<div class="face back"></div>
+</section>
+<section class="leaf" data-title="Stavy, důležitost, termíny a upozornění" role="group" aria-label="Strana 7 z 16: Stavy, důležitost, termíny a upozornění">
+<div class="face front"><div class="scroller "><div class="inner"><h1 class="page-title" tabindex="-1">Stavy, důležitost, termíny a upozornění</h1><h2>Změna stavu úkolu</h2>
+<p>Úkol může mít jeden ze šesti stavů.</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Stav</th>
+<th>Význam</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>K vyřízení</td>
+<td>Úkol čeká na zahájení.</td>
+</tr>
+<tr>
+<td>Probíhá</td>
+<td>Pracujete na něm.</td>
+</tr>
+<tr>
+<td>Čeká</td>
+<td>Čeká se na něco nebo na někoho.</td>
+</tr>
+<tr>
+<td>Zablokováno</td>
+<td>Nelze pokračovat, dokud se nevyřeší překážka.</td>
+</tr>
+<tr>
+<td>Hotovo</td>
+<td>Úkol je dokončen.</td>
+</tr>
+<tr>
+<td>Zrušeno</td>
+<td>Úkol už není potřeba.</td>
+</tr>
+</tbody>
+</table></div>
+<p>Stav změníte jedním z těchto způsobů:</p>
+<ul>
+<li>Klepněte na odznak stavu u úkolu a vyberte nový stav.</li>
+<li>Potáhněte řádek prstem doprava (Hotovo) nebo doleva (Probíhá). U hotového úkolu potáhnutí doprava vrátí stav K vyřízení.</li>
+<li>Podržte řádek (na Macu klepněte pravým tlačítkem) a v nabídce <strong>Změnit stav</strong> vyberte stav.</li>
+<li>Otevřete detail úkolu a použijte kartu <strong>Stav</strong>.</li>
+</ul>
+<p class="note"><strong>Poznámka:</strong> Stav mají pouze úkoly. Ostatní typy položek (poznámka, schůzka, odkaz …) stav nemají.</p>
+<h2>Nastavení důležitosti</h2>
+<p>V detailu úkolu vyberte na kartě <strong>Důležitost</strong> hodnotu Nízká, Normální nebo Vysoká. Podle důležitosti lze úkoly řadit a v Tabuli zobrazit.</p>
+<h2>Nastavení termínu</h2>
+<div class="steps"><p class="step"><strong>Krok 1:</strong> Otevřete detail úkolu.</p><p class="step"><strong>Krok 2:</strong> Na kartě <strong>Připomínka</strong> (u ostatních položek na kartě <strong>Datum</strong>) klepněte na <strong>Přidat připomínku</strong> (<strong>Přidat datum</strong>).</p><p class="step"><strong>Krok 3:</strong> Vyberte den a čas.</p></div>
+<p>Termín po splatnosti se zobrazí červeně.</p>
+<h2>Nastavení upozornění</h2>
+<p>U položky s termínem vyberte v nabídce <strong>Upozornit</strong>, kdy má upozornění dojít: v čase termínu, 5, 15 nebo 30 minut předem, hodinu, 2 hodiny, den nebo týdnem předem, případně vůbec. Pod nabídkou se zobrazí přesný čas, kdy upozornění přijde.</p>
+<p>Opakování úkolu nastavíte v nabídce <strong>Opakování</strong>: Neopakovat, Denně, Týdně nebo Měsíčně.</p>
+<p>Přímo v upozornění můžete úkol označit jako hotový nebo ho odložit o hodinu či na zítřek na 9:00.</p>
+<h2>Denní přehled</h2>
+<p>V <strong>Nastavení</strong> &gt; <strong>Notifikace</strong> zapněte <strong>Denní přehled</strong> a nastavte čas mezi 5:00 a 12:00. Každé ráno vám přijde souhrn toho, co vás ten den čeká.</p>
+<p class="note"><strong>Poznámka:</strong> Systém dovolí naplánovat nejvýše 64 upozornění najednou. Pokud je jich víc, aplikace naplánuje ta nejbližší a počet zbylých uvede v <strong>Nastavení</strong> &gt; <strong>Notifikace</strong>.</p></div></div><span class="pgno">7</span><button class="corner" type="button" data-step="1" aria-label="Další strana" tabindex="-1"></button></div>
+<div class="face back"></div>
+</section>
+<section class="leaf" data-title="Fáze úkolu" role="group" aria-label="Strana 8 z 16: Fáze úkolu">
+<div class="face front"><div class="scroller "><div class="inner"><h1 class="page-title" tabindex="-1">Fáze úkolu</h1><p>Fáze popisují průběh úkolu, který má několik kroků, například nákup od výběru po doručení. Fáze jsou nezávislé na stavu úkolu: úkol může mít stav Probíhá a přitom být ve fázi „Objednáno“. RED FLOW si zapamatuje, kdy úkol do každé fáze vstoupil, a zobrazí časovou osu.</p>
+<figure class="fig fig-phases"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 520" role="img" aria-label="Fáze v detailu úkolu" style="font-family:-apple-system,'SF Pro Text','Segoe UI',Roboto,Arial,sans-serif">
+<defs><clipPath id="scr-phase"><rect x="10" y="10" width="240" height="500" rx="30"/></clipPath></defs>
+<rect x="2" y="2" width="256" height="516" rx="38" fill="#0a0e13" stroke="#3a4656" stroke-width="2"/>
+<g clip-path="url(#scr-phase)"><rect x="10" y="10" width="240" height="500" fill="#141D28"/>
+<path d="M26 66l-6 6 6 6" stroke="#3B82F6" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="130" y="76" font-size="13" fill="#EAF0F7" font-weight="700" text-anchor="middle">Objednat dlaždice</text>
+<rect x="18" y="92" width="224" height="70" rx="16" fill="#1F2C3D" />
+<text x="30" y="112" font-size="10" fill="#8EA0B6" font-weight="600" text-anchor="start">Stav</text>
+<rect x="30" y="122" width="66" height="28" rx="14" fill="#141D28" />
+<text x="63.0" y="140" font-size="9.5" fill="#8EA0B6" font-weight="600" text-anchor="middle">K vyřízení</text>
+<rect x="102" y="122" width="58" height="28" rx="14" fill="#3B82F6" />
+<text x="131.0" y="140" font-size="9.5" fill="#fff" font-weight="600" text-anchor="middle">Probíhá</text>
+<rect x="166" y="122" width="58" height="28" rx="14" fill="#141D28" />
+<text x="195.0" y="140" font-size="9.5" fill="#8EA0B6" font-weight="600" text-anchor="middle">Čeká</text>
+<rect x="18" y="174" width="224" height="262" rx="16" fill="#1F2C3D" />
+<text x="30" y="194" font-size="10" fill="#8EA0B6" font-weight="600" text-anchor="start">Fáze</text>
+<text x="230" y="194" font-size="10" fill="#8EA0B6" font-weight="500" text-anchor="end">Koupě</text>
+<line x1="38" y1="228" x2="38" y2="256" stroke="#3B82F6" stroke-width="2"/>
+<circle cx="38" cy="220" r="8" fill="#3B82F6"/><path d="M34 220l3 3 5-6" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="56" y="219" font-size="11.5" fill="#EAF0F7" font-weight="500" text-anchor="start">Výběr</text>
+<text x="56" y="232" font-size="9" fill="#8EA0B6" font-weight="400" text-anchor="start">3. 10. 2026 · 2 dny</text>
+<line x1="38" y1="272" x2="38" y2="300" stroke="#3B82F6" stroke-width="2"/>
+<circle cx="38" cy="264" r="8" fill="#3B82F6"/><path d="M34 264l3 3 5-6" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="56" y="263" font-size="11.5" fill="#EAF0F7" font-weight="500" text-anchor="start">Porovnání nabídek</text>
+<text x="56" y="276" font-size="9" fill="#8EA0B6" font-weight="400" text-anchor="start">5. 10. 2026 · 3 dny</text>
+<line x1="38" y1="316" x2="38" y2="344" stroke="#2B3A4F" stroke-width="2"/>
+<circle cx="38" cy="308" r="8" fill="none" stroke="#3B82F6" stroke-width="2"/><circle cx="38" cy="308" r="4" fill="#3B82F6"/>
+<text x="56" y="307" font-size="11.5" fill="#EAF0F7" font-weight="700" text-anchor="start">Objednáno</text>
+<text x="56" y="320" font-size="9" fill="#8EA0B6" font-weight="400" text-anchor="start">8. 10. 2026 · méně než den</text>
+<circle cx="38" cy="352" r="8" fill="none" stroke="#8EA0B6" stroke-width="1.6"/>
+<text x="56" y="355" font-size="11.5" fill="#8EA0B6" font-weight="500" text-anchor="start">Doručeno</text>
+<rect x="30" y="388" width="56" height="26" rx="13" fill="none" stroke="#3B82F6" stroke-width="1.5" />
+<text x="58" y="405" font-size="10" fill="#3B82F6" font-weight="600" text-anchor="middle">Zpět</text>
+<rect x="94" y="388" width="92" height="26" rx="13" fill="#3B82F6" />
+<text x="140" y="405" font-size="10" fill="#fff" font-weight="600" text-anchor="middle">Další fáze</text>
+<text x="222" y="426" font-size="9" fill="#8EA0B6" font-weight="500" text-anchor="end">Upravit ···</text>
+<rect x="95" y="17" width="70" height="20" rx="10" fill="#000"/></g></svg><figcaption>Karta Fáze v detailu úkolu: dokončené fáze s datem a dobou trvání, aktuální fáze zvýrazněná. <em>Ilustrace.</em></figcaption></figure>
+<h2>Zapnutí fází u úkolu</h2>
+<div class="steps"><p class="step"><strong>Krok 1:</strong> Otevřete detail úkolu.</p><p class="step"><strong>Krok 2:</strong> Na kartě <strong>Fáze</strong> klepněte na <strong>Zapnout fáze</strong>.</p><p class="step"><strong>Krok 3:</strong> Vyberte sadu fází. Vlastní sadu vytvoříte v části <strong>Vlastní sada</strong> (viz níže).</p></div>
+<p>Připravené sady:</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Sada</th>
+<th>Fáze</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Koupě</td>
+<td>Výběr → Porovnání nabídek → Objednáno → Doručeno</td>
+</tr>
+<tr>
+<td>Schvalování</td>
+<td>Návrh → Ke schválení → Schváleno → Realizace</td>
+</tr>
+<tr>
+<td>Objednávka a doručení</td>
+<td>Poptávka → Objednáno → Odesláno → Převzato</td>
+</tr>
+</tbody>
+</table></div>
+<h2>Posun úkolu do další fáze</h2>
+<p>Na kartě <strong>Fáze</strong> klepněte na <strong>Další fáze</strong>, nebo na <strong>Zpět</strong>, když se úkol vrátil. Můžete také klepnout přímo na název libovolné fáze. U dokončených fází uvidíte datum vstupu a dobu trvání, u aktuální fáze zatím probíhající dobu. V seznamu úkolů se u úkolu zobrazí odznak s aktuální fází.</p>
+<h2>Vytvoření vlastní sady fází</h2>
+<div class="steps"><p class="step"><strong>Krok 1:</strong> Na kartě <strong>Fáze</strong> klepněte na <strong>Zapnout fáze</strong> (nebo na <strong>Upravit</strong> &gt; <strong>Změnit sadu fází…</strong>).</p><p class="step"><strong>Krok 2:</strong> V části <strong>Vlastní sada</strong> zadejte <strong>Název sady</strong>.</p><p class="step"><strong>Krok 3:</strong> Do pole pod ním napište fáze, každou na nový řádek.</p><p class="step"><strong>Krok 4:</strong> Klepněte na <strong>Uložit sadu a použít</strong>.</p></div>
+<p>Vlastní sada se objeví v seznamu <strong>Moje sady</strong>. Odstraníte ji potažením řádku (na Macu klepnutím pravým tlačítkem a volbou <strong>Smazat sadu</strong>).</p>
+<h2>Vypnutí fází</h2>
+<p>Na kartě <strong>Fáze</strong> klepněte na <strong>Upravit</strong> a vyberte <strong>Vypnout fáze</strong>.</p>
+<p class="note"><strong>Poznámka:</strong> Vlastní sady se ukládají jen na zařízení, na kterém jste je vytvořili. Změny fáze se zapisují do historie změn. U sdílených projektů se fáze zatím do sdílené kopie nepřenášejí.</p></div></div><span class="pgno">8</span><button class="corner" type="button" data-step="1" aria-label="Další strana" tabindex="-1"></button></div>
+<div class="face back"></div>
+</section>
+<section class="leaf" data-title="Podúkoly, seznamy, závislosti, komentáře a přílohy" role="group" aria-label="Strana 9 z 16: Podúkoly, seznamy, závislosti, komentáře a přílohy">
+<div class="face front"><div class="scroller "><div class="inner"><h1 class="page-title" tabindex="-1">Podúkoly, seznamy, závislosti, komentáře a přílohy</h1><h2>Přidání podúkolů</h2>
+<div class="steps"><p class="step"><strong>Krok 1:</strong> Otevřete detail úkolu.</p><p class="step"><strong>Krok 2:</strong> V části <strong>Podúkoly</strong> napište název do pole <strong>Přidat podúkol…</strong> a stiskněte Enter nebo klepněte na plus.</p><p class="step"><strong>Krok 3:</strong> Hotové kroky odfajkněte. V záhlaví se zobrazuje počet odfajknutých kroků, například 2/5.</p></div>
+<p>Po odfajknutí posledního podúkolu se hlavní úkol automaticky přepne na <strong>Hotovo</strong>. Podúkol může mít vlastní termín a upozornění.</p>
+<h2>Kontrolní seznam</h2>
+<p>Kontrolní seznam je samostatný typ položky. Přidejte položku typu <strong>Seznam</strong> a položky seznamu zapisujte do pole <strong>Přidat položku…</strong>. Text každé položky můžete kdykoli přepsat přímo v řádku.</p>
+<h2>Závislosti mezi úkoly</h2>
+<p>Závislost znamená, že jeden úkol nemůže začít, dokud není hotový jiný. Po dokončení blokujícího úkolu se závislý úkol sám odblokuje a přijde upozornění.</p>
+<div class="steps"><p class="step"><strong>Krok 1:</strong> Otevřete detail úkolu, který čeká.</p><p class="step"><strong>Krok 2:</strong> Na kartě <strong>Závislosti</strong> klepněte na <strong>Přidat blokující úkol</strong>.</p><p class="step"><strong>Krok 3:</strong> Vyberte úkol z nabídky.</p></div>
+<p class="note"><strong>Poznámka:</strong> Závislosti jsou k dispozici v úrovni složitosti <strong>Expert</strong>.</p>
+<h2>Komentáře</h2>
+<p>V detailu úkolu napište komentář do pole <strong>Nový komentář…</strong> a klepněte na šipku. U komentáře se uvede datum a čas. Komentář odstraníte potažením řádku.</p>
+<h2>Přílohy</h2>
+<p>Klepněte na <strong>Přidat soubor</strong> v části <strong>Přílohy</strong> u úkolu nebo projektu. U přílohy s obrázkem lze pomocí volby <strong>Rozpoznat text z obrázku</strong> přepsat text z fotografie. Přílohu odstraníte volbou <strong>Smazat přílohu</strong>.</p>
+<h2>Kontakty a štítky</h2>
+<p>Na kartě <strong>Kontakty</strong> klepněte na <strong>Přidat kontakt</strong> a přiřaďte k položce účastníky nebo odpovědné osoby. Karta <strong>Štítky</strong> slouží k zařazení položek do skupin, podle kterých pak můžete hledat.</p></div></div><span class="pgno">9</span><button class="corner" type="button" data-step="1" aria-label="Další strana" tabindex="-1"></button></div>
+<div class="face back"></div>
+</section>
+<section class="leaf" data-title="Přehled, Úkoly, Tabule, Kalendář a Trendy" role="group" aria-label="Strana 10 z 16: Přehled, Úkoly, Tabule, Kalendář a Trendy">
+<div class="face front"><div class="scroller "><div class="inner"><h1 class="page-title" tabindex="-1">Přehled, Úkoly, Tabule, Kalendář a Trendy</h1><h2>Přehled</h2>
+<p>Sekce <strong>Přehled</strong> shrnuje, jak se vám daří. Najdete v ní graf <strong>Úkoly podle stavu</strong>, ukazatele <strong>Pokrok podle projektů</strong> a odkaz na <strong>Trendy v čase</strong>. Pomocí AI můžete vytvořit <strong>Týdenní přehled</strong> (tlačítko <strong>Vygenerovat přehled a upozornění</strong>) a <strong>Týdenní e-mailový report</strong>, což je HTML souhrn zahrnutých projektů s předvyplněným e-mailem. Které projekty se do reportu zahrnou, nastavíte v nastavení projektu.</p>
+<h2>Ranní úklid</h2>
+<p>Pokud máte nehotové úkoly po termínu, zobrazí se nahoře na Přehledu karta <strong>Ranní úklid</strong>. Uvede jejich počet a první tři názvy. Vyberte jednu z voleb:</p>
+<ul>
+<li><strong>Vše na dnes</strong> – přesune termíny všech nehotových úkolů na dnešek.</li>
+<li><strong>Vše na pondělí</strong> – přesune termíny na nejbližší pondělí.</li>
+<li><strong>Dnes ne</strong> – kartu schová do konce dne.</li>
+</ul>
+<p>Když není co uklízet, karta se nezobrazí.</p>
+<figure class="fig fig-cleanup"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 520" role="img" aria-label="Karta Ranní úklid na Přehledu" style="font-family:-apple-system,'SF Pro Text','Segoe UI',Roboto,Arial,sans-serif">
+<defs><clipPath id="scr-clean"><rect x="10" y="10" width="240" height="500" rx="30"/></clipPath></defs>
+<rect x="2" y="2" width="256" height="516" rx="38" fill="#0a0e13" stroke="#3a4656" stroke-width="2"/>
+<g clip-path="url(#scr-clean)"><rect x="10" y="10" width="240" height="500" fill="#141D28"/>
+<text x="24" y="76" font-size="20" fill="#EAF0F7" font-weight="700" text-anchor="start">Přehled</text>
+<rect x="18" y="92" width="224" height="168" rx="18" fill="#1F2C3D" />
+<path d="M30 124a9 9 0 0 1 18 0z" fill="#F58C33"/>
+<line x1="30.6" y1="107.9" x2="26.4" y2="103.4" stroke="#F58C33" stroke-width="1.6" stroke-linecap="round"/>
+<line x1="39.0" y1="105.2" x2="39.0" y2="99.2" stroke="#F58C33" stroke-width="1.6" stroke-linecap="round"/>
+<line x1="47.4" y1="107.9" x2="51.6" y2="103.4" stroke="#F58C33" stroke-width="1.6" stroke-linecap="round"/>
+<line x1="28" y1="124" x2="50" y2="124" stroke="#F58C33" stroke-width="1.6" stroke-linecap="round"/>
+<text x="58" y="126" font-size="13" fill="#EAF0F7" font-weight="700" text-anchor="start">Ranní úklid</text>
+<text x="30" y="148" font-size="10" fill="#8EA0B6" font-weight="400" text-anchor="start">Nehotové úkoly po termínu: 4</text>
+<text x="30" y="166" font-size="9.5" fill="#8EA0B6" font-weight="400" text-anchor="start">• Objednat dlaždice</text>
+<text x="30" y="180" font-size="9.5" fill="#8EA0B6" font-weight="400" text-anchor="start">• Zavolat instalatérovi</text>
+<text x="30" y="194" font-size="9.5" fill="#8EA0B6" font-weight="400" text-anchor="start">• Zaplatit zálohu</text>
+<text x="30" y="210" font-size="9.5" fill="#8EA0B6" font-weight="400" text-anchor="start">…a 1 dalších</text>
+<rect x="30" y="222" width="74" height="26" rx="13" fill="#D32F2F" />
+<text x="67" y="239" font-size="9.5" fill="#fff" font-weight="600" text-anchor="middle">Vše na dnes</text>
+<rect x="110" y="222" width="84" height="26" rx="13" fill="#141D28" />
+<text x="152" y="239" font-size="9.5" fill="#EAF0F7" font-weight="600" text-anchor="middle">Vše na pondělí</text>
+<text x="222" y="239" font-size="9.5" fill="#8EA0B6" font-weight="600" text-anchor="end">Dnes ne</text>
+<rect x="18" y="274" width="224" height="150" rx="18" fill="#1F2C3D" />
+<text x="30" y="296" font-size="11" fill="#EAF0F7" font-weight="700" text-anchor="start">Úkoly podle stavu</text>
+<text x="30" y="320" font-size="9" fill="#8EA0B6" font-weight="400" text-anchor="start">K vyřízení</text>
+<rect x="92" y="312" width="110" height="10" rx="5" fill="#2B3A4F" />
+<rect x="92" y="312" width="43" height="10" rx="5" fill="#8EA0B6" />
+<text x="230" y="321" font-size="9.5" fill="#EAF0F7" font-weight="600" text-anchor="end">12</text>
+<text x="30" y="346" font-size="9" fill="#8EA0B6" font-weight="400" text-anchor="start">Probíhá</text>
+<rect x="92" y="338" width="110" height="10" rx="5" fill="#2B3A4F" />
+<rect x="92" y="338" width="18" height="10" rx="5" fill="#3B82F6" />
+<text x="230" y="347" font-size="9.5" fill="#EAF0F7" font-weight="600" text-anchor="end">5</text>
+<text x="30" y="372" font-size="9" fill="#8EA0B6" font-weight="400" text-anchor="start">Čeká</text>
+<rect x="92" y="364" width="110" height="10" rx="5" fill="#2B3A4F" />
+<rect x="92" y="364" width="8" height="10" rx="5" fill="#F58C33" />
+<text x="230" y="373" font-size="9.5" fill="#EAF0F7" font-weight="600" text-anchor="end">2</text>
+<text x="30" y="398" font-size="9" fill="#8EA0B6" font-weight="400" text-anchor="start">Hotovo</text>
+<rect x="92" y="390" width="110" height="10" rx="5" fill="#2B3A4F" />
+<rect x="92" y="390" width="110" height="10" rx="5" fill="#3DB86B" />
+<text x="230" y="399" font-size="9.5" fill="#EAF0F7" font-weight="600" text-anchor="end">31</text>
+<rect x="95" y="17" width="70" height="20" rx="10" fill="#000"/></g></svg><figcaption>Karta Ranní úklid na Přehledu. <em>Ilustrace.</em></figcaption></figure>
+<h2>Úkoly</h2>
+<p>Sekce <strong>Úkoly</strong> shromažďuje úkoly ze všech projektů. Úkoly jsou rozděleny na <strong>Aktivní</strong> a <strong>Dokončené</strong>. Můžete je hledat podle názvu, textu, projektu a štítku, filtrovat podle projektu (volba <strong>Všechny projekty</strong>) a řadit pomocí ikony tří čárek. Stav lze měnit přímo v seznamu potažením řádku nebo klepnutím na odznak stavu.</p>
+<h2>Tabule úkolů</h2>
+<p>Tabule zobrazuje úkoly projektu ve sloupcích podle stavu, nebo po přepnutí volby <strong>Zobrazení</strong> podle priority.</p>
+<div class="steps"><p class="step"><strong>Krok 1:</strong> Otevřete projekt.</p><p class="step"><strong>Krok 2:</strong> Klepněte na ikonu <strong>Tabule úkolů</strong> v liště nástrojů.</p><p class="step"><strong>Krok 3:</strong> Přetahujte karty mezi sloupci. Podržením karty otevřete nabídku <strong>Přesunout do stavu</strong> nebo <strong>Změnit prioritu</strong>.</p></div>
+<figure class="fig fig-kanban"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 380" role="img" aria-label="Tabule úkolů" style="font-family:-apple-system,'SF Pro Text','Segoe UI',Roboto,Arial,sans-serif">
+<rect x="2" y="2" width="556" height="376" rx="26" fill="#0a0e13" stroke="#3a4656" stroke-width="2"/>
+<rect x="12" y="12" width="536" height="356" rx="18" fill="#141D28"/>
+<text x="34" y="52" font-size="16" fill="#EAF0F7" font-weight="700" text-anchor="start">Tabule úkolů</text>
+<rect x="370" y="34" width="156" height="26" rx="13" fill="#1F2C3D" />
+<rect x="372" y="36" width="76" height="22" rx="11" fill="#3B82F6" />
+<text x="410" y="51" font-size="10" fill="#fff" font-weight="600" text-anchor="middle">Stav</text>
+<text x="488" y="51" font-size="10" fill="#8EA0B6" font-weight="600" text-anchor="middle">Priorita</text>
+<rect x="30" y="78" width="164" height="276" rx="16" fill="#18232F" />
+<circle cx="46" cy="98" r="5" fill="#8EA0B6"/>
+<text x="58" y="102" font-size="11" fill="#EAF0F7" font-weight="700" text-anchor="start">K vyřízení</text>
+<rect x="160" y="88" width="22" height="18" rx="9" fill="#1F2C3D" />
+<text x="171" y="101" font-size="9.5" fill="#8EA0B6" font-weight="600" text-anchor="middle">3</text>
+<rect x="40" y="118" width="144" height="56" rx="12" fill="#1F2C3D" />
+<text x="52" y="142" font-size="11" fill="#EAF0F7" font-weight="600" text-anchor="start">Vybrat obklady</text>
+<rect x="52" y="154" width="34" height="10" rx="5" fill="#2B3A4F" />
+<rect x="40" y="184" width="144" height="56" rx="12" fill="#1F2C3D" />
+<text x="52" y="208" font-size="11" fill="#EAF0F7" font-weight="600" text-anchor="start">Zavolat instalatérovi</text>
+<rect x="52" y="220" width="34" height="10" rx="5" fill="#2B3A4F" />
+<rect x="40" y="250" width="144" height="56" rx="12" fill="#1F2C3D" />
+<text x="52" y="274" font-size="11" fill="#EAF0F7" font-weight="600" text-anchor="start">Objednat vanu</text>
+<rect x="52" y="286" width="34" height="10" rx="5" fill="#2B3A4F" />
+<rect x="206" y="78" width="164" height="276" rx="16" fill="#18232F" />
+<circle cx="222" cy="98" r="5" fill="#3B82F6"/>
+<text x="234" y="102" font-size="11" fill="#EAF0F7" font-weight="700" text-anchor="start">Probíhá</text>
+<rect x="336" y="88" width="22" height="18" rx="9" fill="#1F2C3D" />
+<text x="347" y="101" font-size="9.5" fill="#8EA0B6" font-weight="600" text-anchor="middle">2</text>
+<rect x="216" y="118" width="144" height="56" rx="12" fill="#1F2C3D" />
+<text x="228" y="142" font-size="11" fill="#EAF0F7" font-weight="600" text-anchor="start">Dlaždič: termín</text>
+<rect x="228" y="154" width="34" height="10" rx="5" fill="#2B3A4F" />
+<rect x="216" y="184" width="144" height="56" rx="12" fill="#1F2C3D" />
+<text x="228" y="208" font-size="11" fill="#EAF0F7" font-weight="600" text-anchor="start">Zaplatit zálohu</text>
+<rect x="228" y="220" width="34" height="10" rx="5" fill="#2B3A4F" />
+<rect x="382" y="78" width="164" height="276" rx="16" fill="#18232F" />
+<circle cx="398" cy="98" r="5" fill="#3DB86B"/>
+<text x="410" y="102" font-size="11" fill="#EAF0F7" font-weight="700" text-anchor="start">Hotovo</text>
+<rect x="512" y="88" width="22" height="18" rx="9" fill="#1F2C3D" />
+<text x="523" y="101" font-size="9.5" fill="#8EA0B6" font-weight="600" text-anchor="middle">2</text>
+<rect x="392" y="118" width="144" height="56" rx="12" fill="#1F2C3D" />
+<text x="404" y="142" font-size="11" fill="#8EA0B6" font-weight="600" text-anchor="start">Zaměřit koupelnu</text>
+<rect x="404" y="154" width="34" height="10" rx="5" fill="#2B3A4F" />
+<circle cx="518" cy="134" r="7" fill="#3DB86B"/><path d="M515 134l2.5 2.5 4-5" stroke="#fff" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="392" y="184" width="144" height="56" rx="12" fill="#1F2C3D" />
+<text x="404" y="208" font-size="11" fill="#8EA0B6" font-weight="600" text-anchor="start">Rozpočet</text>
+<rect x="404" y="220" width="34" height="10" rx="5" fill="#2B3A4F" />
+<circle cx="518" cy="200" r="7" fill="#3DB86B"/><path d="M515 200l2.5 2.5 4-5" stroke="#fff" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<g transform="translate(250 226) rotate(-4)"><rect x="0" y="0" width="144" height="56" rx="12" fill="#1F2C3D" stroke="#3B82F6" stroke-width="1.6" style="filter:drop-shadow(0 8px 10px rgba(0,0,0,.5))"/>
+<text x="12" y="24" font-size="11" fill="#EAF0F7" font-weight="600" text-anchor="start">Vybrat obklady</text>
+<rect x="12" y="36" width="34" height="10" rx="5" fill="#2B3A4F" /></g>
+</svg><figcaption>Tabule úkolů: sloupce podle stavu, karty se přetahují. <em>Ilustrace.</em></figcaption></figure>
+<p class="note"><strong>Poznámka:</strong> Tabule je k dispozici v úrovni složitosti <strong>Pokročilá</strong> a vyšší.</p>
+<h2>Kalendář</h2>
+<p>Sekce <strong>Kalendář</strong> zobrazuje měsíční přehled. Mezi měsíci přepínáte šipkami, po klepnutí na den uvidíte položky a termíny projektů, které na něj připadají. V části <strong>Z kalendáře v telefonu</strong> se zobrazí události ze systémového kalendáře, které lze volbou <strong>Přiřadit</strong> spojit s projektem. Schůzku nebo událost můžete při vytváření přidat i do kalendáře v telefonu volbou <strong>Přidat do kalendáře v telefonu</strong>.</p>
+<p class="note"><strong>Poznámka:</strong> Pokud je přístup ke kalendáři zakázaný, povolte ho v nastavení systému v části <strong>Soukromí a zabezpečení</strong> &gt; <strong>Kalendáře</strong>.</p>
+<h2>Trendy v čase</h2>
+<p>Grafy ukazují, kolik úkolů v jednotlivých týdnech přibylo a kolik jste jich dokončili, heatmapu aktivity (tmavší čtvereček znamená více dokončených úkolů za den) a rozložení úkolů podle stavu. Období zvolíte na 4, 8 nebo 12 týdnů. Trendy jsou dostupné od úrovně <strong>Pokročilá</strong>.</p></div></div><span class="pgno">10</span><button class="corner" type="button" data-step="1" aria-label="Další strana" tabindex="-1"></button></div>
+<div class="face back"></div>
+</section>
+<section class="leaf" data-title="Poznámky, zamčené poznámky, soubory a hlasové nahrávky" role="group" aria-label="Strana 11 z 16: Poznámky, zamčené poznámky, soubory a hlasové nahrávky">
+<div class="face front"><div class="scroller "><div class="inner"><h1 class="page-title" tabindex="-1">Poznámky, zamčené poznámky, soubory a hlasové nahrávky</h1><h2>Přidání poznámky</h2>
+<p>Klepněte v projektu na kulaté plus, vyberte <strong>Poznámka</strong>, zadejte název a text a klepněte na <strong>Uložit</strong>. Stejně přidáte <strong>Zápis ze schůzky</strong>, <strong>Rozhodnutí</strong>, <strong>Milník</strong> nebo <strong>Odkaz</strong>. U odkazu zadejte adresu a otevřete ji volbou <strong>Otevřít odkaz</strong>.</p>
+<h2>Zamčená poznámka</h2>
+<p>Zamčená poznámka je zašifrovaná a bez ověření se neotevře.</p>
+<div class="steps"><p class="step"><strong>Krok 1:</strong> Klepněte na plus a vyberte <strong>Zámek</strong>.</p><p class="step"><strong>Krok 2:</strong> Napište text poznámky a uložte ji.</p><p class="step"><strong>Krok 3:</strong> Poznámku zobrazíte volbou <strong>Odemknout</strong> a ověřením pomocí Face ID, Touch ID nebo hesla zařízení.</p><p class="step"><strong>Krok 4:</strong> Po úpravách klepněte na <strong>Zamknout</strong>.</p></div>
+<p class="note"><strong>Poznámka:</strong> Klíč k zamčeným poznámkám je uložen jen v tomto zařízení. Na jiném zařízení se zamčené poznámky zatím neotevřou, i když se tam synchronizují.</p>
+<h2>Pořízení hlasové nahrávky</h2>
+<div class="steps"><p class="step"><strong>Krok 1:</strong> Klepněte na plus a vyberte <strong>Hlas</strong>.</p><p class="step"><strong>Krok 2:</strong> Klepněte na tlačítko nahrávání. Přepis mluvy se zobrazuje živě během mluvení.</p><p class="step"><strong>Krok 3:</strong> Klepněte na <strong>Zastavit nahrávání</strong> a poté na <strong>Uložit</strong>.</p></div>
+<p>Pokud přepis selže, klepněte na <strong>Zkusit přepis znovu</strong>. Aplikace potřebuje povolení k mikrofonu a rozpoznávání řeči a zapnuté diktování v nastavení zařízení.</p>
+<h2>Přidání fotky nebo souboru</h2>
+<div class="steps"><p class="step"><strong>Krok 1:</strong> Klepněte na plus a vyberte <strong>Foto</strong>.</p><p class="step"><strong>Krok 2:</strong> Zvolte zdroj: <strong>Vyfotit fotoaparátem</strong> (jen iPhone a iPad), <strong>Vybrat z alba</strong> nebo <strong>Vybrat ze souborů</strong>.</p><p class="step"><strong>Krok 3:</strong> Klepněte na <strong>Uložit</strong>.</p></div>
+<p>Text z fotografie lze přepsat volbou <strong>Rozpoznat text (AI)</strong>.</p></div></div><span class="pgno">11</span><button class="corner" type="button" data-step="1" aria-label="Další strana" tabindex="-1"></button></div>
+<div class="face back"></div>
+</section>
+<section class="leaf" data-title="Funkce AI" role="group" aria-label="Strana 12 z 16: Funkce AI">
+<div class="face front"><div class="scroller "><div class="inner"><h1 class="page-title" tabindex="-1">Funkce AI</h1><p>Funkce AI jsou volitelné. Aplikace funguje bez nich a nabízí je, až když je AI nastavená.</p>
+<h2>Nastavení AI</h2>
+<div class="steps"><p class="step"><strong>Krok 1:</strong> Otevřete <strong>Nastavení</strong> &gt; <strong>AI</strong>.</p><p class="step"><strong>Krok 2:</strong> V nabídce <strong>Poskytovatel</strong> vyberte službu. <strong>Apple Intelligence</strong> běží přímo v zařízení, je zdarma a data neopouštějí zařízení. Další volby jsou ChatGPT, Gemini, Claude, GitHub Copilot, Grok, Mistral, DeepSeek, Perplexity, OpenRouter, Azure OpenAI a vlastní server kompatibilní s OpenAI.</p><p class="step"><strong>Krok 3:</strong> U cloudových služeb zapněte <strong>Souhlasím s odesíláním dat poskytovateli</strong> a zadejte svůj <strong>API klíč</strong>. Odkaz <strong>Kde získám API klíč</strong> vás zavede na správné místo. Výchozí model můžete přepsat.</p></div>
+<p class="note"><strong>Důležité:</strong> API klíč se ukládá jen v klíčence tohoto zařízení a platba probíhá podle vašeho tarifu u daného poskytovatele. Při použití cloudové AI se poskytovateli odesílá obsah, který právě zpracováváte. Zamčené poznámky se do AI neodesílají nikdy.</p>
+<h2>Vytvoření projektu z textu</h2>
+<div class="steps"><p class="step"><strong>Krok 1:</strong> V sekci <strong>Projekty</strong> klepněte na plus a vyberte <strong>AI z textu</strong>.</p><p class="step"><strong>Krok 2:</strong> Vložte e-mail, zápis ze schůzky nebo vlastní poznámky a klepněte na <strong>Vytvořit návrh</strong>.</p><p class="step"><strong>Krok 3:</strong> Prohlédněte si návrh. Položku, kterou nechcete, odznačte. Názvy můžete upravit přímo v návrhu.</p><p class="step"><strong>Krok 4:</strong> Klepněte na <strong>Založit projekt</strong>.</p></div>
+<p>Dokud nezaložíte projekt, se nic neuloží. Volbou <strong>Zpět k textu</strong> se můžete vrátit.</p>
+<h2>AI asistent u projektu</h2>
+<p>Klepněte v projektu na ikonu <strong>AI asistent</strong> (jiskra). Asistent nabízí:</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Skupina</th>
+<th>Funkce</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Stav projektu</td>
+<td>Shrnout stav projektu; Napsat status pro klienta; Uložit do popisu projektu</td>
+</tr>
+<tr>
+<td>Chytré tipy</td>
+<td>Návrh priorit úkolů; Odhad času; Upozornění na rizika</td>
+</tr>
+<tr>
+<td>Návrhy úkolů</td>
+<td>Navrhnout další kroky; Přidat vše jako úkoly</td>
+</tr>
+</tbody>
+</table></div>
+<h2>Dotazy k projektu</h2>
+<p>V části <strong>Komunikace</strong> klepněte na <strong>Zeptat se AI na projekt</strong> a položte dotaz. AI zná obsah projektu (úkoly, poznámky, zápisy). Tato funkce je dostupná od úrovně <strong>Pokročilá</strong>.</p>
+<h2>Další pomoc AI</h2>
+<ul>
+<li><strong>Rychlé zadání:</strong> tlačítko s jiskrou vytvoří z věty jeden nebo více úkolů.</li>
+<li><strong>Poznámky a zápisy:</strong> volba <strong>Vytáhnout úkoly z textu (AI)</strong> přidá do projektu úkoly nalezené v textu.</li>
+<li><strong>Fotografie:</strong> volba <strong>Rozpoznat text (AI)</strong> přepíše text z obrázku.</li>
+<li><strong>Týdenní přehled a e-mailový report:</strong> viz kapitola „Přehled, Úkoly, Tabule, Kalendář a Trendy“.</li>
+</ul></div></div><span class="pgno">12</span><button class="corner" type="button" data-step="1" aria-label="Další strana" tabindex="-1"></button></div>
+<div class="face back"></div>
+</section>
+<section class="leaf" data-title="Synchronizace, zálohy a obnova" role="group" aria-label="Strana 13 z 16: Synchronizace, zálohy a obnova">
+<div class="face front"><div class="scroller "><div class="inner"><h1 class="page-title" tabindex="-1">Synchronizace, zálohy a obnova</h1><h2>Synchronizace mezi vašimi zařízeními</h2>
+<p>RED FLOW synchronizuje data přes iCloud automaticky na pozadí. Stačí se přihlásit na všech zařízeních ke stejnému Apple ID a mít zapnutý iCloud. Stav najdete v <strong>Nastavení</strong> &gt; <strong>Data a zálohy</strong> v řádku <strong>Synchronizace iCloud</strong>: zelená tečka znamená, že je vše v pořádku.</p>
+<p class="note"><strong>Tip:</strong> Změny se mezi zařízeními přenášejí s krátkým zpožděním. Pokud změnu na druhém zařízení nevidíte hned, chvíli počkejte a aplikaci otevřete znovu.</p>
+<h2>Oprava synchronizace</h2>
+<p>Pokud se data mezi zařízeními přestanou přenášet:</p>
+<div class="steps"><p class="step"><strong>Krok 1:</strong> Otevřete <strong>Nastavení</strong> &gt; <strong>Data a zálohy</strong>.</p><p class="step"><strong>Krok 2:</strong> Klepněte na <strong>Opravit osobní synchronizaci (po restartu)</strong> a potvrďte volbou <strong>Opravit při příštím spuštění</strong>.</p><p class="step"><strong>Krok 3:</strong> Aplikaci úplně ukončete a znovu otevřete. Oprava proběhne sama a trvá pár minut.</p></div>
+<p>Aplikace předtím data zazálohuje, založí čisté úložiště, stáhne vše z iCloudu a doplní, co v iCloudu chybí. Nic se nemaže. Aplikace umí tuto opravu spustit i sama, když odesílání do iCloudu opakovaně selže. Technické zprávy najdete v rozbalovací části <strong>Osobní synchronizace: poslední události</strong>.</p>
+<h2>Automatické zálohy</h2>
+<p>RED FLOW průběžně ukládá zálohu všech projektů do souboru mimo databázi. Uchovává se posledních 20 záloh. V řádku <strong>Poslední záloha</strong> vidíte, kdy nejnovější vznikla.</p>
+<ul>
+<li><strong>Zálohovat teď</strong> vytvoří zálohu okamžitě.</li>
+<li><strong>Zálohy a obnova</strong> otevře seznam záloh.</li>
+</ul>
+<h2>Obnovení ze zálohy</h2>
+<div class="steps"><p class="step"><strong>Krok 1:</strong> Otevřete <strong>Nastavení</strong> &gt; <strong>Zálohy a obnova</strong>.</p><p class="step"><strong>Krok 2:</strong> Klepněte na zálohu, ze které chcete obnovit, a potvrďte volbou <strong>Obnovit</strong>. Můžete také zvolit <strong>Obnovit ze souboru…</strong>.</p></div>
+<p>Projekty ze zálohy se přidají ke stávajícím. Projekty, které v aplikaci už jsou, se přeskočí a nic se nesmaže ani nepřepíše. Zálohu můžete volbou <strong>Sdílet</strong> poslat ven jako soubor (AirDrop, Soubory).</p>
+<p class="note"><strong>Poznámka:</strong> Volba <strong>Smazat všechna data</strong> v nastavení smaže vše. Aplikace předtím vytvoří zálohu a bez ní nemaže.</p></div></div><span class="pgno">13</span><button class="corner" type="button" data-step="1" aria-label="Další strana" tabindex="-1"></button></div>
+<div class="face back"></div>
+</section>
+<section class="leaf" data-title="Sdílení projektu s dalšími lidmi" role="group" aria-label="Strana 14 z 16: Sdílení projektu s dalšími lidmi">
+<div class="face front"><div class="scroller "><div class="inner"><h1 class="page-title" tabindex="-1">Sdílení projektu s dalšími lidmi</h1><p>Projekt můžete sdílet s kýmkoli, kdo má Apple ID. Sdílení probíhá přes iCloud. Sdílený projekt vidí pozvaní lidé ve vlastní aplikaci RED FLOW a mohou v něm psát do chatu, komentovat a pracovat s kontrolními seznamy.</p>
+<h2>Zahájení sdílení</h2>
+<div class="steps"><p class="step"><strong>Krok 1:</strong> Otevřete projekt a v <strong>Nastavení projektu</strong> v části <strong>Sdílení a moje práva</strong> zapněte přepínač <strong>Sdílený projekt</strong>.</p><p class="step"><strong>Krok 2:</strong> Klepněte na <strong>Pozvat osobu</strong>.</p><p class="step"><strong>Krok 3:</strong> Zadejte e-mail, pod kterým je pozvaný přihlášený v iCloudu (Apple ID).</p><p class="step"><strong>Krok 4:</strong> Vyberte oprávnění: <strong>Může upravovat</strong> nebo <strong>Jen ke čtení</strong>.</p><p class="step"><strong>Krok 5:</strong> Klepněte na <strong>Pozvat</strong>. Pak klepněte na <strong>Otevřít e-mail s pozvánkou</strong> a e-mail odešlete. Pozvánku můžete poslat i jinak (<strong>Poslat jinak</strong>: Zprávy, AirDrop …).</p></div>
+<p>Pozvánka se odesílá až ve chvíli, kdy odešlete e-mail s odkazem. Pozvaný odkaz otevře na svém zařízení a projekt se mu objeví v aplikaci.</p>
+<h2>Práce se sdíleným projektem</h2>
+<p>Projekty, které s vámi sdílejí ostatní, najdete v části <strong>Sdíleno se mnou</strong>. V každém z nich vidíte <strong>Úkoly</strong>, <strong>Kontrolní seznam</strong>, <strong>Komentáře</strong> a <strong>Chat</strong>. Zda můžete projekt upravovat, nebo jen číst, určuje právo, které jste dostali s pozvánkou.</p>
+<h2>Správa lidí a zrušení sdílení</h2>
+<p>Seznam lidí najdete u sdíleného projektu v části <strong>Lidé a pozvánky</strong>. Oprávnění můžete kdykoli změnit nebo přístup odebrat.</p>
+<p>Chcete-li sdílení zrušit, vypněte přepínač <strong>Sdílený projekt</strong> a potvrďte volbu <strong>Zrušit sdílení</strong>. Projekt bude zase jen váš, pozvaní lidé k němu ztratí přístup a jejich kopie zmizí. Zprávy z chatu zůstanou u vás.</p>
+<h2>Týmy, spolupracovníci a skupiny</h2>
+<p>V <strong>Nastavení</strong> &gt; <strong>Spolupracovníci</strong> vedete adresář lidí, se kterými pracujete. Osoby lze seskupit do skupin a přiřazovat k projektům v sekci <strong>Týmy</strong>. U nesdílených projektů slouží role a práva jako poznámka o tom, kdo za co odpovídá. Právo nastavené jednotlivci má vždy přednost před právem skupiny.</p>
+<h2>Předání projektu souborem</h2>
+<p>Projekt lze předávat i bez iCloudu: v nabídce karty projektu zvolte <strong>Exportovat do souboru</strong> a soubor pošlete druhému uživateli. Ten ho načte volbou <strong>Importovat projekt</strong>.</p>
+<p class="note"><strong>Poznámka:</strong> Fáze úkolů se zatím do sdílených kopií projektu nepřenášejí. Sekce <strong>Týmy</strong> je dostupná od úrovně složitosti <strong>Pokročilá</strong>.</p></div></div><span class="pgno">14</span><button class="corner" type="button" data-step="1" aria-label="Další strana" tabindex="-1"></button></div>
+<div class="face back"></div>
+</section>
+<section class="leaf" data-title="Nastavení aplikace" role="group" aria-label="Strana 15 z 16: Nastavení aplikace">
+<div class="face front"><div class="scroller "><div class="inner"><h1 class="page-title" tabindex="-1">Nastavení aplikace</h1><h2>Výběr úrovně složitosti</h2>
+<p>RED FLOW může být co nejjednodušší, nebo nabídnout víc nástrojů. Otevřete <strong>Nastavení</strong> &gt; <strong>Složitost aplikace</strong> a vyberte úroveň.</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Úroveň</th>
+<th>Co nabízí</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Základní</td>
+<td>Jen to nejnutnější: projekty, úkoly, Přehled, Kalendář, poznámky, upozornění, zálohy.</td>
+</tr>
+<tr>
+<td>Pokročilá</td>
+<td>Navíc Tabule úkolů, Trendy, měření času a Pomodoro, dotazy AI k projektu, Historie změn a sekce Týmy.</td>
+</tr>
+<tr>
+<td>Expert</td>
+<td>Vše, včetně závislostí mezi úkoly.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="note"><strong>Tip:</strong> Změna úrovně nic nemaže. Skryté funkce se jen znovu zobrazí, až se vrátíte na vyšší úroveň.</p>
+<h2>Měření času a Pomodoro</h2>
+<p>V detailu úkolu na kartě <strong>Měření času</strong> spustíte živé měření, nebo Pomodoro na 25 minut s odpočtem. Záznamy se ukládají u úkolu. Funkce je dostupná od úrovně <strong>Pokročilá</strong>.</p>
+<h2>Změna vzhledu</h2>
+<p>V <strong>Nastavení</strong> &gt; <strong>Vzhled</strong> vyberte <strong>Motiv</strong>: <strong>Systém</strong> (podle zařízení), <strong>Světlý</strong> nebo <strong>Tmavý</strong>.</p>
+<h2>Profil</h2>
+<p>V <strong>Nastavení</strong> &gt; <strong>Profil</strong> zadejte své jméno. Použije se jako podpis u vašich zpráv v chatu projektu; bez jména se zprávy podepíšou jako „Já“.</p>
+<h2>Typy úkolů a spolupracovníci</h2>
+<p>V části <strong>Organizace</strong> máte <strong>Typy úkolů</strong> (barevné typy projektů, které můžete přidávat a upravovat), <strong>Spolupracovníci</strong>, <strong>Koš</strong> a <strong>Týdenní e-mailový report (AI)</strong>.</p>
+<h2>Historie změn</h2>
+<p>RED FLOW si pamatuje, co a kdy jste změnili. Historii jednoho projektu otevřete v části <strong>Komunikace</strong> volbou <strong>Historie změn</strong>, historii všech projektů v <strong>Nastavení</strong> &gt; <strong>Historie změn</strong>. U některých záznamů lze změnu vrátit. Jak dlouho se záznamy uchovávají (30 dní, 90 dní, 1 rok, navždy), nastavíte volbou <strong>Uchovávat historii</strong>.</p>
+<h2>Widget</h2>
+<p>Widget RED FLOW ukazuje počet úkolů k vyřízení, po termínu a na dnešek. Přidejte ho jako každý jiný widget: na iPhonu a iPadu podržte plochu a klepněte na plus, na Macu zvolte <strong>Upravit widgety</strong>. Poté vyberte RED FLOW. Data se do widgetu propisují při spuštění aplikace.</p>
+<h2>Klávesové zkratky (Mac a iPad)</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Zkratka</th>
+<th>Akce</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cmd + Shift + N</td>
+<td>Nový projekt</td>
+</tr>
+<tr>
+<td>Cmd + 1</td>
+<td>Projekty</td>
+</tr>
+<tr>
+<td>Cmd + 2</td>
+<td>Úkoly</td>
+</tr>
+<tr>
+<td>Cmd + 3</td>
+<td>Kalendář</td>
+</tr>
+<tr>
+<td>Cmd + F</td>
+<td>Hledat</td>
+</tr>
+</tbody>
+</table></div>
+<p>Na Macu najdete stejné akce i v horním menu, v nabídce <strong>Přejít</strong>.</p>
+<h2>Nápověda v aplikaci</h2>
+<p>Krátké vysvětlení hlavních funkcí najdete v <strong>Nastavení</strong> &gt; <strong>Nápověda a tipy</strong>. V nápovědě lze vyhledávat.</p></div></div><span class="pgno">15</span><button class="corner" type="button" data-step="1" aria-label="Další strana" tabindex="-1"></button></div>
+<div class="face back"></div>
+</section>
+<section class="leaf" data-title="Řešení potíží" role="group" aria-label="Strana 16 z 16: Řešení potíží">
+<div class="face front"><div class="scroller "><div class="inner"><h1 class="page-title" tabindex="-1">Řešení potíží</h1><div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Problém</th>
+<th>Řešení</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Omylem jsem něco smazal(a)</td>
+<td>Smazané projekty a položky najdete v <strong>Nastavení</strong> &gt; <strong>Koš</strong>, volbou <strong>Obnovit</strong> je vrátíte. Starší stav lze přidat i ze zálohy (<strong>Nastavení</strong> &gt; <strong>Zálohy a obnova</strong>).</td>
+</tr>
+<tr>
+<td>Chybí Tabule, Trendy nebo Týmy</td>
+<td>Tyto funkce jsou od úrovně <strong>Pokročilá</strong>. Změňte úroveň v <strong>Nastavení</strong> &gt; <strong>Složitost aplikace</strong>.</td>
+</tr>
+<tr>
+<td>Data se nepřenášejí mezi zařízeními</td>
+<td>Zkontrolujte, že jste na všech zařízeních přihlášeni ke stejnému Apple ID a máte zapnutý iCloud. Pak použijte <strong>Opravit osobní synchronizaci (po restartu)</strong>.</td>
+</tr>
+<tr>
+<td>Zamčená poznámka se na jiném zařízení neotevře</td>
+<td>Klíč je uložen jen v zařízení, kde poznámka vznikla. Otevřete ji tam.</td>
+</tr>
+<tr>
+<td>Upozornění nepřicházejí</td>
+<td>Povolte upozornění pro RED FLOW v nastavení zařízení a zkontrolujte, zda má položka termín a volbu <strong>Upozornit</strong> jinou než <strong>Bez upozornění</strong>. Systém dovolí nejvýše 64 naplánovaných upozornění; hlášení najdete v <strong>Nastavení</strong> &gt; <strong>Notifikace</strong>.</td>
+</tr>
+<tr>
+<td>Události se nezapisují do kalendáře v telefonu</td>
+<td>Povolte přístup ke kalendáři v nastavení systému. Chyba se zobrazí v <strong>Nastavení</strong> v řádku <strong>Chyba kalendáře</strong>.</td>
+</tr>
+<tr>
+<td>Přepis hlasové nahrávky nefunguje</td>
+<td>Povolte aplikaci mikrofon a rozpoznávání řeči a zapněte diktování v nastavení zařízení. Poté klepněte na <strong>Zkusit přepis znovu</strong>.</td>
+</tr>
+<tr>
+<td>Sdílení projektu se zasekne</td>
+<td>V <strong>Nastavení</strong> &gt; <strong>Data a zálohy</strong> použijte <strong>Opravit sdílení (po restartu)</strong>. Vaše projekty, úkoly a chat se nezmění.</td>
+</tr>
+<tr>
+<td>Nahoře se zobrazí červený pruh s upozorněním na úložiště</td>
+<td>Otevřete <strong>Nastavení</strong> &gt; <strong>Zálohy a obnova</strong>. Najdete tam <strong>Nouzovou opravu rozbitého úložiště</strong>, která data nejdříve zazálohuje.</td>
+</tr>
+<tr>
+<td>Na Macu není kamera</td>
+<td>Fotografování je jen na iPhonu a iPadu. Na Macu vyberte fotku z alba nebo souboru.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="note"><strong>Poznámka:</strong> Po každé opravě vyvolané volbou „po restartu“ aplikaci nejprve úplně ukončete a pak znovu otevřete.</p></div></div><span class="pgno">16</span></div>
+<div class="face back"></div>
+</section>
+</div>
+<nav class="controls" aria-label="Listování">
+<button type="button" id="prev" aria-label="Předchozí strana"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M11 3L5 9l6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+<div class="where"><b id="where-t">Obálka</b><span id="where-n">Strana 1 z 16</span></div>
+<button type="button" id="next" aria-label="Další strana"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M7 3l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+</nav>
+<div class="sr" id="live" aria-live="polite"></div>
+</div>
+<script>
+(function () {
+  var root = document.documentElement;
+  root.classList.add('js');
+  var book = document.getElementById('book');
+  var leaves = [].slice.call(book.querySelectorAll('.leaf'));
+  var N = leaves.length;
+  var cur = 0;
+  var reduce = false;
+  try { reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
+  var DUR = reduce ? 280 : 900;
+  var prevBtn = document.getElementById('prev');
+  var nextBtn = document.getElementById('next');
+  var whereT = document.getElementById('where-t');
+  var whereN = document.getElementById('where-n');
+  var live = document.getElementById('live');
+  var timers = [];
+
+  function scroller(i) { return leaves[i].querySelector('.scroller'); }
+
+  function settle(i) {
+    var l = leaves[i];
+    l.classList.remove('turning');
+    l.classList.remove('cast');
+    if (l.classList.contains('flipped')) {
+      l.style.visibility = 'hidden';
+      l.style.zIndex = String(i);
+    } else {
+      l.style.visibility = 'visible';
+      l.style.zIndex = String(N - i);
+    }
+  }
+
+  function flip(i, forward) {
+    var l = leaves[i];
+    if (forward === l.classList.contains('flipped')) return;
+    l.style.visibility = 'visible';
+    l.style.zIndex = String(1000);
+    l.classList.add('turning');
+    if (forward && leaves[i + 1]) {
+      var under = leaves[i + 1];
+      under.style.visibility = 'visible';
+      under.classList.remove('cast');
+      void under.offsetWidth;
+      under.classList.add('cast');
+    }
+    void l.offsetWidth;
+    l.classList.toggle('flipped', forward);
+    var t = setTimeout(function () { settle(i); if (leaves[i + 1]) leaves[i + 1].classList.remove('cast'); }, DUR);
+    timers.push(t);
+  }
+
+  function updateState() {
+    leaves.forEach(function (l, i) {
+      var active = i === cur;
+      l.inert = !active;
+      if (active) l.removeAttribute('aria-hidden'); else l.setAttribute('aria-hidden', 'true');
+      var c = l.querySelector('.corner');
+      if (c) c.tabIndex = active ? 0 : -1;
+    });
+    prevBtn.disabled = cur === 0;
+    nextBtn.disabled = cur === N - 1;
+    var title = leaves[cur].getAttribute('data-title');
+    whereT.textContent = title;
+    whereN.textContent = 'Strana ' + (cur + 1) + ' z ' + N;
+    live.textContent = 'Strana ' + (cur + 1) + ' z ' + N + ': ' + title;
+    try { history.replaceState(null, '', '#s' + (cur + 1)); } catch (e) {}
+  }
+
+  function goTo(n, instant) {
+    n = Math.max(0, Math.min(N - 1, n));
+    if (n === cur && !instant) return;
+    var from = cur;
+    cur = n;
+    var k = 0;
+    var step = (Math.abs(n - from) > 1 && !reduce) ? 150 : 0;
+    if (instant) {
+      leaves.forEach(function (l, i) {
+        l.style.transition = 'none';
+        l.classList.toggle('flipped', i < n);
+        settle(i);
+        void l.offsetWidth;
+        l.style.transition = '';
+      });
+    } else if (n > from) {
+      for (var i = from; i < n; i++) {
+        (function (idx, d) { timers.push(setTimeout(function () { flip(idx, true); }, d)); })(i, k++ * step);
+      }
+      for (var j = n; j < N; j++) { if (leaves[j].classList.contains('flipped')) { (function (idx) { flip(idx, false); })(j); } }
+    } else {
+      for (var m = from - 1; m >= n; m--) {
+        (function (idx, d) { timers.push(setTimeout(function () { flip(idx, false); }, d)); })(m, k++ * step);
+      }
+    }
+    var sc = scroller(n);
+    if (sc) sc.scrollTop = 0;
+    updateState();
+    var h = leaves[n].querySelector('.page-title');
+    if (h && !instant) { try { h.focus({ preventScroll: true }); } catch (e) {} }
+  }
+
+  prevBtn.addEventListener('click', function () { goTo(cur - 1); });
+  nextBtn.addEventListener('click', function () { goTo(cur + 1); });
+  book.addEventListener('click', function (e) {
+    var a = e.target.closest('[data-go]');
+    if (a) { e.preventDefault(); goTo(parseInt(a.getAttribute('data-go'), 10)); return; }
+    var s = e.target.closest('[data-step]');
+    if (s) { goTo(cur + parseInt(s.getAttribute('data-step'), 10)); }
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.metaKey || e.ctrlKey || e.altKey) return;
+    var tag = (e.target && e.target.tagName) || '';
+    if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT') return;
+    if (e.key === 'ArrowRight') { goTo(cur + 1); e.preventDefault(); }
+    else if (e.key === 'ArrowLeft') { goTo(cur - 1); e.preventDefault(); }
+    else if (e.key === 'Home') { goTo(0); e.preventDefault(); }
+    else if (e.key === 'End') { goTo(N - 1); e.preventDefault(); }
+  });
+  var tx = 0, ty = 0, tt = 0;
+  book.addEventListener('touchstart', function (e) {
+    if (e.touches.length !== 1) return;
+    tx = e.touches[0].clientX; ty = e.touches[0].clientY; tt = Date.now();
+  }, { passive: true });
+  book.addEventListener('touchend', function (e) {
+    var t = e.changedTouches[0];
+    var dx = t.clientX - tx, dy = t.clientY - ty;
+    if (Math.abs(dx) > 70 && Math.abs(dy) < 45 && Date.now() - tt < 700) {
+      if (e.target.closest && e.target.closest('.tablewrap')) return;
+      goTo(cur + (dx < 0 ? 1 : -1));
+    }
+  }, { passive: true });
+
+  var start = 0;
+  var m = /^#s(\d+)$/.exec(location.hash || '');
+  if (m) start = Math.max(0, Math.min(N - 1, parseInt(m[1], 10) - 1));
+  cur = start;
+  goTo(start, true);
+})();
+
+</script>
+</body>
+</html>
