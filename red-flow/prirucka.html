@@ -185,7 +185,7 @@ h1.page-title { font-size: clamp(27px, 4.2vw, 36px); line-height: 1.15; letter-s
 </tr>
 <tr>
 <td>Položka</td>
-<td>Cokoli, co do projektu zapíšete: úkol, poznámka, schůzka, událost, milník, rozhodnutí, kontrolní seznam, odkaz, soubor, hlasová nahrávka nebo zamčená poznámka.</td>
+<td>Cokoli, co do projektu zapíšete: úkol, poznámka, schůzka, událost, milník, rozhodnutí, kontrolní seznam, odkaz, soubor nebo hlasová nahrávka. Text kterékoli položky můžete zamknout.</td>
 </tr>
 <tr>
 <td>Stav</td>
@@ -359,7 +359,8 @@ h1.page-title { font-size: clamp(27px, 4.2vw, 36px); line-height: 1.15; letter-s
 <div class="face back"></div>
 </section>
 <section class="leaf" data-title="Úkoly a další položky" role="group" aria-label="Strana 6 z 16: Úkoly a další položky">
-<div class="face front"><div class="scroller "><div class="inner"><h1 class="page-title" tabindex="-1">Úkoly a další položky</h1><p>Do projektu přidáváte položky kulatým plusem vpravo dole. Otevře se výběr typu položky a pod ním pole <strong>Rychlé zadání úkolu…</strong>.</p>
+<div class="face front"><div class="scroller "><div class="inner"><h1 class="page-title" tabindex="-1">Úkoly a další položky</h1><p>Do projektu přidáváte položky kulatým plusem vpravo dole.</p>
+<p>Na iPhonu se po klepnutí na plus otevře okno přes celou obrazovku. Typy položek jsou v něm velké řádky pod sebou, každý s ikonou a krátkým popisem, takže se dá ovládat jednou rukou. Dole je pole <strong>Rychlé zadání úkolu…</strong> a tlačítko <strong>Zavřít</strong>. Na iPadu a Macu se otevře panel s pěti hlavními typy (Úkol, Poznámka, Schůzka, Seznam, Událost) a tlačítkem <strong>Další…</strong> pro ostatní.</p>
 <h2>Rychlé zadání</h2>
 <p>Rychlé zadání je nejrychlejší cesta: napište název a potvrďte. Pokud text obsahuje termín, aplikace ho rozpozná a ukáže řádek „Rozpoznaný termín“. Když se spletla, klepněte na <strong>Ignorovat</strong> a úkol se uloží s původním textem. Tlačítko s jiskrou (jen když je zapnutá AI) z věty vytvoří jeden nebo více úkolů.</p>
 <p>Takto aplikace rozumí termínům (česky i anglicky):</p>
@@ -443,12 +444,9 @@ h1.page-title { font-size: clamp(27px, 4.2vw, 36px); line-height: 1.15; letter-s
 <td>Hlasová poznámka (Hlas)</td>
 <td>Nahrávka s možností přepisu</td>
 </tr>
-<tr>
-<td>Zamčená poznámka (Zámek)</td>
-<td>Šifrovaný text, otevře se Face ID, Touch ID nebo heslem zařízení</td>
-</tr>
 </tbody>
 </table></div>
+<p>Zámek není samostatný typ. Text kterékoli položky (úkolu, poznámky, schůzky, rozhodnutí, události, milníku nebo odkazu) můžete zamknout, viz kapitola „Poznámky, zamčené poznámky, soubory a hlasové nahrávky“. U hlasu, fotky a seznamu to nejde.</p>
 <h2>Detail úkolu</h2>
 <p>Detail úkolu otevřete klepnutím na řádek. Najdete tam karty Typ, Stav, Fáze, Důležitost, Připomínka, Datum, Kontakty, Štítky a další. Pod nimi jsou pole <strong>Průběh</strong> (jak práce postupuje) a <strong>Způsob vyřešení</strong> (jak byl úkol vyřešen), pak podúkoly, přílohy a komentáře.</p>
 <p>Pořadí položek v projektu můžete změnit ručně (tlačítko <strong>Upravit</strong> vlevo nahoře) nebo je řadit podle data vytvoření či termínu.</p></div></div><span class="pgno">6</span><button class="corner" type="button" data-step="1" aria-label="Další strana" tabindex="-1"></button></div>
@@ -510,6 +508,10 @@ h1.page-title { font-size: clamp(27px, 4.2vw, 36px); line-height: 1.15; letter-s
 <p>Přímo v upozornění můžete úkol označit jako hotový nebo ho odložit o hodinu či na zítřek na 9:00.</p>
 <h2>Denní přehled</h2>
 <p>V <strong>Nastavení</strong> &gt; <strong>Notifikace</strong> zapněte <strong>Denní přehled</strong> a nastavte čas mezi 5:00 a 12:00. Každé ráno vám přijde souhrn toho, co vás ten den čeká.</p>
+<h2>Týdenní report</h2>
+<p>V <strong>Nastavení</strong> &gt; <strong>Notifikace</strong> je ve výchozím stavu zapnutý <strong>Týdenní report</strong>. Každé pondělí v 8:00 vám přijde upozornění s krátkým souhrnem: kolik máte projektů a otevřených úkolů, kolik je po termínu a kolik zablokovaných nebo čekajících. Souhrn napíše AI, pokud je dostupná, jinak se zobrazí jen čísla. Započítají se jen projekty, které jsou zahrnuté do AI souhrnů (nastavení projektu).</p>
+<p>Po zapnutí přepínače můžete změnit <strong>Den reportu</strong> a <strong>Čas reportu</strong> (5:00 až 12:00). Klepnutím na upozornění se otevře <strong>Přehled</strong>, kde si můžete nechat vytvořit podrobný týdenní přehled.</p>
+<p class="note"><strong>Poznámka:</strong> Upozornění se naplánuje při otevření aplikace. Pokud aplikaci celý týden neotevřete, další report nepřijde.</p>
 <p class="note"><strong>Poznámka:</strong> Systém dovolí naplánovat nejvýše 64 upozornění najednou. Pokud je jich víc, aplikace naplánuje ta nejbližší a počet zbylých uvede v <strong>Nastavení</strong> &gt; <strong>Notifikace</strong>.</p></div></div><span class="pgno">7</span><button class="corner" type="button" data-step="1" aria-label="Další strana" tabindex="-1"></button></div>
 <div class="face back"></div>
 </section>
@@ -607,7 +609,7 @@ h1.page-title { font-size: clamp(27px, 4.2vw, 36px); line-height: 1.15; letter-s
 </section>
 <section class="leaf" data-title="Přehled, Úkoly, Tabule, Kalendář a Trendy" role="group" aria-label="Strana 10 z 16: Přehled, Úkoly, Tabule, Kalendář a Trendy">
 <div class="face front"><div class="scroller "><div class="inner"><h1 class="page-title" tabindex="-1">Přehled, Úkoly, Tabule, Kalendář a Trendy</h1><h2>Přehled</h2>
-<p>Přehled (na iPhonu ikona grafu vpravo nahoře na záložce Domů, na iPadu a Macu sekce <strong>Přehled</strong>) shrnuje, jak se vám daří. Najdete v ní graf <strong>Úkoly podle stavu</strong>, ukazatele <strong>Pokrok podle projektů</strong> a odkaz na <strong>Trendy v čase</strong>. Pomocí AI můžete vytvořit <strong>Týdenní přehled</strong> (tlačítko <strong>Vygenerovat přehled a upozornění</strong>) a <strong>Týdenní e-mailový report</strong>, což je HTML souhrn zahrnutých projektů s předvyplněným e-mailem. Které projekty se do reportu zahrnou, nastavíte v nastavení projektu.</p>
+<p>Přehled (na iPhonu ikona grafu vpravo nahoře na záložce Domů, na iPadu a Macu sekce <strong>Přehled</strong>) shrnuje, jak se vám daří. Najdete v ní graf <strong>Úkoly podle stavu</strong>, ukazatele <strong>Pokrok podle projektů</strong> a odkaz na <strong>Trendy v čase</strong>. Pomocí AI můžete vytvořit <strong>Týdenní přehled</strong> (tlačítko <strong>Vygenerovat přehled a upozornění</strong>) a <strong>Týdenní e-mailový report</strong>, což je HTML souhrn zahrnutých projektů s předvyplněným e-mailem. Které projekty se do reportu zahrnou, nastavíte v nastavení projektu. Přehled se otevře i klepnutím na pondělní upozornění <strong>Týdenní report</strong> (viz kapitola „Stavy, důležitost, termíny a upozornění“).</p>
 <h2>Ranní úklid</h2>
 <p>Když aplikaci poprvé v daný den otevřete a máte nehotové úkoly s termínem před dneškem (tedy včera nebo dříve), objeví se okno <strong>Ranní úklid</strong> se seznamem těchto úkolů. Úkol, kterému termín propadl až dnes, se do něj nezapočítá. Vyberte jednu z voleb:</p>
 <ul>
@@ -683,10 +685,13 @@ h1.page-title { font-size: clamp(27px, 4.2vw, 36px); line-height: 1.15; letter-s
 <section class="leaf" data-title="Poznámky, zamčené poznámky, soubory a hlasové nahrávky" role="group" aria-label="Strana 11 z 16: Poznámky, zamčené poznámky, soubory a hlasové nahrávky">
 <div class="face front"><div class="scroller "><div class="inner"><h1 class="page-title" tabindex="-1">Poznámky, zamčené poznámky, soubory a hlasové nahrávky</h1><h2>Přidání poznámky</h2>
 <p>Klepněte v projektu na kulaté plus, vyberte <strong>Poznámka</strong>, zadejte název a text a klepněte na <strong>Uložit</strong>. Stejně přidáte <strong>Zápis ze schůzky</strong>, <strong>Rozhodnutí</strong>, <strong>Milník</strong> nebo <strong>Odkaz</strong>. U odkazu zadejte adresu a otevřete ji volbou <strong>Otevřít odkaz</strong>.</p>
-<h2>Zamčená poznámka</h2>
-<p>Zamčená poznámka je zašifrovaná a bez ověření se neotevře.</p>
-<div class="steps"><p class="step"><strong>Krok 1:</strong> Klepněte na plus a vyberte <strong>Zámek</strong>.</p><p class="step"><strong>Krok 2:</strong> Napište text poznámky a uložte ji.</p><p class="step"><strong>Krok 3:</strong> Poznámku zobrazíte volbou <strong>Odemknout</strong> a ověřením pomocí Face ID, Touch ID nebo hesla zařízení.</p><p class="step"><strong>Krok 4:</strong> Po úpravách klepněte na <strong>Zamknout</strong>.</p></div>
-<p class="note"><strong>Poznámka:</strong> Klíč k zamčeným poznámkám je uložen jen v tomto zařízení. Na jiném zařízení se zamčené poznámky zatím neotevřou, i když se tam synchronizují.</p>
+<h2>Zamčený obsah</h2>
+<p>Text položky můžete zamknout. Zamčený text je zašifrovaný a bez ověření se neotevře. Název, termín a stav zůstávají vidět, u zamčené položky je v seznamu ikona zámku.</p>
+<div class="steps"><p class="step"><strong>Krok 1:</strong> Při přidávání položky zapněte <strong>Zamknout obsah</strong>, nebo u hotové položky klepněte na <strong>Zamknout obsah</strong> pod textem.</p><p class="step"><strong>Krok 2:</strong> Zamčený text zobrazíte volbou <strong>Odemknout</strong> a ověřením pomocí Face ID, Touch ID nebo hesla zařízení.</p><p class="step"><strong>Krok 3:</strong> Po úpravách klepněte na <strong>Zamknout</strong>. Volba <strong>Odstranit zámek</strong> uloží text zpět bez šifrování.</p></div>
+<p>Zamčený text se nikdy neposílá do AI, nezobrazuje se v exportu a nevyhledává se v něm.</p>
+<h2>Klíč k zamčeným položkám a záložní fráze</h2>
+<p>Klíč k zamčeným položkám se ukládá do iCloud Klíčenky, takže se zamčené položky otevřou na všech zařízeních se stejným Apple ID. Na zařízení musí být zapnutá iCloud Klíčenka (<strong>Nastavení</strong> &gt; Apple ID &gt; iCloud &gt; Hesla a Klíčenka).</p>
+<p>Při prvním zamčení vás aplikace požádá o zapsání <strong>záložní fráze</strong> z 12 slov. Zapište ji na papír a uložte bezpečně. Fráze obnoví klíč, kdyby Klíčenka nebyla dostupná, například po ztrátě všech zařízení. Znovu ji najdete v <strong>Nastavení</strong> &gt; <strong>Zamčené položky</strong> &gt; <strong>Záložní fráze a obnova klíče</strong> po ověření. Tam také můžete klíč obnovit zadáním fráze.</p>
 <h2>Pořízení hlasové nahrávky</h2>
 <div class="steps"><p class="step"><strong>Krok 1:</strong> Klepněte na plus a vyberte <strong>Hlas</strong>.</p><p class="step"><strong>Krok 2:</strong> Klepněte na tlačítko nahrávání. Přepis mluvy se zobrazuje živě během mluvení.</p><p class="step"><strong>Krok 3:</strong> Klepněte na <strong>Zastavit nahrávání</strong> a poté na <strong>Uložit</strong>.</p></div>
 <p>Pokud přepis selže, klepněte na <strong>Zkusit přepis znovu</strong>. Aplikace potřebuje povolení k mikrofonu a rozpoznávání řeči a zapnuté diktování v nastavení zařízení.</p>
@@ -735,6 +740,7 @@ h1.page-title { font-size: clamp(27px, 4.2vw, 36px); line-height: 1.15; letter-s
 <li><strong>Poznámky a zápisy:</strong> volba <strong>Vytáhnout úkoly z textu (AI)</strong> přidá do projektu úkoly nalezené v textu.</li>
 <li><strong>Fotografie:</strong> volba <strong>Rozpoznat text (AI)</strong> přepíše text z obrázku.</li>
 <li><strong>Týdenní přehled a e-mailový report:</strong> viz kapitola „Přehled, Úkoly, Tabule, Kalendář a Trendy“.</li>
+<li><strong>Týdenní report jako upozornění:</strong> AI v něm každé pondělí shrne stav projektů, viz kapitola „Stavy, důležitost, termíny a upozornění“.</li>
 </ul></div></div><span class="pgno">12</span><button class="corner" type="button" data-step="1" aria-label="Další strana" tabindex="-1"></button></div>
 <div class="face back"></div>
 </section>
@@ -871,8 +877,8 @@ h1.page-title { font-size: clamp(27px, 4.2vw, 36px); line-height: 1.15; letter-s
 <td>Zkontrolujte, že jste na všech zařízeních přihlášeni ke stejnému Apple ID a máte zapnutý iCloud. Pak použijte <strong>Opravit osobní synchronizaci (po restartu)</strong>.</td>
 </tr>
 <tr>
-<td>Zamčená poznámka se na jiném zařízení neotevře</td>
-<td>Klíč je uložen jen v zařízení, kde poznámka vznikla. Otevřete ji tam.</td>
+<td>Zamčený text se na jiném zařízení neotevře</td>
+<td>Zapněte iCloud Klíčenku (<strong>Nastavení</strong> systému &gt; Apple ID &gt; iCloud &gt; Hesla a Klíčenka) a chvíli počkejte. Pomůže i <strong>Nastavení</strong> &gt; <strong>Zamčené položky</strong> &gt; <strong>Záložní fráze a obnova klíče</strong> a zadání fráze z 12 slov.</td>
 </tr>
 <tr>
 <td>Upozornění nepřicházejí</td>
