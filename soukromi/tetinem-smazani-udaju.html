@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tetínem — Smazání údajů / Data deletion</title>
+<style>
+  :root{--red:#3C6E9A;--red-d:#34261A;--ink:#16181d;--mut:#5b6472;--line:#e6e8ec;--bg:#f6f7f9;--ok:#0f7a37}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Arial,sans-serif;
+    color:var(--ink);background:var(--bg);line-height:1.65;font-size:16px}
+  header{background:linear-gradient(135deg,var(--red),var(--red-d));color:#fff;padding:38px 0 30px}
+  .w{max-width:800px;margin:0 auto;padding:0 22px}
+  .brand{display:flex;align-items:center;gap:14px}
+  .logo{width:46px;height:46px;border-radius:13px;background:#fff;display:grid;place-items:center;flex:none}
+  .logo span{color:var(--red-d);font-weight:800;font-size:22px;line-height:1}
+  h1{font-size:26px;font-weight:800;line-height:1.2}
+  .sub{opacity:.93;font-size:14.5px;margin-top:4px}
+  .lang{margin-top:18px;display:flex;gap:8px}
+  .lang a{background:rgba(255,255,255,.17);border:1px solid rgba(255,255,255,.32);color:#fff;
+    text-decoration:none;padding:5px 14px;border-radius:99px;font-size:13.5px;font-weight:600}
+  main{padding:30px 0 70px}
+  section.doc{background:#fff;border:1px solid var(--line);border-radius:16px;padding:26px 30px;margin-bottom:22px}
+  h2{font-size:20px;margin:28px 0 10px;padding-bottom:6px;border-bottom:2px solid var(--red);display:inline-block}
+  h2:first-of-type{margin-top:0}
+  h3{font-size:16px;margin:18px 0 6px}
+  p{margin:9px 0}
+  ul{margin:9px 0 9px 22px}
+  li{margin:5px 0}
+  .key{background:#ecfdf3;border:1px solid #a7e8bf;border-left:4px solid var(--ok);
+    border-radius:0 10px 10px 0;padding:14px 18px;margin:16px 0}
+  .warn{background:#fff8e6;border:1px solid #f0d68a;border-left:4px solid #d97706;
+    border-radius:0 10px 10px 0;padding:14px 18px;margin:16px 0}
+  table{width:100%;border-collapse:collapse;margin:14px 0;font-size:14.5px}
+  th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{background:var(--bg);font-size:13px;text-transform:uppercase;letter-spacing:.4px;color:var(--mut)}
+  .meta{color:var(--mut);font-size:13.5px;margin-top:6px}
+  footer{color:var(--mut);font-size:13px;text-align:center;padding:22px 0 40px}
+  a{color:var(--red-d)}
+</style>
+</head>
+<body>
+<header><div class="w">
+  <div class="brand">
+    <div class="logo"><span>T</span></div>
+    <div><h1>Tetínem – průvodce &amp; příběhy</h1>
+    <div class="sub">Žádost o smazání údajů · Data deletion request · vývojář / developer: RED apps (Václav Červený)</div></div>
+  </div>
+  <div class="lang"><a href="#cs">Česky</a><a href="#en">English</a></div>
+</div></header>
+<main><div class="w">
+
+<section class="doc" id="cs">
+<h2>Jak požádat o smazání údajů</h2>
+<p>Aplikace <b>Tetínem – průvodce &amp; příběhy</b> (vývojář <b>RED apps</b>) nemá uživatelské účty. Jediné údaje, které od vás mohou pocházet, jsou <b>fotky, které jste sami poslali</b> přes „Přidat fotku“, spolu s nepovinným jménem autora a popiskem.</p>
+<div class="key">
+<p><b>Postup:</b> napište e-mail na <a href="mailto:redapps.support@gmail.com?subject=Tet%C3%ADnem%20%E2%80%93%20smaz%C3%A1n%C3%AD%20%C3%BAdaj%C5%AF">redapps.support@gmail.com</a> s předmětem „Tetínem – smazání údajů“. Uveďte, u kterého místa a přibližně kdy jste fotku poslali, případně jméno, které jste uvedli jako autor (nebo fotku přiložte).</p>
+</div>
+<h3>Co smažeme</h3>
+<ul>
+<li>vámi poslané fotky (schválené i neschválené),</li>
+<li>jméno autora a popisek, které jste k nim uvedli.</li>
+</ul>
+<p>Smazání provedeme <b>nejpozději do 30 dnů</b> od obdržení žádosti a potvrdíme ho e-mailem.</p>
+<h3>Co se neukládá ani neuchovává</h3>
+<ul>
+<li><b>Poloha</b> se v databázi neukládá – používá se jen v telefonu a jednorázově pro výpočet trasy navigace.</li>
+<li><b>Anonymní statistika</b> (denní součty typu „kolikrát byl otevřen příběh“) neobsahuje nic, co by šlo spojit s vámi nebo vaším zařízením, proto ji nelze konkrétnímu člověku přiřadit ani smazat; uchovává se jako souhrnná čísla.</li>
+<li>Razítka z dětské hry a nastavení jsou uložená jen ve vašem telefonu – smažete je odinstalováním aplikace.</li>
+</ul>
+<p class="meta">Více v <a href="tetinem-zasady-ochrany-udaju.html">zásadách ochrany osobních údajů</a>.</p>
+</section>
+
+<section class="doc" id="en">
+<h2>How to request data deletion</h2>
+<p>The <b>Tetínem – průvodce &amp; příběhy</b> app (developer <b>RED apps</b>) has no user accounts. The only data that may come from you are <b>photos you submitted</b> via “Add photo”, with an optional author name and caption.</p>
+<div class="key">
+<p><b>How:</b> send an e-mail to <a href="mailto:redapps.support@gmail.com?subject=Tetinem%20-%20data%20deletion">redapps.support@gmail.com</a> with the subject “Tetínem – data deletion”. Tell us at which place and roughly when you sent the photo, or the author name you used (or attach the photo).</p>
+</div>
+<h3>What we delete</h3>
+<ul><li>photos you submitted (approved or not),</li><li>the author name and caption you added.</li></ul>
+<p>We delete them <b>within 30 days</b> of your request and confirm by e-mail.</p>
+<h3>What is not stored or retained</h3>
+<ul>
+<li><b>Location</b> is never stored in our database – it is used on your phone and once to calculate a walking route.</li>
+<li><b>Anonymous statistics</b> (daily totals such as how often a story was opened) contain nothing linked to you or your device, so they cannot be attributed to a person or deleted individually; they are kept as aggregate numbers.</li>
+<li>Kids’ game stamps and settings are stored only on your phone – uninstalling the app removes them.</li>
+</ul>
+<p class="meta">See also the <a href="tetinem-zasady-ochrany-udaju.html">privacy policy</a>.</p>
+</section>
+</div></main>
+<footer>RED apps · redapps.support@gmail.com</footer>
+</body></html>
